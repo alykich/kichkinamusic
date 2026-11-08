@@ -78,7 +78,7 @@ h1{order:0}
 <div class="piano off" id="piano"></div>
 
 <div class="stats">
-  <div class="stat"><b id="sStreak">0</b><span>серия</span></div>
+  <div class="stat"><b id="sStreak">0</b><span>Количество правильных ответов</span></div>
   <div class="stat"><b id="sBest">0</b><span>рекорд серии</span></div>
   <div class="stat"><b id="sAcc">—</b><span>точность</span></div>
 </div>
@@ -215,7 +215,7 @@ $("setModal").addEventListener("click",e=>{if(e.target.id==="setModal")e.target.
 function render(){
   [...$("levels").children].forEach((b,i)=>b.classList.toggle("sel",i===st.level));
   [...$("hlOpts").children].forEach((b,i)=>b.classList.toggle("sel",(st.hl!==false)===(i===0)));
-  $("sStreak").textContent=st.streak;
+  $("sStreak").textContent=st.correct;
   $("sBest").textContent=st.best;
   $("sAcc").textContent=st.total?Math.round(st.correct/st.total*100)+"%":"—";
   const n=LEVELS[st.level];
