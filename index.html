@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -88,7 +89,7 @@ body:not(.home) #home{display:none}
 .tile .ds{font-size:13px;margin-top:4px;color:var(--mute)}
 .tile.on .ds{color:#3A2400}
 .badge{font-size:12px;font-weight:600;border-radius:999px;padding:4px 10px;background:var(--line);color:var(--fg)}
-.tile.on .badge{background:#2B1A00;color:#fff}
+.tile.on .badge{background:rgba(255,255,255,.6);color:#2B1A00}
 .hstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .hstats b{display:block;font-family:Georgia,serif;font-size:28px}
 .hstats span{font-size:12px;color:var(--mute)}
@@ -132,6 +133,156 @@ body:not(.intervals) #intervals{display:none}
 .fl.on svg{color:var(--acc);fill:var(--acc)}
 .fl.off svg{color:var(--mute);fill:none;opacity:.45}
 .fl.today{font-weight:700;color:var(--fg)}
+body.rhythm>:not(#rhythm):not(#rhModal):not(script){display:none}
+body:not(.rhythm) #rhythm{display:none}
+#rhythm{width:100%}
+#rhythm h1{margin:6px 0 14px}
+#bHome4{font-size:14px;text-decoration:none}
+#rMsg{text-align:center;min-height:56px;font-size:18px;margin:6px 0 14px;display:flex;align-items:center;justify-content:center}
+#rhythm .row{margin-bottom:12px}
+.tap{width:100%;height:150px;border-radius:24px;border:none;background:var(--acc);color:#2B1A00;font-size:34px;font-weight:700;font-family:Georgia,serif;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:transform .06s}
+.tap:disabled{opacity:.35}
+.tap.pulse{transform:scale(.97);filter:brightness(1.15)}
+.rline{position:relative;height:64px;margin:16px 12px 0}
+.rline .ln{position:absolute;left:0;right:0;top:50%;height:2px;background:var(--line)}
+.rline .e{position:absolute;top:6px;width:14px;height:14px;margin-left:-7px;border:2px solid var(--fg);border-radius:50%;box-sizing:border-box}
+.rline .t{position:absolute;bottom:6px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--mute)}
+.rline .t.ok{background:#2b8a3e}
+.rline .t.bad{background:#c92a2a}
+#rhythm .stats{margin-top:20px}
+body.rhmenu>:not(#rhMenu):not(#setModal):not(script){display:none}
+body:not(.rhmenu) #rhMenu{display:none}
+#rhMenu{width:100%}
+#rhMenu h1{margin:6px 0 6px}
+#bHome5{font-size:14px;text-decoration:none}
+.rmgrid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
+.rmgrid .tile{min-height:132px}
+#rhythm h1{font-size:22px;margin:4px 0 10px}
+.rbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin-bottom:10px}
+.rsel{position:relative;display:block}
+.rsel::after{content:"";position:absolute;right:11px;top:50%;width:7px;height:7px;border-right:2px solid var(--fg);border-bottom:2px solid var(--fg);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.rsel select{-webkit-appearance:none;appearance:none;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;padding:0 28px 0 10px;font-size:13px;font-family:inherit;height:44px}
+.rctl{display:flex;gap:6px}
+.ib{width:42px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);display:flex;align-items:center;justify-content:center;padding:0}
+.ib.pri{background:var(--acc);border-color:var(--acc);color:#2B1A00}
+.ib:disabled{opacity:.4}
+.rpanel{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+#rNote{height:120px}
+#rTL{height:84px}
+.nin{position:absolute;left:20px;right:20px;top:0;bottom:0}
+.rpanel.hide .nin>:not(#rHead):not(.tp):not(.tk):not(.bl):not(.sl):not(.tline){visibility:hidden}
+.bl{position:absolute;top:22px;bottom:10px;width:2px;margin-left:-1px;background:var(--line)}
+.nh{position:absolute;bottom:14px;width:16px;height:6px;margin-left:-8px;background:var(--fg);border-radius:2px;transform:rotate(-24deg)}
+.ns{position:absolute;bottom:20px;width:2px;height:58px;margin-left:7px;background:var(--fg)}
+.nb{position:absolute;bottom:73px;height:5px;background:var(--fg)}
+.nf{position:absolute;bottom:68px;width:12px;height:4px;margin-left:9px;background:var(--fg);transform:rotate(38deg);transform-origin:left center}
+.tk{position:absolute;top:14px;bottom:14px;width:1px;background:var(--line)}
+.tk.bar{width:2px;margin-left:-1px}
+.ex{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border:2px solid var(--mute);border-radius:50%;box-sizing:border-box}
+.tp{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--mute)}
+.tp.ok{background:#2b8a3e}
+.tp.bad{background:#c92a2a}
+#rHead{position:absolute;top:6px;bottom:6px;width:3px;margin-left:-1px;border-radius:2px;background:var(--acc);opacity:0}
+#rMsg{min-height:44px;font-size:16px;margin:4px 0 10px}
+body.rhythm,body.rdread,body.rddict{background:linear-gradient(160deg,#FFD58F 0%,#F9AE52 50%,#E98A2E 100%) fixed;min-height:100vh;--fg:#3b2a18;--mute:#8a7560;--card:#fffdf8;--line:#e8dfcf}
+body.rhythm #rhythm h1{color:#fff;text-shadow:0 1px 8px rgba(120,50,0,.25)}
+body.rhythm #bHome4{color:rgba(60,30,0,.8)}
+body.rhythm #bHome4 .back{color:#fff}
+.rcard{background:rgba(255,255,255,.42);border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(120,50,0,.2);margin-bottom:14px}
+.rbar{background:transparent;border:none;border-radius:0;margin:0;padding:6px 14px;border-bottom:3px solid rgba(120,80,40,.16);flex-wrap:nowrap}
+.rsel select{background:transparent;border:none;color:#7d6a56;font-size:16px;padding:0 24px 0 0;height:48px}
+.rsel::after{right:4px;border-color:#7d6a56}
+.rctl{gap:4px}
+.ib{width:46px;height:48px;border:none;background:transparent;color:#C25E00;border-radius:12px}
+.ib.pri{background:transparent;border:none;color:#C25E00}
+.ib svg{width:30px;height:30px}
+.ib:disabled{opacity:.3}
+#rPlay .i-pause{display:none}
+#rPlay.run .i-play{display:none}
+#rPlay.run .i-pause{display:block}
+.rrow{position:relative}
+.rrow .rpanel{margin:0;border:none;border-radius:0}
+#rNote{height:120px;background:rgba(255,255,255,.3)}
+#rTL{height:90px;background:#fff}
+.rtab{position:absolute;left:0;top:10px;z-index:3;width:36px;height:36px;border-radius:0 10px 10px 0;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(120,50,0,.2)}
+.rtab.ear{background:rgba(255,255,255,.75);color:#8a7560}
+.rtab.hand{background:#E39A2B;color:#fff}
+.nin{left:48px;right:22px}
+.sl{position:absolute;left:-48px;right:-22px;bottom:36px;height:2px;background:rgba(80,50,20,.3)}
+.tline{position:absolute;left:-48px;right:-22px;top:50%;height:2px;margin-top:-1px;background:#bdbdbd}
+.nh{bottom:30px;width:15px;height:11px;margin-left:-7.5px;border-radius:50%;transform:rotate(-22deg)}
+.ns{bottom:36px;height:46px;margin-left:5.5px}
+.nb{bottom:76px;height:6px;border-radius:1px}
+.fg{position:absolute;bottom:60px;margin-left:6px;fill:none;stroke:var(--fg);stroke-width:2.6;stroke-linecap:round}
+.rs{position:absolute;bottom:21px;margin-left:-6px;color:var(--fg);fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.tk{top:30px;bottom:30px}
+#rLegend{color:rgba(60,30,0,.75)}
+#rMsg,#dMsg,#kMsg{background:rgba(255,255,255,.75);border-radius:14px;padding:10px 14px;text-align:center;display:flex;align-items:center;justify-content:center;min-height:48px;margin:0 0 12px}
+#rTap,#dTap{display:block;width:100%;min-height:300px;border:none;border-radius:20px;color:#fff;font-size:22px;font-weight:600;font-family:inherit;padding:20px;margin-bottom:14px;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:transform .06s,filter .1s;box-shadow:0 10px 26px rgba(120,50,0,.28);
+background:linear-gradient(#fffd,#fffd) top 20px left 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) top 20px left 20px/3px 24px no-repeat,linear-gradient(#fffd,#fffd) top 20px right 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) top 20px right 20px/3px 24px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px left 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px left 20px/3px 24px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px right 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px right 20px/3px 24px no-repeat,#DB7F00}
+#rTap:disabled,#dTap:disabled{filter:saturate(.6) brightness(1.05);opacity:.9}
+#rTap.pulse{transform:scale(.985);filter:brightness(1.15)}
+#rTap,#dTap,#rTap.pulse,#dTap.pulse,#rTap:active,#dTap:active{transform:none!important;filter:none!important;transition:none!important;-webkit-tap-highlight-color:transparent;outline:none;height:300px;min-height:300px;max-height:300px;box-sizing:border-box;overflow:hidden;line-height:1.2}
+#rMsg,#dMsg,#kMsg{height:64px;min-height:64px;overflow:hidden;box-sizing:border-box}
+body.rdread>:not(#rRead):not(#setModal):not(script){display:none}
+body:not(.rdread) #rRead{display:none}
+#rRead{width:100%}
+#rRead h1{font-size:22px;margin:4px 0 10px;color:#fff;text-shadow:0 1px 8px rgba(120,50,0,.25)}
+body.rdread #bHome6{color:rgba(60,30,0,.8);font-size:14px;text-decoration:none}
+body.rdread #bHome6 .back{color:#fff}
+#dPlay .i-pause{display:none}
+#dPlay.run .i-play{display:none}
+#dPlay.run .i-pause{display:block}
+.dpips{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;font-size:13px;color:#7d6a56;border-bottom:3px solid rgba(120,80,40,.16)}
+.pips{display:flex;gap:8px}
+.pp{width:16px;height:16px;border-radius:50%;border:2px solid #b89c7d;box-sizing:border-box;transition:background .2s}
+.pp.f{background:var(--acc);border-color:var(--acc)}
+.dview{position:relative;height:264px;overflow:hidden;background:rgba(255,255,255,.3)}
+.rl{position:absolute;left:0;right:0;top:0;height:88px;border-bottom:1px solid rgba(120,80,40,.15);transition:transform .4s ease,opacity .4s ease,background .3s}
+.rl.cur{background:rgba(255,255,255,.6)}
+.rl.ok{background:rgba(190,235,190,.6)}
+.rl.err{background:rgba(255,205,205,.65)}
+.rl .nin{left:18px;right:18px}
+.rl .sl{left:-18px;right:-18px;bottom:30px}
+.rl .bl{top:12px;bottom:10px}
+.rl .nh{bottom:24px}
+.rl .ns{bottom:30px;height:40px}
+.rl .nb{bottom:64px}
+.rl .fg{bottom:48px}
+.rl .rs{bottom:16px}
+.rl .nh.hit,.rl .ns.hit{background:#2b8a3e}
+.rl .nh.miss,.rl .ns.miss{background:#c92a2a}
+.ph{position:absolute;top:6px;bottom:6px;width:3px;margin-left:-1px;border-radius:2px;background:var(--acc);opacity:0}
+.xt{position:absolute;bottom:25px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#c92a2a;opacity:.85}
+body.rddict>:not(#rDict):not(#setModal):not(script){display:none}
+body:not(.rddict) #rDict{display:none}
+#rDict{width:100%}
+#rDict h1{font-size:22px;margin:4px 0 10px;color:#fff;text-shadow:0 1px 8px rgba(120,50,0,.25)}
+body.rddict #bHome7{color:rgba(60,30,0,.8);font-size:14px;text-decoration:none}
+body.rddict #bHome7 .back{color:#fff}
+#kPlay .i-pause{display:none}
+#kPlay.run .i-play{display:none}
+#kPlay.run .i-pause{display:block}
+#kNote{height:120px;background:rgba(255,255,255,.3);margin:0;border:none;border-radius:0}
+.nb2{position:absolute;bottom:66px;height:5px;background:var(--fg);border-radius:1px}
+.dt{position:absolute;bottom:37px;width:4px;height:4px;margin-left:11px;border-radius:50%;background:var(--fg)}
+.kgrid.k3{grid-template-columns:repeat(3,1fr);gap:10px}
+.k3 .ktile{height:104px}
+.k3 .ktile .nin{left:20%;right:20%}
+.kdig{font-size:46px;font-weight:700;color:#DB7F00;line-height:1;margin-left:16px}
+.kbad{position:absolute;top:14px;bottom:8px;border-radius:10px;background:rgba(201,42,42,.2)}
+.kslot{position:absolute;top:16px;bottom:10px;border:2px dashed rgba(80,50,20,.3);border-radius:10px;box-sizing:border-box}
+.krow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.kb{height:52px;border:none;border-radius:16px;font-size:17px;font-weight:700;font-family:inherit;touch-action:manipulation;box-shadow:0 4px 12px rgba(120,50,0,.2);-webkit-tap-highlight-color:transparent}
+#kDel{background:rgba(255,255,255,.75);color:#3b2a18}
+#kOk{background:#fff;color:#C25E00}
+.kb:disabled{opacity:.45}
+.kgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.ktile{position:relative;height:120px;border:none;padding:0;overflow:hidden;border-radius:18px;background:rgba(150,70,0,.2);--fg:#fff;box-shadow:0 4px 14px rgba(120,50,0,.18);touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:none}
+.ktile:active{background:rgba(150,70,0,.32)}
+.ktile:disabled{opacity:.5}
+.ktile .nin{left:32%;right:28%;top:-12px;bottom:12px}
+.ktile .sl,.ktile .bl{display:none}
 </style>
 </head>
 <body class="home">
@@ -146,20 +297,32 @@ body:not(.intervals) #intervals{display:none}
   </div>
   <div class="hgrid">
     <button class="tile on" id="bDict">
-      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M9 5v14M15 5v14"/></svg></div><span class="badge">Открыть</span></div>
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M9 5v14M15 5v14"/></svg></div></div>
       <div><div class="nm">Мелодический диктант</div><div class="ds">Повтори мелодию на клавишах</div></div>
     </button>
     <button class="tile on" id="bInt">
-      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="17" r="2.5"/><circle cx="17" cy="7" r="2.5"/><path d="M9 15l6-6"/></svg></div><span class="badge">Открыть</span></div>
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="17" r="2.5"/><circle cx="17" cy="7" r="2.5"/><path d="M9 15l6-6"/></svg></div></div>
       <div><div class="nm">Интервалы</div><div class="ds">Определи расстояние между двумя нотами</div></div>
     </button>
     <button class="tile on" id="bChord">
-      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="6" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="18" r="2.2"/></svg></div><span class="badge">Открыть</span></div>
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="6" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="18" r="2.2"/></svg></div></div>
       <div><div class="nm">Аккорды</div><div class="ds">Угадай: мажор или минор</div></div>
     </button>
-    <button class="tile soon" data-n="Ритм">
-      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8l-2-17h-4z"/><path d="M12 17l4-8"/></svg></div><span class="badge">Скоро</span></div>
-      <div><div class="nm">Ритм</div><div class="ds">Повтори ритм нажатиями</div></div>
+    <button class="tile on" id="bRh">
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8l-2-17h-4z"/><path d="M12 17l4-8"/></svg></div></div>
+      <div><div class="nm">Ритм</div><div class="ds">Повтор, чтение и диктант ритма</div></div>
+    </button>
+    <button class="tile soon" data-n="Аккордовые прогрессии">
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="4.5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19.5" cy="12" r="2"/><path d="M6.7 12h3.1M14.2 12h3.1"/></svg></div><span class="badge">Скоро</span></div>
+      <div><div class="nm">Аккордовые прогрессии</div><div class="ds">Угадай последовательность аккордов по ступеням</div></div>
+    </button>
+    <button class="tile soon" data-n="Гаммы">
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h5v-4h5v-4h5V8h3"/></svg></div><span class="badge">Скоро</span></div>
+      <div><div class="nm">Гаммы</div><div class="ds">Мажор, натуральный, гармонический и мелодический минор</div></div>
+    </button>
+    <button class="tile soon" data-n="Сольфеджио">
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><span class="badge">Скоро</span></div>
+      <div><div class="nm">Сольфеджио</div><div class="ds">Пение: ноты, интервалы и гаммы</div></div>
     </button>
   </div>
   <div class="card">
@@ -172,6 +335,101 @@ body:not(.intervals) #intervals{display:none}
     <div class="flames" id="flames"></div>
   </div>
   <div class="hnote" id="homeNote">Результаты хранятся на этом устройстве</div>
+</div>
+<div id="rRead">
+  <button class="reset" id="bHome6">‹ Ритм</button>
+  <h1>Чтение ритма</h1>
+  <div class="rcard">
+    <div class="rbar">
+      <label class="rsel"><select id="dTs" aria-label="Размер"><option value="2">размер: 2/4</option><option value="3">размер: 3/4</option><option value="4">размер: 4/4</option></select></label>
+      <div class="rctl"><button class="ib pri" id="dPlay" aria-label="Играть"><svg class="i-play" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg><svg class="i-pause" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg></button></div>
+      <label class="rsel"><select id="dBpm" aria-label="Темп"><option value="60">60 bpm</option><option value="70">70 bpm</option><option value="80">80 bpm</option><option value="90">90 bpm</option><option value="100">100 bpm</option></select></label>
+    </div>
+    <div class="dpips"><span>Строк подряд без ошибок</span><span class="pips" id="dPips"></span></div>
+    <div class="dview" id="dView"></div>
+  </div>
+  <div id="dMsg">Нажми ▶ и читай ритм</div>
+  <button id="dTap" disabled>Здесь стучать по экрану</button>
+  <div class="card">
+    <div class="lbl">Уровень</div><div class="levels" id="dLvls"></div><div class="hnote" id="dLvlNote" style="margin-top:8px"></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="dC">—</b><span>Количество правильных ответов</span></div>
+    <div class="stat"><b id="dB">—</b><span>Пройдено уровней</span></div>
+    <div class="stat"><b id="dA">—</b><span>Точность</span></div>
+  </div>
+</div>
+<div id="rDict">
+  <button class="reset" id="bHome7">‹ Ритм</button>
+  <h1>Диктант</h1>
+  <div class="rcard">
+    <div class="rbar">
+      <label class="rsel"><select id="kTs" aria-label="Размер"><option value="2">размер: 2/4</option><option value="3">размер: 3/4</option><option value="4">размер: 4/4</option></select></label>
+      <div class="rctl"><button class="ib pri" id="kPlay" aria-label="Играть"><svg class="i-play" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg><svg class="i-pause" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg></button></div>
+      <label class="rsel"><select id="kBpm" aria-label="Темп"><option value="60">60 bpm</option><option value="70">70 bpm</option><option value="80">80 bpm</option><option value="90">90 bpm</option><option value="100">100 bpm</option></select></label>
+    </div>
+    <div class="dpips"><span>Верных подряд</span><span class="pips" id="kPips"></span></div>
+    <div class="rpanel" id="kNote"></div>
+  </div>
+  <div id="kMsg">Нажми ▶ и послушай ритм</div>
+  <div class="krow"><button class="kb" id="kDel">Удалить</button><button class="kb" id="kOk">Ответить</button></div>
+  <div class="kgrid" id="kGrid"></div>
+  <div class="card">
+    <div class="lbl">Уровень</div><div class="levels" id="kLvls"></div><div class="hnote" id="kLvlNote" style="margin-top:8px"></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="kC">—</b><span>Количество правильных ответов</span></div>
+    <div class="stat"><b id="kB">—</b><span>Рекорд серии</span></div>
+    <div class="stat"><b id="kA">—</b><span>Точность</span></div>
+  </div>
+</div>
+<div id="rhMenu">
+  <button class="reset" id="bHome5">‹ Главное меню</button>
+  <h1>Ритм</h1>
+  <div class="hk" style="text-align:center">Выбери режим</div>
+  <div class="rmgrid">
+    <button class="tile on" id="bRhRep">
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3l3 3-3 3"/><path d="M4 11V9a3 3 0 0 1 3-3h13"/><path d="M7 21l-3-3 3-3"/><path d="M20 13v2a3 3 0 0 1-3 3H4"/></svg></div></div>
+      <div><div class="nm">Повтор ритма</div><div class="ds">Послушай ритм и повтори его нажатиями</div></div>
+    </button>
+    <button class="tile on" id="bRhRead">
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6z"/></svg></div></div>
+      <div><div class="nm">Чтение ритма</div><div class="ds">Читай строки и отстукивай ритм</div></div>
+    </button>
+    <button class="tile on" id="bRhDict">
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/></svg></div></div>
+      <div><div class="nm">Диктант</div><div class="ds">Послушай ритм и собери его из нот</div></div>
+    </button>
+  </div>
+  <div class="hnote" id="rmNote"></div>
+</div>
+<div id="rhythm">
+  <button class="reset" id="bHome4">‹ Ритм</button>
+  <h1>Повтор ритма</h1>
+  <div class="rcard">
+    <div class="rbar">
+      <label class="rsel"><select id="rTs" aria-label="Размер"><option value="2">размер: 2/4</option><option value="3">размер: 3/4</option><option value="4">размер: 4/4</option></select></label>
+      <div class="rctl">
+        <button class="ib pri" id="rPlay" aria-label="Играть"><svg class="i-play" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg><svg class="i-pause" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg></button>
+      </div>
+      <label class="rsel"><select id="rBpm" aria-label="Темп"><option value="60">60 bpm</option><option value="70">70 bpm</option><option value="80">80 bpm</option><option value="90">90 bpm</option><option value="100">100 bpm</option></select></label>
+    </div>
+    <div class="rrow"><span class="rtab ear" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11a6 6 0 1 1 12 0c0 3.2-2.2 4.2-3.2 5.8S13.8 21 11.5 21 8 19.6 8 18"/><path d="M10 11a2 2 0 1 1 4 0c0 1.4-1.8 1.7-1.8 3.4"/></svg></span><div class="rpanel" id="rNote"></div></div>
+    <div class="rrow"><span class="rtab hand" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.6 1.6 0 0 1 3.2 0V11"/><path d="M12.2 9.5a1.6 1.6 0 0 1 3.2 0V12"/><path d="M15.4 11a1.6 1.6 0 0 1 3.1 0v4.5a6 6 0 0 1-6 6h-1a5 5 0 0 1-4-2L4.9 15.7a1.5 1.5 0 0 1 2.3-1.8L9 15.5"/></svg></span><div class="rpanel" id="rTL"></div></div>
+  </div>
+  <div class="hnote" id="rLegend" style="margin:0 0 6px"></div>
+  <div id="rMsg">Нажми ▶, послушай ритм и повтори его нажатиями</div>
+  <button id="rTap" disabled>Здесь стучать по экрану</button>
+  <div class="card">
+    <div class="lbl">Сложность</div><div class="levels" id="rLvls"></div><div class="hnote" id="rLvlNote" style="margin-top:8px"></div>
+    <div class="lbl" style="margin-top:14px">Ритм нотами</div><div class="levels" id="rShow"></div>
+    <button class="btn" id="rNew" style="width:100%;margin-top:14px">Новый ритм</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="rC">—</b><span>Количество правильных ответов</span></div>
+    <div class="stat"><b id="rB">—</b><span>Рекорд серии</span></div>
+    <div class="stat"><b id="rA">—</b><span>Точность</span></div>
+  </div>
 </div>
 <div id="intervals">
   <button class="reset" id="bHome3">‹ Главное меню</button>
@@ -237,6 +495,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
 st.chord=st.chord||{streak:0,best:0,correct:0,total:0};
 st.iv=st.iv||{sel:[3,4,7,12],streak:0,best:0,correct:0,total:0};
 st.iv.dirs=st.iv.dirs||["up"];
+st.rh=st.rh||{lvl:0,bpm:90,streak:0,best:0,correct:0,total:0};
 let ctx=null,melody=[],input=[],mode="idle",hintUsed=false,failed=false,timers=[];
 const $=id=>document.getElementById(id);
 const piano=$("piano"),msg=$("msg");
@@ -341,7 +600,7 @@ $("vol").value=Math.round(st.vol*100);$("volV").textContent=$("vol").value+"%";
 $("vol").oninput=()=>{st.vol=$("vol").value/100;$("volV").textContent=$("vol").value+"%";if(ctx&&ctx._master)ctx._master.gain.value=st.vol;save()};
 $("vol").onchange=()=>{tone(7)};
 $("bClose").onclick=()=>{$("setModal").hidden=true};
-function show(v){document.body.classList.toggle("home",v==="home");document.body.classList.toggle("chords",v==="chord");document.body.classList.toggle("intervals",v==="interval");clearTimeout(ivs.timer);ivs.pt.forEach(clearTimeout);clearTimeout(cs.timer);(cs.pt||[]).forEach(clearTimeout);timers.forEach(clearTimeout);timers=[];$("homeNote").textContent="Результаты хранятся на этом устройстве";if(v==="dict")newRound(false);else if(v==="chord")chordReset();else if(v==="interval")ivReset();else{mode="idle";render()}}
+function show(v){document.body.classList.toggle("home",v==="home");document.body.classList.toggle("chords",v==="chord");document.body.classList.toggle("intervals",v==="interval");document.body.classList.toggle("rhythm",v==="rhythm");document.body.classList.toggle("rhmenu",v==="rhmenu");document.body.classList.toggle("rdread",v==="rdread");document.body.classList.toggle("rddict",v==="rddict");rhStop();dStop();kStop();clearTimeout(ivs.timer);ivs.pt.forEach(clearTimeout);clearTimeout(cs.timer);(cs.pt||[]).forEach(clearTimeout);timers.forEach(clearTimeout);timers=[];$("homeNote").textContent="Результаты хранятся на этом устройстве";if(v==="dict")newRound(false);else if(v==="chord")chordReset();else if(v==="interval")ivReset();else if(v==="rhythm")rhReset();else if(v==="rdread")dReset();else if(v==="rddict")kReset();else{mode="idle";render()}}
 $("bDict").onclick=()=>{audio();show("dict")};
 $("bHome").onclick=()=>show("home");
 $("bHomeSet").onclick=openSet;
@@ -440,7 +699,7 @@ $("ivAll").onclick=()=>{st.iv.sel=Object.keys(IVN).map(Number);save();ivChips()}
 $("ivModal").addEventListener("click",e=>{if(e.target.id==="ivModal")ivCloseSet()});
 $("bHome3").onclick=()=>show("home");
 $("bInt").onclick=()=>{audio();show("interval")};
-document.querySelectorAll("#bHome,#bHome2,#bHome3").forEach(b=>{b.innerHTML='<span class="back">‹</span>Главное меню'});
+document.querySelectorAll("#bHome,#bHome2,#bHome3,#bHome5").forEach(b=>{b.innerHTML='<span class="back">‹</span>Главное меню'});
 document.querySelectorAll(".tile.soon").forEach(t=>{t.onclick=()=>{$("homeNote").textContent="«"+t.dataset.n+"» скоро появится"}});
 $("setModal").addEventListener("click",e=>{if(e.target.id==="setModal")e.target.hidden=true});
 st.days=st.days||{};
@@ -466,6 +725,542 @@ function homeProgress(){
     f+='<div class="fl '+(on?"on":"off")+(i===wd?" today":"")+'"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c.5 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2 .8-3.2 1.8-4.3.2 1.6 1 2.3 1.9 2.5C11 8.6 11.3 5.5 12 2.5z"/></svg>'+names[x.getDay()]+'</div>'}
   $("flames").innerHTML=f;
 }
+const rt={mode:"idle",pat:[],L:4,t0:0,W:1,taps:[],dots:[],active:false,failed:false,timers:[],bus:null,tmr:null,raf:0};
+const RLV=[["Лёгкий","Только доли: четверти и паузы"],["Средний","Добавляются восьмые"],["Сложный","Два такта с восьмыми"]];
+const RTOL=[170,130,110];
+const TAPT="Здесь стучать по экрану";
+const rTs=()=>st.rh.ts||4;
+const rShowN=()=>st.rh.show!==false;
+const rLen=()=>rTs()*(st.rh.lvl===2?2:1);
+function blip(c,t,f,v,d,dst){
+  const D=d*4;
+  [[1,1,1],[2.76,0.5,0.55],[5.4,0.25,0.3]].forEach(([m,a,k])=>{
+    const o=c.createOscillator(),g=c.createGain();
+    o.type="sine";o.frequency.value=f*m;
+    g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(v*a,t+0.002);g.gain.exponentialRampToValueAtTime(0.0001,t+D*k);
+    o.connect(g);g.connect(dst);o.start(t);o.stop(t+D*k+0.05);
+  });
+}
+function pno(c,t,v,dst){
+  loadBufs(c);
+  const bf=BUFS[0];
+  if(!bf){hit(c,t,v,dst);return}
+  const s=c.createBufferSource();s.buffer=bf;
+  const g=c.createGain();
+  g.gain.setValueAtTime(1.3*v,t);g.gain.setValueAtTime(1.3*v,t+0.12);g.gain.exponentialRampToValueAtTime(0.0001,t+0.5);
+  s.connect(g);g.connect(dst);s.start(t);s.stop(t+0.55);
+}
+function hit(c,t,v,dst){
+  if(!c._nb){const n=Math.floor(c.sampleRate*0.06),b=c.createBuffer(1,n,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;c._nb=b}
+  const s=c.createBufferSource();s.buffer=c._nb;
+  const hp=c.createBiquadFilter();hp.type="highpass";hp.frequency.value=3500;
+  const ng=c.createGain();
+  ng.gain.setValueAtTime(0.0001,t);ng.gain.linearRampToValueAtTime(v*1.1,t+0.0007);ng.gain.exponentialRampToValueAtTime(0.0001,t+0.045);
+  s.connect(hp);hp.connect(ng);ng.connect(dst);s.start(t);s.stop(t+0.06);
+  [[2400,1,0.07],[3600,0.6,0.05],[5200,0.35,0.03]].forEach(([f,a,d])=>{
+    const o=c.createOscillator(),g=c.createGain();
+    o.type="sine";o.frequency.value=f;
+    g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(v*a*0.9,t+0.0007);g.gain.exponentialRampToValueAtTime(0.0001,t+d);
+    o.connect(g);g.connect(dst);o.start(t);o.stop(t+d+0.03);
+  });
+}
+function rhStop(){
+  rt.timers.forEach(clearTimeout);rt.timers=[];clearTimeout(rt.tmr);cancelAnimationFrame(rt.raf);rt.active=false;
+  if(rt.bus){try{rt.bus.disconnect()}catch(e){}rt.bus=null}
+  const hd=document.getElementById("rHead");if(hd)hd.style.opacity=0;
+}
+function rtAt(fn,ms){rt.timers.push(setTimeout(fn,Math.max(0,ms)))}
+function rhSetMsg(t,c){const m=$("rMsg");m.className=c||"";m.textContent=t}
+function rhPad(txt,on){const p=$("rTap");p.textContent=txt;p.disabled=!on;p.style.fontSize=/^\d$/.test(txt)?"96px":""}
+function pulse(){const p=$("rTap");p.classList.add("pulse");setTimeout(()=>p.classList.remove("pulse"),110)}
+function rhHead(t0,ms){
+  cancelAnimationFrame(rt.raf);const hd=$("rHead");if(!hd)return;
+  const step=()=>{const x=(performance.now()-t0)/ms;if(x>1){hd.style.opacity=0;return}hd.style.opacity=x<0?0:1;hd.style.left=Math.max(0,x)*100+"%";rt.raf=requestAnimationFrame(step)};
+  step();
+}
+const REST_Q='<svg class="rs" width="12" height="30" viewBox="0 0 12 30" aria-hidden="true"><path d="M4 2 L9 8 L4.5 13.5 L9 19.5 Q3.5 19 3.5 24 Q3.5 27 7 27.5"/></svg>';
+const REST_E='<svg class="rs" width="12" height="30" viewBox="0 0 12 30" aria-hidden="true"><circle cx="3.5" cy="9" r="2.4" fill="currentColor" stroke="none"/><path d="M3.8 9.5 Q8 9 10 4"/><path d="M9.8 5 L5 27"/></svg>';
+function rhNotation(){
+  const L=rt.L||rLen(),ts=rTs(),pat=rt.pat||[];
+  const has=x=>pat.some(y=>Math.abs(y-x)<1e-6);
+  const px=x=>x/L*100;
+  let h='<div class="nin"><div class="sl"></div>';
+  for(let k=0;k*ts<=L;k++)h+='<div class="bl" style="left:'+px(k*ts)+'%"></div>';
+  if(pat.length){
+    const cov=new Array(L*2).fill(false);
+    pat.forEach(x=>{
+      const left=px(x),frac=x%1,stem='<div class="ns" style="left:'+left+'%"></div>';
+      h+='<div class="nh" style="left:'+left+'%"></div>'+stem;
+      if(frac===0&&has(x+0.5)){
+        cov[2*x]=true;
+        h+='<div class="nb" style="left:calc('+left+'% + 5.5px);width:calc('+(px(x+0.5)-left)+'% + 2px)"></div>';
+      }else if(frac===0){
+        cov[2*x]=true;cov[2*x+1]=true;
+      }else{
+        cov[2*x]=true;
+        if(!has(x-0.5))h+='<svg class="fg" style="left:'+left+'%" width="12" height="22" viewBox="0 0 12 22" aria-hidden="true"><path d="M1.2 1 C1.2 9 11 11 10 21"/></svg>';
+      }
+    });
+    for(let k=0;k<L;k++){
+      const a=cov[2*k],b=cov[2*k+1];
+      if(!a&&!b)h+=REST_Q.replace('class="rs"','class="rs" style="left:'+px(k)+'%"');
+      else if(!a&&b)h+=REST_E.replace('class="rs"','class="rs" style="left:'+px(k)+'%"');
+    }
+  }
+  $("rNote").innerHTML=h+'</div>';
+}
+function rhTimeline(){
+  const L=rt.L||rLen(),ts=rTs(),pat=rt.pat||[];
+  let h='<div class="nin"><div class="tline"></div>';
+  for(let k=0;k<=L;k++)h+='<div class="tk'+(k%ts===0?' bar':'')+'" style="left:'+(k/L*100)+'%"></div>';
+  pat.forEach(x=>{h+='<div class="ex" style="left:'+(x/L*100)+'%"></div>'});
+  $("rTL").innerHTML=h+'<div id="rHead"></div></div>';
+  rt.dots=[];
+}
+function rhDraw(){
+  rhNotation();rhTimeline();
+  $("rNote").classList.toggle("hide",!rShowN());$("rTL").classList.toggle("hide",!rShowN());
+}
+function rhRender(){
+  const s=st.rh;
+  const pl=$("rPlay"),run=rt.mode==="busy";pl.classList.toggle("run",run);pl.setAttribute("aria-label",run?"Пауза":"Играть");
+  $("rC").textContent=s.total?s.correct+" из "+s.total:"—";$("rB").textContent=s.total?s.best:"—";$("rA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
+}
+function rhChips(){
+  const Lb=$("rLvls");Lb.innerHTML="";
+  RLV.forEach((x,i)=>{const b=document.createElement("button");b.className="lv"+(st.rh.lvl===i?" sel":"");b.textContent=x[0];b.onclick=()=>{st.rh.lvl=i;save();rhReset()};Lb.appendChild(b)});
+  $("rLvlNote").textContent=RLV[st.rh.lvl][1];
+  const Sb=$("rShow");Sb.innerHTML="";
+  [["Показывать",true],["Скрыть до ответа",false]].forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(rShowN()===v?" sel":"");b.textContent=t;b.onclick=()=>{st.rh.show=v;save();rhChips();rhDraw()};Sb.appendChild(b)});
+}
+function rhReset(){
+  rhStop();rt.mode="idle";rt.pat=[];rt.L=rLen();
+  if(st.rh.bpm>100){st.rh.bpm=100;save()}
+  $("rTs").value=String(rTs());$("rBpm").value=String(st.rh.bpm);
+  rhDraw();rhSetMsg("Нажми ▶, послушай ритм и повтори его нажатиями");rhPad(TAPT,false);$("rLegend").textContent="";
+  rhChips();rhRender();
+}
+function rhGen(){
+  const lv=st.rh.lvl,L=rLen();let pat,tries=0;
+  const min0=L<=2?1:Math.max(2,Math.ceil(L*0.6));
+  const good=p=>{const n=p.length;if(lv===0)return n>=min0;if(lv===1)return n>=L&&n<=Math.ceil(L*1.5);return n>=L-1&&n<=L+2};
+  do{
+    pat=[];
+    if(lv===0){for(let i=0;i<L;i++)if(i===0||Math.random()<0.65)pat.push(i)}
+    else{for(let i=0;i<2*L;i++)if(i===0||Math.random()<(lv===1?0.55:0.5))pat.push(i/2)}
+  }while(!good(pat)&&++tries<300);
+  rt.pat=pat;rt.L=L;
+}
+function rhNew(){rhStop();rhGen();rt.failed=false;rhRun()}
+function rhRun(){
+  rhStop();
+  const c=audio();if(!c)return;
+  const C=rTs(),L=rt.L,B=60/st.rh.bpm;
+  rt.mode="busy";rt.taps=[];rt.W=L*B*1000;
+  rhDraw();$("rLegend").textContent="";rhRender();
+  const T0=c.currentTime+0.25,at=b=>T0+b*B,ms=b=>(at(b)-c.currentTime)*1000;
+  rt.bus=c.createGain();rt.bus.connect(c._comp);
+  for(let k=0;k<C;k++)blip(c,at(k),800,0.35,0.05,rt.bus);
+  rt.pat.forEach(x=>pno(c,at(C+x),0.8,rt.bus));
+  for(let k=0;k<C;k++)blip(c,at(C+L+k),800,0.35,0.05,rt.bus);
+  for(let k=0;k<L;k++)blip(c,at(2*C+L+k),k%C?800:1000,k%C?0.3:0.4,0.05,rt.bus);
+  rt.t0=performance.now()+ms(2*C+L);
+  rhSetMsg("Слушай ритм…");rhPad("Слушай",false);
+  rtAt(()=>rhHead(performance.now(),rt.W),ms(C));
+  rtAt(()=>rhSetMsg("Твоя очередь: повторяй ритм"),ms(C+L));
+  for(let k=0;k<C;k++)rtAt(()=>{rhPad(String(k+1),true);pulse()},ms(C+L+k));
+  rtAt(()=>rhHead(rt.t0,rt.W),ms(2*C+L)-300);
+  rtAt(()=>{rt.taps=[];rt.active=true;rhPad(TAPT,true)},ms(2*C+L)-250);
+  rtAt(rhEval,ms(2*C+L)+rt.W+400);
+}
+function rhEval(){
+  rt.active=false;
+  const B=60000/st.rh.bpm,W=rt.L*B,exp=rt.pat.map(x=>x*B),tp=rt.taps.slice().sort((a,b)=>a-b),tol=RTOL[st.rh.lvl];
+  let ok=false,flags=null,sh=0,why="";
+  if(tp.length!==exp.length){why="Нужно нажать "+exp.length+" раз, а нажато "+tp.length}
+  else{
+    const d=tp.map((t,i)=>t-exp[i]),sd=d.slice().sort((a,b)=>a-b);
+    sh=sd[Math.floor(sd.length/2)];
+    flags=d.map(x=>Math.abs(x-sh)<=tol);
+    if(Math.abs(sh)>250)why="Ритм сдвинут относительно счёта";
+    else if(!flags.every(Boolean))why="Некоторые нажатия не в такт";
+    ok=!why;
+  }
+  $("rNote").classList.remove("hide");$("rTL").classList.remove("hide");
+  tp.forEach((t,i)=>{const d=rt.dots[i];if(!d)return;d.style.left=Math.min(100,Math.max(0,(t-sh)/W*100))+"%";if(flags)d.classList.add(flags[i]?"ok":"bad")});
+  $("rLegend").textContent="Кружки — ритм, точки — твои нажатия";
+  const v=st.rh;
+  if(ok){
+    rt.mode="done";
+    if(!rt.failed){v.total++;v.correct++;v.streak++;if(v.streak>v.best)v.best=v.streak}
+    rhSetMsg(rt.failed?"Верно, но ответ засчитан как неправильный":"Верно! Ритм повторён точно","good");
+    rt.tmr=setTimeout(rhNew,2400);
+  }else{
+    rt.mode="answer";
+    if(!rt.failed){rt.failed=true;v.total++;v.streak=0}
+    rhSetMsg("Неправильно. "+why+". Нажми ▶ и попробуй ещё раз","badm");
+  }
+  rhPad(TAPT,false);save();rhRender();
+}
+$("rTap").addEventListener("pointerdown",e=>{
+  e.preventDefault();const c=audio();if(!c)return;
+  pno(c,c.currentTime,0.8,c._comp);
+  if(rt.active){
+    const t=performance.now()-rt.t0;rt.taps.push(t);
+    const host=$("rTL").firstChild;
+    if(host){const d=document.createElement("div");d.className="tp";d.style.left=Math.min(100,Math.max(0,t/rt.W*100))+"%";host.appendChild(d);rt.dots.push(d)}
+  }
+  pulse();
+});
+$("rPlay").onclick=()=>{
+  audio();
+  if(rt.mode==="busy"){rhStop();rt.mode="answer";rhSetMsg("Пауза. Нажми ▶, чтобы послушать ещё раз");rhPad(TAPT,false);rhRender();return}
+  if(rt.pat.length&&rt.mode!=="done")rhRun();else rhNew();
+};
+$("rNew").onclick=()=>{audio();rhNew()};
+$("rTs").onchange=()=>{st.rh.ts=+$("rTs").value;save();rhReset()};
+$("rBpm").onchange=()=>{st.rh.bpm=+$("rBpm").value;save();rhReset()};
+$("bHome4").onclick=()=>show("rhmenu");
+$("bHome5").onclick=()=>show("home");
+$("bHome4").innerHTML='<span class="back">‹</span>Ритм';
+$("bRhRep").onclick=()=>{audio();show("rhythm")};
+document.querySelectorAll(".tile.rsoon").forEach(t=>{t.onclick=()=>{$("rmNote").textContent="«"+t.dataset.n+"» скоро появится"}});
+$("bRh").onclick=()=>{audio();$("rmNote").textContent="";show("rhmenu")};
+/* ===== Чтение ритма ===== */
+st.rd=Object.assign({lvl:0,passed:[false,false,false,false],ts:4,bpm:70,correct:0,total:0},st.rd||{});
+const DLV=[["Уровень 1","Четверти и пары восьмых"],["Уровень 2","Четверти, пары восьмых и паузы"],["Уровень 3","Больше восьмых и пауз"],["Уровень 4","Восьмые в любых сочетаниях"]];
+const DTOL=[170,160,140,125];
+const LH=88;
+const rd={run:false,t0:0,T0:0,nb:0,B:0.75,barMs:3000,ts:4,lines:[],cur:0,runOk:0,sh:0,raf:0,iv:0,bus:null,shown:-1};
+function dPad(txt,on){const p=$("dTap");p.textContent=txt;p.disabled=!on;p.style.fontSize=/^\d$/.test(txt)?"96px":""}
+function dMsg(t,c){const m=$("dMsg");m.className=c||"";m.textContent=t}
+function dpulse(){}
+function notationHTML(pat,L,ts,upto){
+  const px=x=>x/L*100,E=1e-6,N=upto==null?L:upto;
+  const bm=(a,b,c)=>'<div class="'+c+'" style="left:calc('+px(a)+'% + 5.5px);width:calc('+(px(b)-px(a))+'% + 2px)"></div>';
+  const stub=(x,left)=>'<div class="nb2" style="left:calc('+px(x)+'% + '+(left?-4.5:5.5)+'px);width:12px"></div>';
+  const dot=x=>'<div class="dt" style="left:'+px(x)+'%"></div>';
+  const rest=(r,k)=>r.replace('class="rs"','class="rs" style="left:'+px(k)+'%"');
+  let h='<div class="nin"><div class="sl"></div>';
+  for(let k=0;k*ts<=L;k++)h+='<div class="bl" style="left:'+px(k*ts)+'%"></div>';
+  for(let k=0;k<N;k++){
+    const it=[];pat.forEach((x,i)=>{if(x>=k-E&&x<k+1-E)it.push({x,i,r:Math.round((x-k)*4)/4})});
+    const key=it.map(o=>o.r).join(",");
+    it.forEach(o=>{h+='<div class="nh" data-k="'+o.i+'" style="left:'+px(o.x)+'%"></div><div class="ns" data-k="'+o.i+'" style="left:'+px(o.x)+'%"></div>'});
+    const x0=k,x1=k+0.25,x2=k+0.5,x3=k+0.75;
+    if(key==="")h+=rest(REST_Q,k);
+    else if(key==="0.5"){h+=rest(REST_E,k)+'<svg class="fg" style="left:'+px(x2)+'%" width="12" height="22" viewBox="0 0 12 22" aria-hidden="true"><path d="M1.2 1 C1.2 9 11 11 10 21"/></svg>'}
+    else if(key==="0,0.5")h+=bm(x0,x2,"nb");
+    else if(key==="0,0.25,0.5,0.75")h+=bm(x0,x3,"nb")+bm(x0,x1,"nb2")+bm(x2,x3,"nb2");
+    else if(key==="0,0.5,0.75")h+=bm(x0,x3,"nb")+bm(x2,x3,"nb2");
+    else if(key==="0,0.25,0.5")h+=bm(x0,x2,"nb")+bm(x0,x1,"nb2");
+    else if(key==="0,0.75")h+=bm(x0,x3,"nb")+stub(x3,true)+dot(x0);
+    else if(key==="0,0.25")h+=bm(x0,x1,"nb")+stub(x0,false)+dot(x1);
+  }
+  return h+'<div class="ph"></div></div>';
+}
+function dGen(lv,ts){
+  let pat,t=0;
+  do{
+    pat=[];
+    if(lv===0){let pairs=0;for(let k=0;k<ts;k++){pat.push(k);if(Math.random()<0.4){pat.push(k+0.5);pairs++}}if(!pairs){const k=Math.floor(Math.random()*ts);pat.push(k+0.5);pat.sort((a,b)=>a-b)}}
+    else if(lv===1){for(let k=0;k<ts;k++)if(k===0||Math.random()<0.7){pat.push(k);if(Math.random()<0.25)pat.push(k+0.5)}}
+    else if(lv===2){
+      let pairs=0;
+      for(let k=0;k<ts;k++){const r=Math.random();if(k>0&&r<0.15)continue;if(r<0.55){pat.push(k)}else{pat.push(k);pat.push(k+0.5);pairs++}}
+      if(!pairs)pat=[];
+    }else{for(let c=0;c<ts*2;c++)if(c===0||Math.random()<0.55)pat.push(c/2)}
+    t++;
+  }while(!pat.length||(lv===1&&ts>1&&pat.length>=ts&&pat.every(x=>x%1===0)&&t<30)||(lv===3&&pat.length<3&&t<60));
+  return pat;
+}
+function dMake(i){
+  const ts=rd.ts,lv=st.rd.lvl,prev=rd.lines[i-1]?JSON.stringify(rd.lines[i-1].pat):"";
+  let pat,t=0;
+  do{pat=dGen(lv,ts)}while(JSON.stringify(pat)===prev&&++t<8);
+  const B=rd.B*1000;
+  return {i,pat,exp:pat.map(x=>(i*ts+x)*B),hit:pat.map(()=>false),miss:pat.map(()=>false),extra:0,done:false,ok:null,el:null};
+}
+function dEnsure(n){while(rd.lines.length<=n)rd.lines.push(dMake(rd.lines.length))}
+function dEl(L){
+  const el=document.createElement("div");el.className="rl";
+  el.innerHTML=notationHTML(L.pat,rd.ts,rd.ts);
+  if(L.done)el.classList.add(L.ok?"ok":"err");
+  $("dView").appendChild(el);L.el=el;
+}
+function dLayout(){
+  const c=rd.cur;
+  rd.lines.forEach(L=>{
+    if(L.i<c-1||L.i>c+3){if(L.el){L.el.remove();L.el=null}return}
+    if(!L.el)dEl(L);
+    L.el.style.transform="translateY("+((L.i-c+1)*LH)+"px)";
+    L.el.style.opacity=L.i===c-1?0.55:(L.i===c?1:(L.i===c+1?0.8:0));
+    L.el.classList.toggle("cur",L.i===c&&rd.run);
+    const ph=L.el.querySelector(".ph");if(ph&&L.i!==c)ph.style.opacity=0;
+  });
+}
+function dMark(L,j,cls){if(L.el)L.el.querySelectorAll('[data-k="'+j+'"]').forEach(e=>e.classList.add(cls))}
+function dPips(){
+  let h="";for(let i=0;i<5;i++)h+='<span class="pp'+(i<rd.runOk?' f':'')+'"></span>';
+  $("dPips").innerHTML=h;
+}
+function dRender(){
+  const pl=$("dPlay");pl.classList.toggle("run",rd.run);pl.setAttribute("aria-label",rd.run?"Пауза":"Играть");
+  const s=st.rd;
+  $("dC").textContent=s.total?s.correct+" из "+s.total:"—";
+  $("dB").textContent=s.passed.filter(Boolean).length+" из "+DLV.length;
+  $("dA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
+}
+function dChips(){
+  const b=$("dLvls");b.innerHTML="";
+  DLV.forEach((x,i)=>{const e=document.createElement("button");e.className="lv"+(st.rd.lvl===i?" sel":"");e.textContent=(i+1)+(st.rd.passed[i]?" ✓":"");e.setAttribute("aria-label",x[0]);e.onclick=()=>{st.rd.lvl=i;save();dReset()};b.appendChild(e)});
+  $("dLvlNote").textContent=DLV[st.rd.lvl][0]+": "+DLV[st.rd.lvl][1];
+}
+function dStop(){
+  rd.run=false;cancelAnimationFrame(rd.raf);clearInterval(rd.iv);
+  if(rd.bus){try{rd.bus.disconnect()}catch(e){}rd.bus=null}
+}
+function dReset(){
+  dStop();
+  rd.ts=st.rd.ts;rd.B=60/st.rd.bpm;rd.barMs=rd.ts*rd.B*1000;
+  rd.lines=[];rd.cur=0;rd.runOk=0;rd.sh=0;rd.shown=-1;
+  $("dView").innerHTML="";
+  $("dTs").value=String(st.rd.ts);$("dBpm").value=String(st.rd.bpm);
+  dEnsure(4);dLayout();dPips();dChips();dRender();
+  dMsg("Нажми ▶ и читай ритм: стучи, когда линия проходит по нотам","");dPad(TAPT,false);
+}
+function dSched(){
+  const c=audio();if(!c||!rd.bus)return;
+  while(rd.T0+rd.nb*rd.B<c.currentTime+0.6){
+    const n=rd.nb,at=rd.T0+n*rd.B,first=(n%rd.ts===0);
+    blip(c,at,first?1000:800,first?0.45:0.3,0.05,rd.bus);rd.nb++;
+  }
+}
+function dStart(){
+  const c=audio();if(!c)return;
+  dStop();
+  rd.ts=st.rd.ts;rd.B=60/st.rd.bpm;rd.barMs=rd.ts*rd.B*1000;
+  rd.lines=[];rd.cur=0;rd.runOk=0;rd.sh=0;rd.shown=-1;rd.run=true;
+  $("dView").innerHTML="";
+  dEnsure(4);dLayout();dPips();
+  rd.T0=c.currentTime+0.3;rd.nb=0;
+  rd.t0=performance.now()+(rd.T0-c.currentTime)*1000+rd.ts*rd.B*1000;
+  rd.bus=c.createGain();rd.bus.connect(c._comp);
+  dSched();rd.iv=setInterval(dSched,100);
+  dMsg("Слушай счёт…","");dPad("…",false);dRender();
+  rd.raf=requestAnimationFrame(dFrame);
+}
+function dFinish(L){
+  L.done=true;
+  const miss=L.miss.filter(Boolean).length,ok=miss===0&&L.extra===0;
+  L.ok=ok;if(L.el)L.el.classList.add(ok?"ok":"err");
+  const s=st.rd;s.total++;
+  if(ok){s.correct++;rd.runOk++}else{rd.runOk=0}
+  dPips();
+  if(ok)dMsg("Верно! Подряд: "+Math.min(rd.runOk,5)+" из 5","good");
+  else dMsg("Ошибка: пропущено "+miss+", лишних нажатий "+L.extra,"badm");
+  save();dRender();
+  if(rd.runOk>=5)dPass();
+}
+function dPass(){
+  const s=st.rd;s.passed[s.lvl]=true;
+  const done=s.lvl+1,nxt=s.lvl<DLV.length-1?s.lvl+1:s.lvl;
+  dStop();
+  s.lvl=nxt;save();
+  dMsg("Уровень "+done+" пройден! 5 строк подряд без ошибок"+(nxt+1!==done?". Дальше — уровень "+(nxt+1)+", нажми ▶":""),"good");
+  dPad(TAPT,false);dChips();dRender();
+}
+function dFrame(){
+  if(!rd.run)return;
+  const now=performance.now()-rd.t0,B=rd.B*1000,barMs=rd.barMs;
+  if(now<0){
+    const n=Math.floor((now+rd.ts*B)/B)+1;
+    if(n!==rd.shown&&n>=1&&n<=rd.ts){rd.shown=n;dPad(String(n),true);dpulse()}
+  }else{
+    if(rd.shown!==0){rd.shown=0;dPad(TAPT,true);dMsg("Читай и стучи по экрану","")}
+    const cur=Math.floor(now/barMs);
+    if(cur!==rd.cur){rd.cur=cur;dEnsure(cur+4);dLayout()}
+    const L0=rd.lines[rd.cur],ph=L0&&L0.el&&L0.el.querySelector(".ph");
+    if(ph){ph.style.opacity=1;ph.style.left=((now-cur*barMs)/barMs*100)+"%"}
+    const adj=now-rd.sh,tol=DTOL[st.rd.lvl];
+    for(const Ln of rd.lines){
+      if(Ln.done||Ln.i<cur-1||Ln.i>cur+1)continue;
+      Ln.exp.forEach((e,j)=>{if(!Ln.hit[j]&&!Ln.miss[j]&&adj>e+tol){Ln.miss[j]=true;dMark(Ln,j,"miss")}});
+      if(adj>=(Ln.i+1)*barMs+40)dFinish(Ln);
+      if(!rd.run)return;
+    }
+  }
+  rd.raf=requestAnimationFrame(dFrame);
+}
+$("dTap").addEventListener("pointerdown",e=>{
+  e.preventDefault();const c=audio();if(!c)return;
+  pno(c,c.currentTime,0.8,c._comp);dpulse();
+  if(!rd.run)return;
+  const now=performance.now()-rd.t0,tol=DTOL[st.rd.lvl],adj=now-rd.sh;
+  if(adj<-tol)return;
+  let best=null,bd=1e9;
+  const c0=Math.max(0,Math.floor(now/rd.barMs)-1);
+  for(let i=c0;i<=c0+2&&i<rd.lines.length;i++){
+    const Ln=rd.lines[i];if(Ln.done)continue;
+    Ln.exp.forEach((ex,j)=>{if(Ln.hit[j]||Ln.miss[j])return;const d=Math.abs(adj-ex);if(d<=tol&&d<bd){bd=d;best=[Ln,j,now-ex]}});
+  }
+  if(best){
+    const [Ln,j,dev]=best;Ln.hit[j]=true;
+    rd.sh=Math.max(-120,Math.min(120,rd.sh*0.6+dev*0.4));
+    dMark(Ln,j,"hit");
+  }else{
+    const i=Math.max(0,Math.min(rd.lines.length-1,Math.floor(adj/rd.barMs))),Ln=rd.lines[i];
+    if(Ln&&!Ln.done){
+      Ln.extra++;
+      if(Ln.el){const x=Math.max(0,Math.min(100,(adj-i*rd.barMs)/rd.barMs*100));const d=document.createElement("div");d.className="xt";d.style.left=x+"%";Ln.el.querySelector(".nin").appendChild(d)}
+    }
+  }
+});
+$("dPlay").onclick=()=>{
+  audio();
+  if(rd.run){dStop();dMsg("Пауза. Нажми ▶, чтобы начать заново","");dPad(TAPT,false);dRender()}
+  else dStart();
+};
+$("dTs").onchange=()=>{st.rd.ts=+$("dTs").value;save();dReset()};
+$("dBpm").onchange=()=>{st.rd.bpm=+$("dBpm").value;save();dReset()};
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&rd.run){dStop();dMsg("Пауза. Нажми ▶, чтобы начать заново","");dPad(TAPT,false);dRender()}});
+$("bHome6").innerHTML='<span class="back">‹</span>Ритм';
+$("bHome6").onclick=()=>show("rhmenu");
+$("bRhRead").onclick=()=>{audio();show("rdread")};
+/* ===== Диктант ритма ===== */
+st.dc=Object.assign({lvl:0,ts:4,bpm:80,correct:0,total:0,streak:0,best:0,passed:[false,false,false,false,false,false]},st.dc||{});
+if(!Array.isArray(st.dc.passed)||st.dc.passed.length!==6)st.dc.passed=[false,false,false,false,false,false];
+const KT={q:{pat:[0],name:"Четверть"},e2:{pat:[0,0.5],name:"Две восьмые"},rq:{pat:[],name:"Пауза"},re:{pat:[0.5],name:"Восьмая после паузы"},s4:{pat:[0,0.25,0.5,0.75],name:"Четыре шестнадцатые"},es2:{pat:[0,0.5,0.75],name:"Восьмая и две шестнадцатые"},s2e:{pat:[0,0.25,0.5],name:"Две шестнадцатые и восьмая"},d1:{pat:[0,0.75],name:"Восьмая с точкой и шестнадцатая"},d2:{pat:[0,0.25],name:"Шестнадцатая и восьмая с точкой"}};
+const KAV=[["q","e2"],["q","e2","rq"],["q","e2","rq","re"],["q","e2","rq","re","s4"],["q","e2","rq","re","s4","es2","s2e"],["q","e2","rq","re","s4","es2","s2e","d1","d2"]];
+const KNEW=[["e2"],["rq"],["re"],["s4"],["es2","s2e"],["d1","d2"]];
+const KLV=[["Уровень 1","Четверти и пары восьмых"],["Уровень 2","Добавляются паузы"],["Уровень 3","Добавляется пауза перед восьмой"],["Уровень 4","Добавляются четыре шестнадцатые"],["Уровень 5","Восьмая и две шестнадцатые, две шестнадцатые и восьмая"],["Уровень 6","Пунктирный ритм"]];
+const kLen=(lv,ts)=>ts;
+const kd={run:0,ts:4,L:4,tgt:[],pat:[],ans:[],bad:[],mode:"idle",failed:false,tms:[],bus:null,tmr:0};
+function kSay(t,c){const m=$("kMsg");m.className=c||"";m.textContent=t}
+function kStop(){kd.tms.forEach(clearTimeout);kd.tms=[];clearTimeout(kd.tmr);if(kd.bus){try{kd.bus.disconnect()}catch(e){}kd.bus=null}}
+function kPat(ids){return ids.flatMap((id,i)=>KT[id].pat.map(x=>i+x))}
+function kDraw(){
+  const L=kd.L,n=kd.ans.length;
+  let s=notationHTML(kPat(kd.ans),L,kd.ts,n);
+  let extra="";
+  kd.bad.forEach(i=>{extra+='<div class="kbad" style="left:calc('+(i/L*100)+'% - 12px);width:calc('+(100/L)+'% - 4px)"></div>'});
+  const k=s.lastIndexOf('<div class="ph">');
+  $("kNote").innerHTML=s.slice(0,k)+extra+s.slice(k);
+}
+function kRender(){
+  const pl=$("kPlay"),run=kd.mode==="busy";pl.classList.toggle("run",run);pl.setAttribute("aria-label",run?"Пауза":"Играть");
+  const done=kd.mode==="done";
+  $("kDel").disabled=done||!kd.ans.length;
+  $("kOk").disabled=done||kd.ans.length<kd.L;
+  document.querySelectorAll("#kGrid .ktile").forEach(b=>b.disabled=done);
+  let pp="";for(let i=0;i<5;i++)pp+='<span class="pp'+(i<kd.run?' f':'')+'"></span>';$("kPips").innerHTML=pp;
+  const s=st.dc;
+  $("kC").textContent=s.total?s.correct+" из "+s.total:"—";
+  $("kB").textContent=s.total?s.best:"—";
+  $("kA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
+}
+function kTiles(){
+  const g=$("kGrid");g.innerHTML="";
+  g.className="kgrid"+(KAV[st.dc.lvl].length>=5?" k3":"");
+  KAV[st.dc.lvl].forEach(id=>{
+    const b=document.createElement("button");b.className="ktile";b.setAttribute("aria-label",KT[id].name);
+    b.innerHTML='<div class="rpanel" style="height:100%;background:none;border:none;margin:0">'+notationHTML(KT[id].pat,1,1)+'</div>';
+    b.onclick=()=>kPick(id);g.appendChild(b);
+  });
+}
+function kChips(){
+  const b=$("kLvls");b.innerHTML="";
+  KLV.forEach((x,i)=>{const e=document.createElement("button");e.className="lv"+(st.dc.lvl===i?" sel":"");e.textContent=(i+1)+(st.dc.passed[i]?" ✓":"");e.setAttribute("aria-label",x[0]);e.onclick=()=>{st.dc.lvl=i;save();kReset()};b.appendChild(e)});
+  $("kLvlNote").textContent=KLV[st.dc.lvl][0]+": "+KLV[st.dc.lvl][1];
+}
+function kNew(){
+  kStop();
+  const lv=st.dc.lvl;
+  kd.ts=st.dc.ts;kd.L=kLen(lv,kd.ts);
+  const av=KAV[lv],nw=KNEW[lv],prev=JSON.stringify(kd.tgt);let ids,t=0;
+  do{
+    ids=[];
+    const half=kd.L>=4&&kd.L%2===0&&lv>=1&&Math.random()<0.4;
+    const n=half?kd.L/2:kd.L;
+    for(let i=0;i<n;i++){
+      // новые длительности уровня выпадают чаще
+      const pool=Math.random()<0.45?nw:av;
+      ids.push(pool[Math.floor(Math.random()*pool.length)]);
+    }
+    if(half)ids=ids.concat(ids);
+    t++;
+  }while(t<80&&(!kPat(ids).length||(kd.L>=3&&new Set(ids).size<2)||!ids.some(x=>nw.includes(x))||ids.filter(x=>x==="rq").length>kd.L/2||JSON.stringify(ids)===prev));
+  kd.tgt=ids;kd.pat=kPat(ids);kd.ans=[];kd.bad=[];kd.failed=false;kd.mode="idle";
+  kDraw();kSay("Нажми ▶ и послушай ритм");kRender();
+}
+function kReset(){
+  kStop();kd.run=0;
+  $("kTs").value=String(st.dc.ts);$("kBpm").value=String(st.dc.bpm);
+  kd.tgt=[];kTiles();kChips();kNew();
+}
+function kPlay(){
+  const c=audio();if(!c)return;
+  kStop();
+  const C=kd.ts,L=kd.L,B=60/st.dc.bpm,T0=c.currentTime+0.25,at=b=>T0+b*B;
+  kd.mode="busy";
+  kd.bus=c.createGain();kd.bus.connect(c._comp);
+  for(let k=0;k<C;k++)blip(c,at(k),k?800:1000,k?0.35:0.45,0.05,kd.bus);
+  kd.pat.forEach(x=>pno(c,at(C+x),0.8,kd.bus));
+  for(let k=0;k<L;k++)blip(c,at(C+k),k%C?800:1000,k%C?0.3:0.4,0.05,kd.bus);
+  kd.tms.push(setTimeout(()=>{if(kd.mode==="busy"){kd.mode="ready";kSay("Теперь собери ритм: нажимай на длительности");kRender()}},(at(C+L)-c.currentTime)*1000+150));
+  const w=b=>Math.max(0,(at(b)-c.currentTime)*1000);
+  for(let k=0;k<C;k++)kd.tms.push(setTimeout(()=>{if(kd.mode==="busy"){const m=$("kMsg");m.className="";m.innerHTML='<span style="font-size:14px;color:#7d6a56;text-align:left;line-height:1.25">Метроном —<br>ритм ещё не звучит</span><span class="kdig">'+(k+1)+'</span>'}},w(k)));
+  kd.tms.push(setTimeout(()=>{if(kd.mode==="busy")kSay("Слушай ритм!","good")},w(C)-30));
+  kSay("Метроном: приготовься…");kRender();
+}
+function kPick(id){
+  if(kd.mode==="done")return;
+  if(kd.bad.length&&kd.ans.length>=kd.L){kd.ans=[];kd.bad=[]}
+  if(kd.ans.length>=kd.L)return;
+  kd.ans.push(id);kd.bad=[];
+  if(kd.ans.length===kd.L&&kd.mode!=="busy")kSay("Нажми «Ответить»");
+  kDraw();kRender();
+}
+function kCheck(){
+  if(kd.ans.length<kd.L||kd.mode==="done")return;
+  const s=st.dc,bad=[];
+  kd.ans.forEach((id,i)=>{if(id!==kd.tgt[i])bad.push(i)});
+  if(!bad.length){
+    if(!kd.failed){s.total++;s.correct++;s.streak++;if(s.streak>s.best)s.best=s.streak;kd.run++}
+    kd.mode="done";kd.bad=[];
+    if(kd.run>=5){
+      const done=s.lvl+1,nxt=Math.min(s.lvl+1,KAV.length-1);
+      s.passed[s.lvl]=true;
+      kSay("Уровень "+done+" пройден! 5 ритмов подряд"+(nxt!==s.lvl?". Дальше — уровень "+(nxt+1):""),"good");
+      kd.tmr=setTimeout(()=>{s.lvl=nxt;save();kReset()},3200);
+    }else{
+      kSay(kd.failed?"Верно, но ответ засчитан как неправильный":"Верно!","good");
+      kd.tmr=setTimeout(()=>{kNew();kPlay()},2400);
+    }
+  }else{
+    if(!kd.failed){kd.failed=true;s.total++;s.streak=0}
+    kd.run=0;
+    kd.bad=bad;kd.mode="ready";
+    kSay("Неправильно. Красным отмечены неверные доли. Попробуй ещё раз","badm");
+    clearTimeout(kd.tmr);kd.tmr=setTimeout(()=>{if(kd.mode==="ready"&&kd.bad.length){kd.ans=[];kd.bad=[];kDraw();kSay("Собери ритм заново или нажми ▶, чтобы послушать ещё раз");kRender()}},1800);
+  }
+  kStop2();save();kDraw();kRender();
+}
+function kStop2(){if(kd.bus){try{kd.bus.disconnect()}catch(e){}kd.bus=null}kd.tms.forEach(clearTimeout);kd.tms=[]}
+$("kPlay").onclick=()=>{
+  audio();
+  if(kd.mode==="busy"){kStop();kd.mode="ready";kSay("Пауза. Нажми ▶, чтобы послушать ещё раз");kRender();return}
+  if(kd.mode==="done")kNew();
+  kPlay();
+};
+$("kDel").onclick=()=>{if(kd.mode==="done"||!kd.ans.length)return;if(kd.bad.length)kd.ans=[];else kd.ans.pop();kd.bad=[];kDraw();kRender()};
+$("kOk").onclick=kCheck;
+$("kTs").onchange=()=>{st.dc.ts=+$("kTs").value;save();kReset()};
+$("kBpm").onchange=()=>{st.dc.bpm=+$("kBpm").value;save();kReset()};
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&kd.mode==="busy"){kStop();kd.mode="ready";kSay("Пауза. Нажми ▶, чтобы послушать ещё раз");kRender()}});
+$("bHome7").innerHTML='<span class="back">‹</span>Ритм';
+$("bHome7").onclick=()=>show("rhmenu");
+$("bRhDict").onclick=()=>{audio();show("rddict")};
 function render(){
   [...$("levels").children].forEach((b,i)=>b.classList.toggle("sel",i===st.level));
   [...$("hlOpts").children].forEach((b,i)=>b.classList.toggle("sel",(st.hl!==false)===(i===0)));
@@ -547,7 +1342,7 @@ $("bRepeat").onclick=()=>{
 $("bAnswer").onclick=()=>{audio();input=[];mode="answer";msg.className="";msg.textContent=failed?"Ещё попытка. Ответ уже засчитан как неправильный":"Играй ответ: нота за нотой";render()};
 $("bReset").onclick=()=>{
   if(!confirm("Сбросить весь прогресс?"))return;
-  Object.assign(st,{streak:0,best:0,correct:0,total:0,chord:{streak:0,best:0,correct:0,total:0},iv:{sel:st.iv.sel,dirs:st.iv.dirs,streak:0,best:0,correct:0,total:0}});save();render();
+  Object.assign(st,{streak:0,best:0,correct:0,total:0,chord:{streak:0,best:0,correct:0,total:0},iv:{sel:st.iv.sel,dirs:st.iv.dirs,streak:0,best:0,correct:0,total:0},rh:{lvl:st.rh.lvl,bpm:st.rh.bpm,streak:0,best:0,correct:0,total:0}});save();render();
 };
 
 render();
@@ -556,3 +1351,5 @@ try{loadBufs(audio())}catch(e){}
 </script>
 </body>
 </html>
+
+</body></html>
