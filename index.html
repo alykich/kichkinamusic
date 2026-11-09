@@ -184,7 +184,7 @@ body:not(.rhmenu) #rhMenu{display:none}
 .tp.bad{background:#c92a2a}
 #rHead{position:absolute;top:6px;bottom:6px;width:3px;margin-left:-1px;border-radius:2px;background:var(--acc);opacity:0}
 #rMsg{min-height:44px;font-size:16px;margin:4px 0 10px}
-body.rhythm,body.rdread,body.rddict{background:linear-gradient(160deg,#FFD58F 0%,#F9AE52 50%,#E98A2E 100%) fixed;min-height:100vh;--fg:#3b2a18;--mute:#8a7560;--card:#fffdf8;--line:#e8dfcf}
+body.rhythm,body.rdread,body.rddict,body.solf{background:linear-gradient(160deg,#FFD58F 0%,#F9AE52 50%,#E98A2E 100%) fixed;min-height:100vh;--fg:#3b2a18;--mute:#8a7560;--card:#fffdf8;--line:#e8dfcf}
 body.rhythm #rhythm h1{color:#fff;text-shadow:0 1px 8px rgba(120,50,0,.25)}
 body.rhythm #bHome4{color:rgba(60,30,0,.8)}
 body.rhythm #bHome4 .back{color:#fff}
@@ -217,13 +217,13 @@ body.rhythm #bHome4 .back{color:#fff}
 .rs{position:absolute;bottom:21px;margin-left:-6px;color:var(--fg);fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
 .tk{top:30px;bottom:30px}
 #rLegend{color:rgba(60,30,0,.75)}
-#rMsg,#dMsg,#kMsg{background:rgba(255,255,255,.75);border-radius:14px;padding:10px 14px;text-align:center;display:flex;align-items:center;justify-content:center;min-height:48px;margin:0 0 12px}
+#rMsg,#dMsg,#kMsg,#sMsg{background:rgba(255,255,255,.75);border-radius:14px;padding:10px 14px;text-align:center;display:flex;align-items:center;justify-content:center;min-height:48px;margin:0 0 12px}
 #rTap,#dTap{display:block;width:100%;min-height:300px;border:none;border-radius:20px;color:#fff;font-size:22px;font-weight:600;font-family:inherit;padding:20px;margin-bottom:14px;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:transform .06s,filter .1s;box-shadow:0 10px 26px rgba(120,50,0,.28);
 background:linear-gradient(#fffd,#fffd) top 20px left 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) top 20px left 20px/3px 24px no-repeat,linear-gradient(#fffd,#fffd) top 20px right 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) top 20px right 20px/3px 24px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px left 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px left 20px/3px 24px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px right 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px right 20px/3px 24px no-repeat,#DB7F00}
 #rTap:disabled,#dTap:disabled{filter:saturate(.6) brightness(1.05);opacity:.9}
 #rTap.pulse{transform:scale(.985);filter:brightness(1.15)}
 #rTap,#dTap,#rTap.pulse,#dTap.pulse,#rTap:active,#dTap:active{transform:none!important;filter:none!important;transition:none!important;-webkit-tap-highlight-color:transparent;outline:none;height:300px;min-height:300px;max-height:300px;box-sizing:border-box;overflow:hidden;line-height:1.2}
-#rMsg,#dMsg,#kMsg{height:64px;min-height:64px;overflow:hidden;box-sizing:border-box}
+#rMsg,#dMsg,#kMsg,#sMsg{height:64px;min-height:64px;overflow:hidden;box-sizing:border-box}
 body.rdread>:not(#rRead):not(#setModal):not(script){display:none}
 body:not(.rdread) #rRead{display:none}
 #rRead{width:100%}
@@ -283,6 +283,38 @@ body.rddict #bHome7 .back{color:#fff}
 .ktile:disabled{opacity:.5}
 .ktile .nin{left:32%;right:28%;top:-12px;bottom:12px}
 .ktile .sl,.ktile .bl{display:none}
+body.solf>:not(#rSol):not(#setModal):not(script){display:none}
+body:not(.solf) #rSol{display:none}
+#rSol{width:100%}
+#rSol h1{font-size:22px;margin:4px 0 10px;color:#fff;text-shadow:0 1px 8px rgba(120,50,0,.25)}
+body.solf #bHome8{color:rgba(60,30,0,.8);font-size:14px;text-decoration:none}
+body.solf #bHome8 .back{color:#fff}
+#sAsk{display:none;position:fixed;inset:0;z-index:50;background:rgba(40,20,0,.45);align-items:center;justify-content:center;padding:24px}
+#sAsk.on{display:flex}
+.sbox{background:#fffdf8;border-radius:22px;padding:22px 20px;max-width:340px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.3);color:#3b2a18}
+.sbt{font-size:19px;font-weight:700;margin-bottom:8px}
+.sbd{font-size:14px;color:#7d6a56;margin-bottom:16px;line-height:1.35}
+.sbb{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#sAskNo{background:#f1e8d8;color:#3b2a18;box-shadow:none}
+#sAskYes{background:#DB7F00;color:#fff;box-shadow:none}
+.stgt{text-align:center;padding:12px 10px 0}
+.slab{font-size:13px;color:#7d6a56}
+#sTarget{font-size:54px;font-weight:700;color:#DB7F00;line-height:1.15;min-height:62px}
+.seq{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:4px 12px 8px}
+.sn{min-width:38px;padding:4px 7px;border-radius:12px;font-size:13px;text-align:center;background:rgba(255,255,255,.55);color:#7d6a56;border:2px solid transparent}
+.sn.cur{border-color:#DB7F00;color:#3b2a18;font-weight:700}
+.sn.ok{background:#2b8a3e;color:#fff}
+.sgauge{position:relative;height:42px;margin:8px 22px 0;border-radius:21px;background:rgba(255,255,255,.55)}
+.szone{position:absolute;top:0;bottom:0;border-radius:21px;background:rgba(43,138,62,.28)}
+.sctr{position:absolute;top:6px;bottom:6px;left:50%;width:2px;margin-left:-1px;background:rgba(80,50,20,.35)}
+.sneedle{position:absolute;top:-5px;bottom:-5px;width:8px;margin-left:-4px;border-radius:4px;background:#C25E00;opacity:.25;left:50%;transition:left .08s linear,opacity .15s}
+.sneedle.ok{background:#2b8a3e}
+.sends{display:flex;justify-content:space-between;margin:4px 26px 0;font-size:12px;color:#7d6a56}
+.snow{text-align:center;padding:8px 12px 14px;font-size:15px;color:#3b2a18;min-height:44px}
+.kb.wide{width:100%;margin-bottom:12px;background:rgba(255,255,255,.75);color:#3b2a18}
+#sMicBtn{background:#fff;color:#C25E00}
+#sPlay{background:#fff;color:#C25E00}
+#sRef,#sSkip{background:rgba(255,255,255,.75);color:#3b2a18}
 </style>
 </head>
 <body class="home">
@@ -320,8 +352,8 @@ body.rddict #bHome7 .back{color:#fff}
       <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h5v-4h5v-4h5V8h3"/></svg></div><span class="badge">Скоро</span></div>
       <div><div class="nm">Гаммы</div><div class="ds">Мажор, натуральный, гармонический и мелодический минор</div></div>
     </button>
-    <button class="tile soon" data-n="Сольфеджио">
-      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><span class="badge">Скоро</span></div>
+    <button class="tile on" id="bSol">
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div></div>
       <div><div class="nm">Сольфеджио</div><div class="ds">Пение: ноты, интервалы и гаммы</div></div>
     </button>
   </div>
@@ -381,6 +413,35 @@ body.rddict #bHome7 .back{color:#fff}
     <div class="stat"><b id="kC">—</b><span>Количество правильных ответов</span></div>
     <div class="stat"><b id="kB">—</b><span>Рекорд серии</span></div>
     <div class="stat"><b id="kA">—</b><span>Точность</span></div>
+  </div>
+</div>
+<div id="rSol">
+  <div id="sAsk"><div class="sbox"><div class="sbt">Разрешить доступ к микрофону?</div><div class="sbd">Тюнеру нужен микрофон, чтобы слышать твоё пение. Звук никуда не записывается и не отправляется.</div><div class="sbb"><button class="kb" id="sAskNo">Не сейчас</button><button class="kb" id="sAskYes">Разрешить</button></div></div></div>
+  <button class="reset" id="bHome8">‹ Главное меню</button>
+  <h1>Сольфеджио</h1>
+  <div class="levels" id="sModes" style="margin-bottom:10px"></div>
+  <div class="rcard">
+    <div class="dpips"><span>Заданий подряд</span><span class="pips" id="sPips"></span></div>
+    <div class="stgt"><div class="slab">Нужная нота</div><div id="sTarget">—</div></div>
+    <div class="seq" id="sSeq"></div>
+    <div class="sgauge"><div class="szone" id="sZone"></div><div class="sctr"></div><div class="sneedle" id="sNeedle"></div></div>
+    <div class="sends"><span>ниже ♭</span><span>♯ выше</span></div>
+    <div class="snow" id="sNow">Пока тишина</div>
+  </div>
+  <div id="sMsg">Нажми ▶ и послушай задание</div>
+  <button class="kb wide" id="sMicBtn">Включить микрофон</button>
+  <div class="krow"><button class="kb" id="sPlay">▶ Послушать задание</button><button class="kb" id="sRef">Эта нота ещё раз</button></div>
+  <button class="kb wide" id="sSkip">Другое задание</button>
+  <div class="card">
+    <div class="lbl">Уровень</div><div class="levels" id="sLvls"></div><div class="hnote" id="sLvlNote" style="margin-top:8px"></div>
+    <div class="lbl" style="margin-top:12px">Точность попадания</div><div class="levels" id="sTol"></div>
+    <div class="lbl" style="margin-top:12px">Октава</div><div class="levels" id="sOct"></div>
+    <div class="hnote" style="margin-top:8px">Если поёшь на октаву ниже или выше задания — выбери «Любую октаву». Лучше петь в наушниках, чтобы микрофон не слышал звук из динамика.</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="sC">—</b><span>Количество правильных ответов</span></div>
+    <div class="stat"><b id="sB">—</b><span>Рекорд серии</span></div>
+    <div class="stat"><b id="sA">—</b><span>Точность</span></div>
   </div>
 </div>
 <div id="rhMenu">
@@ -600,7 +661,7 @@ $("vol").value=Math.round(st.vol*100);$("volV").textContent=$("vol").value+"%";
 $("vol").oninput=()=>{st.vol=$("vol").value/100;$("volV").textContent=$("vol").value+"%";if(ctx&&ctx._master)ctx._master.gain.value=st.vol;save()};
 $("vol").onchange=()=>{tone(7)};
 $("bClose").onclick=()=>{$("setModal").hidden=true};
-function show(v){document.body.classList.toggle("home",v==="home");document.body.classList.toggle("chords",v==="chord");document.body.classList.toggle("intervals",v==="interval");document.body.classList.toggle("rhythm",v==="rhythm");document.body.classList.toggle("rhmenu",v==="rhmenu");document.body.classList.toggle("rdread",v==="rdread");document.body.classList.toggle("rddict",v==="rddict");rhStop();dStop();kStop();clearTimeout(ivs.timer);ivs.pt.forEach(clearTimeout);clearTimeout(cs.timer);(cs.pt||[]).forEach(clearTimeout);timers.forEach(clearTimeout);timers=[];$("homeNote").textContent="Результаты хранятся на этом устройстве";if(v==="dict")newRound(false);else if(v==="chord")chordReset();else if(v==="interval")ivReset();else if(v==="rhythm")rhReset();else if(v==="rdread")dReset();else if(v==="rddict")kReset();else{mode="idle";render()}}
+function show(v){document.body.classList.toggle("home",v==="home");document.body.classList.toggle("chords",v==="chord");document.body.classList.toggle("intervals",v==="interval");document.body.classList.toggle("rhythm",v==="rhythm");document.body.classList.toggle("rhmenu",v==="rhmenu");document.body.classList.toggle("rdread",v==="rdread");document.body.classList.toggle("rddict",v==="rddict");document.body.classList.toggle("solf",v==="solf");rhStop();dStop();kStop();sStopAll();clearTimeout(ivs.timer);ivs.pt.forEach(clearTimeout);clearTimeout(cs.timer);(cs.pt||[]).forEach(clearTimeout);timers.forEach(clearTimeout);timers=[];$("homeNote").textContent="Результаты хранятся на этом устройстве";if(v==="dict")newRound(false);else if(v==="chord")chordReset();else if(v==="interval")ivReset();else if(v==="rhythm")rhReset();else if(v==="rdread")dReset();else if(v==="rddict")kReset();else if(v==="solf"){sReset();sEnter()}else{mode="idle";render()}}
 $("bDict").onclick=()=>{audio();show("dict")};
 $("bHome").onclick=()=>show("home");
 $("bHomeSet").onclick=openSet;
@@ -1261,6 +1322,258 @@ document.addEventListener("visibilitychange",()=>{if(document.hidden&&kd.mode===
 $("bHome7").innerHTML='<span class="back">‹</span>Ритм';
 $("bHome7").onclick=()=>show("rhmenu");
 $("bRhDict").onclick=()=>{audio();show("rddict")};
+/* ===== Сольфеджио ===== */
+st.sl=Object.assign({mode:0,lvl:[0,0,0],tol:35,oct:true,correct:0,total:0,streak:0,best:0,passed:{}},st.sl||{});
+if(!Array.isArray(st.sl.lvl)||st.sl.lvl.length!==3)st.sl.lvl=[0,0,0];
+if(!st.sl.passed||typeof st.sl.passed!=="object")st.sl.passed={};
+const SNM=["До","До♯","Ре","Ре♯","Ми","Фа","Фа♯","Соль","Соль♯","Ля","Ля♯","Си"];
+const sName=m=>SNM[((m%12)+12)%12];
+const SMODES=["Нота","Интервал","Гамма"];
+const SLV=[
+  [["Уровень 1","Белые ноты в одной октаве"],["Уровень 2","Любые ноты, включая диезы"],["Уровень 3","Шире диапазон: от «соль» малой октавы"]],
+  [["Уровень 1","Большая терция, квинта, октава"],["Уровень 2","Секунды, терции, кварта, квинта"],["Уровень 3","Все интервалы до октавы"]],
+  [["Уровень 1","Мажорная гамма вверх"],["Уровень 2","Натуральный минор вверх"],["Уровень 3","Мажор вверх и вниз"]]
+];
+const SIVN={1:"малая секунда",2:"большая секунда",3:"малая терция",4:"большая терция",5:"чистая кварта",6:"тритон",7:"чистая квинта",8:"малая секста",9:"большая секста",10:"малая септима",11:"большая септима",12:"октава"};
+const SD={tgt:[],pos:0,ok:[],phase:"idle",hold:0,lock:0,run:0,failed:false,tms:[],bus:null,stream:null,src:null,an:null,buf:null,raf:0,last:0,hist:[],mic:"off",tmr:0,info:""};
+const sMix=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+function sTask(){
+  const m=st.sl.mode,lv=st.sl.lvl[m];let t=[],info="";
+  const WH=[0,2,4,5,7,9,11];
+  if(m===0){
+    if(lv===0)t=[60+WH[sMix(0,6)]];
+    else if(lv===1)t=[sMix(60,71)];
+    else t=[sMix(55,76)];
+    info="Нота: "+sName(t[0]);
+  }else if(m===1){
+    const sets=[[4,7,12],[2,3,4,5,7],[1,2,3,4,5,6,7,8,9,10,11,12]];
+    const iv=sets[lv][sMix(0,sets[lv].length-1)];
+    const a=lv===0?60+WH[sMix(0,6)]:(lv===1?sMix(60,67):sMix(57,68));
+    t=[a,a+iv];info=SIVN[iv]+" вверх";
+  }else{
+    const tn=[60,62,64,65,67,69][sMix(0,5)]-(lv===2?0:0);
+    const maj=[0,2,4,5,7,9,11,12],min=[0,2,3,5,7,8,10,12];
+    const sc=(lv===1?min:maj).map(x=>tn+x);
+    t=lv===2?sc.concat(sc.slice(0,-1).reverse()):sc;
+    info=(lv===1?"натуральный минор":"мажор")+" от ноты «"+sName(tn)+"»"+(lv===2?", вверх и вниз":"");
+  }
+  return {t,info};
+}
+function sPlayMidi(c,t,m,v,dur,dst){
+  loadBufs(c);
+  const idx=Math.max(0,Math.min(12,Math.round(m-60))),bf=BUFS[idx];
+  if(!bf)return;
+  const s=c.createBufferSource();s.buffer=bf;s.playbackRate.value=Math.pow(2,(m-60-idx)/12);
+  const g=c.createGain();
+  g.gain.setValueAtTime(1.3*v,t);g.gain.setValueAtTime(1.3*v,t+dur*0.7);g.gain.exponentialRampToValueAtTime(0.0001,t+dur*1.15);
+  s.connect(g);g.connect(dst);s.start(t);s.stop(t+dur*1.2);
+}
+/* определение высоты голоса: алгоритм YIN */
+function sYin(buf,sr){
+  const W=buf.length>>1;let e=0;
+  for(let i=0;i<W;i++)e+=buf[i]*buf[i];
+  if(Math.sqrt(e/W)<0.012)return null;
+  const tMin=Math.max(2,Math.floor(sr/1300)),tMax=Math.min(W-1,Math.floor(sr/110));
+  const d=new Float32Array(tMax+1);
+  for(let t=1;t<=tMax;t++){let s=0;for(let i=0;i<W;i++){const x=buf[i]-buf[i+t];s+=x*x}d[t]=s}
+  let run=0;d[0]=1;
+  for(let t=1;t<=tMax;t++){run+=d[t];d[t]=d[t]*t/(run||1)}
+  let tau=-1;
+  for(let t=tMin;t<=tMax;t++){
+    if(d[t]<0.15){while(t+1<=tMax&&d[t+1]<d[t])t++;tau=t;break}
+  }
+  if(tau<0)return null;
+  let b=tau;
+  if(tau>1&&tau<tMax){const a=d[tau-1],c=d[tau],e2=d[tau+1],den=a-2*c+e2;if(den!==0)b=tau+(a-e2)/(2*den)}
+  return sr/b;
+}
+function sSay(t,c){const m=$("sMsg");m.className=c||"";m.textContent=t}
+function sStopAudio(){SD.tms.forEach(clearTimeout);SD.tms=[];clearTimeout(SD.tmr);if(SD.bus){try{SD.bus.disconnect()}catch(e){}SD.bus=null}}
+function sStopAll(){
+  sStopAudio();cancelAnimationFrame(SD.raf);SD.raf=0;
+  if(SD.stream){try{SD.stream.getTracks().forEach(t=>t.stop())}catch(e){}SD.stream=null}
+  if(SD.src){try{SD.src.disconnect()}catch(e){}SD.src=null}
+  SD.an=null;SD.mic="off";SD.phase="idle";
+}
+async function sMic(){
+  if(SD.mic==="on")return true;
+  const c=audio();
+  try{const pp=document.permissionsPolicy||document.featurePolicy;
+    if(pp&&pp.allowsFeature&&!pp.allowsFeature("microphone")){SD.mic="err";sMicMsg("Окно claude.ai не пропускает микрофон: это ограничение самой страницы, а не твоих настроек. Открой приложение в Chrome или Safari как обычный файл или сайт (кнопку ниже можно нажать, но здесь не сработает).");return false}}catch(e){}
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){SD.mic="err";sMicMsg("В этом окне нет доступа к микрофону. Открой приложение в браузере (Safari или Chrome).");return false}
+  try{
+    SD.stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
+    SD.src=c.createMediaStreamSource(SD.stream);
+    SD.an=c.createAnalyser();SD.an.fftSize=2048;SD.src.connect(SD.an);
+    SD.buf=new Float32Array(SD.an.fftSize);SD.mic="on";sRender();return true;
+  }catch(e){
+    SD.mic="err";
+    sMicMsg(e&&e.name==="NotAllowedError"?"Доступ к микрофону не разрешён. Разреши микрофон для этой страницы или открой приложение в обычном браузере.":"Микрофон недоступен ("+(e&&e.name||"ошибка")+"). Если открыто внутри claude.ai — окно может блокировать микрофон; открой приложение в Chrome или Safari.");
+    return false;
+  }
+}
+function sMicMsg(t){sSay(t,"badm");sRender()}
+function sGauge(cents,on,inTol){
+  const n=$("sNeedle");
+  n.style.opacity=on?1:0.25;
+  n.style.left=(50+Math.max(-1,Math.min(1,cents/50))*50)+"%";
+  n.classList.toggle("ok",!!inTol);
+}
+function sSeq(){
+  const r=$("sSeq");r.innerHTML="";
+  SD.tgt.forEach((m,i)=>{
+    const e=document.createElement("span");
+    e.className="sn"+(SD.ok[i]?" ok":(i===SD.pos&&SD.phase==="sing"?" cur":""));
+    e.textContent=sName(m);r.appendChild(e);
+  });
+}
+function sRender(){
+  const s=st.sl,key=s.mode+"-"+s.lvl[s.mode];
+  const mic=$("sMicBtn");
+  mic.style.display=SD.mic==="on"?"none":"block";
+  mic.textContent=SD.mic==="err"?"Попробовать включить микрофон ещё раз":"Включить микрофон";
+  $("sPlay").disabled=!SD.tgt.length||SD.phase==="done";
+  $("sRef").disabled=!SD.tgt.length||SD.phase==="done"||SD.phase==="idle";
+  $("sSkip").disabled=!SD.tgt.length;
+  let pp="";for(let i=0;i<5;i++)pp+='<span class="pp'+(i<SD.run?' f':'')+'"></span>';$("sPips").innerHTML=pp;
+  $("sC").textContent=s.total?s.correct+" из "+s.total:"—";
+  $("sB").textContent=s.total?s.best:"—";
+  $("sA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
+  const cur=SD.tgt[SD.pos];
+  $("sTarget").textContent=SD.phase==="sing"&&cur!=null?sName(cur):(SD.phase==="listen"?"Слушай…":(SD.phase==="done"?"✓":"—"));
+  sSeq();
+}
+function sChips(){
+  const m=st.sl.mode,mb=$("sModes");mb.innerHTML="";
+  SMODES.forEach((x,i)=>{const b=document.createElement("button");b.className="lv"+(m===i?" sel":"");b.textContent=x;b.onclick=()=>{st.sl.mode=i;save();sReset()};mb.appendChild(b)});
+  const lb=$("sLvls");lb.innerHTML="";
+  SLV[m].forEach((x,i)=>{const b=document.createElement("button");b.className="lv"+(st.sl.lvl[m]===i?" sel":"");b.textContent=(i+1)+(st.sl.passed[m+"-"+i]?" ✓":"");b.onclick=()=>{st.sl.lvl[m]=i;save();sReset()};lb.appendChild(b)});
+  $("sLvlNote").textContent=SLV[m][st.sl.lvl[m]][0]+": "+SLV[m][st.sl.lvl[m]][1];
+  $("sZone").style.left=(50-st.sl.tol)+"%";$("sZone").style.width=(2*st.sl.tol)+"%";
+  const tb=$("sTol");tb.innerHTML="";
+  [["Лёгкая ±50",50],["Обычная ±35",35],["Строгая ±20",20]].forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(st.sl.tol===v?" sel":"");b.textContent=t;b.onclick=()=>{st.sl.tol=v;save();sChips()};tb.appendChild(b)});
+  const ob=$("sOct");ob.innerHTML="";
+  [["Любая октава",true],["Точная октава",false]].forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(st.sl.oct===v?" sel":"");b.textContent=t;b.onclick=()=>{st.sl.oct=v;save();sChips()};ob.appendChild(b)});
+}
+function sNew(play){
+  sStopAudio();
+  const k=sTask();SD.tgt=k.t;SD.info=k.info;SD.ok=k.t.map(()=>false);SD.pos=0;SD.hold=0;SD.lock=0;SD.failed=false;SD.phase="ready";
+  sGauge(0,false,false);$("sNow").textContent="Пока тишина";
+  sSay("Нажми ▶ и послушай задание, потом пой");sRender();
+  if(play)sPlayTask();
+}
+function sReset(){
+  sStopAudio();SD.run=0;sChips();sNew(false);
+}
+function sPlayTask(){
+  const c=audio();if(!c||!SD.tgt.length)return;
+  sStopAudio();
+  const per=SD.tgt.length===1?1.3:(SD.tgt.length===2?0.9:0.5),T0=c.currentTime+0.2;
+  SD.bus=c.createGain();SD.bus.connect(c._comp);
+  SD.tgt.forEach((m,i)=>sPlayMidi(c,T0+i*per,m,0.9,per*0.95,SD.bus));
+  SD.phase="listen";SD.hold=0;
+  sSay("Слушай…");sRender();
+  const total=(T0-c.currentTime+SD.tgt.length*per)*1000+350;
+  SD.tms.push(setTimeout(()=>{if(SD.phase==="listen"){sStartSing()}},total));
+}
+async function sStartSing(){
+  SD.phase="sing";SD.hold=0;SD.lock=performance.now()+300;SD.hist=[];
+  if(SD.mic!=="on"&&SD.declined){SD.phase="ready";sMicMsg("Без микрофона тюнер не слышит голос. Нажми «Включить микрофон».");return}
+  const ok=SD.mic==="on"||await sMic();
+  if(!ok){SD.phase="ready";sRender();return}
+  sSay(SD.tgt.length>1?"Теперь пой по порядку: "+SD.tgt.map(sName).join(" – "):"Теперь пой эту ноту","");
+  sRender();
+  if(!SD.raf){SD.last=performance.now();SD.raf=requestAnimationFrame(sFrame)}
+}
+function sFrame(now){
+  SD.raf=0;
+  if(SD.mic!=="on"||!SD.an)return;
+  const dt=Math.min(100,now-SD.last);SD.last=now;
+  SD.raf=requestAnimationFrame(sFrame);
+  if(SD.phase!=="sing")return;
+  const c=audio();
+  SD.an.getFloatTimeDomainData(SD.buf);
+  const f=sYin(SD.buf,c.sampleRate),tgt=SD.tgt[SD.pos];
+  if(f==null||f<100||f>1300){
+    SD.hist.length=0;SD.hold=Math.max(0,SD.hold-dt*0.5);
+    sGauge(0,false,false);return;
+  }
+  const mm=69+12*Math.log2(f/440);
+  SD.hist.push(mm);if(SD.hist.length>5)SD.hist.shift();
+  const sm=SD.hist.slice().sort((a,b)=>a-b)[SD.hist.length>>1];
+  let d=sm-tgt;
+  if(st.sl.oct)d=((d+6)%12+12)%12-6;
+  const cents=d*100,inTol=Math.abs(cents)<=st.sl.tol;
+  sGauge(cents,true,inTol);
+  const nn=Math.round(sm);
+  $("sNow").textContent="Ты поёшь: "+sName(nn)+" ("+(cents>=0?"+":"−")+Math.abs(Math.round(cents))+" ¢, "+Math.round(f)+" Гц)"+(Math.abs(cents)<=st.sl.tol?" — в точку!":(cents<0?" — ниже":" — выше"));
+  if(now<SD.lock)return;
+  if(inTol){SD.hold+=dt;if(SD.hold>=450)sAccept()}else SD.hold=Math.max(0,SD.hold-dt*1.5);
+}
+function sAccept(){
+  SD.ok[SD.pos]=true;SD.pos++;SD.hold=0;SD.lock=performance.now()+400;SD.hist=[];
+  if(SD.pos>=SD.tgt.length){sDone();return}
+  sSay("Верно! Дальше: "+sName(SD.tgt[SD.pos]),"good");sRender();
+}
+function sDone(){
+  SD.phase="done";const s=st.sl;
+  s.total++;s.correct++;s.streak++;if(s.streak>s.best)s.best=s.streak;
+  if(!SD.failed)SD.run++;
+  sGauge(0,false,false);
+  const key=s.mode+"-"+s.lvl[s.mode];
+  if(SD.run>=5){
+    s.passed[key]=true;
+    const nx=Math.min(s.lvl[s.mode]+1,2);
+    sSay("Уровень "+(s.lvl[s.mode]+1)+" пройден! 5 заданий подряд"+(nx!==s.lvl[s.mode]?". Дальше — уровень "+(nx+1):""),"good");
+    save();sRender();
+    SD.tmr=setTimeout(()=>{s.lvl[s.mode]=nx;save();sReset()},3200);return;
+  }
+  sSay("Отлично, всё спела! "+SD.info.charAt(0).toUpperCase()+SD.info.slice(1),"good");
+  save();sRender();
+  SD.tmr=setTimeout(()=>sNew(true),3000);
+}
+async function sEnter(){
+  let g="prompt";
+  try{if(navigator.permissions&&navigator.permissions.query)g=(await navigator.permissions.query({name:"microphone"})).state}catch(e){}
+  if(!document.body.classList.contains("solf"))return;
+  if(g==="granted"){if(await sMic())sSay("Микрофон включён. Нажми ▶ и слушай задание")}
+  else if(g==="denied"){SD.mic="err";sMicMsg("Доступ к микрофону запрещён в настройках браузера. Разреши его для этой страницы и нажми «Попробовать ещё раз».")}
+  else if(!SD.declined)sAsk(false);
+}
+function sAsk(play){SD.pend=!!play;$("sAsk").classList.add("on")}
+$("sAskYes").onclick=async()=>{
+  $("sAsk").classList.remove("on");SD.declined=false;
+  const ok=await sMic();
+  if(ok){sSay("Микрофон включён","good");if(SD.pend)sPlayTask()}
+  SD.pend=false;
+};
+$("sAskNo").onclick=()=>{
+  $("sAsk").classList.remove("on");SD.declined=true;
+  sSay("Без микрофона тюнер не работает. Нажми «Включить микрофон», когда будешь готова");sRender();
+  if(SD.pend)sPlayTask();SD.pend=false;
+};
+$("sPlay").onclick=()=>{
+  audio();if(SD.phase==="done")return;
+  if(SD.mic!=="on"&&!SD.declined&&SD.mic!=="err"){sAsk(true);return}
+  sPlayTask();
+};
+$("sRef").onclick=()=>{
+  const c=audio();if(!c||SD.phase==="done"||SD.pos>=SD.tgt.length)return;
+  const was=SD.phase;
+  sPlayMidi(c,c.currentTime+0.05,SD.tgt[SD.pos],0.9,1.1,c._comp);
+  if(was==="sing"){SD.phase="listen";SD.hold=0;SD.tms.push(setTimeout(()=>{if(SD.phase==="listen"){SD.phase="sing";SD.hold=0;SD.lock=performance.now()+200;SD.hist=[];sRender()}},1500));sRender()}
+};
+$("sSkip").onclick=()=>{
+  const s=st.sl;
+  if(SD.phase!=="done"){s.total++;s.streak=0;SD.run=0;save()}
+  sNew(false);
+};
+$("sMicBtn").onclick=async()=>{audio();SD.declined=false;if(await sMic())sSay("Микрофон включён. Нажми ▶ и слушай задание")};
+$("bHome8").onclick=()=>show("home");
+$("bHome8").innerHTML='<span class="back">‹</span>Главное меню';
+$("bSol").onclick=()=>{audio();show("solf")};
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&document.body.classList.contains("solf")){sStopAll();sNew(false);sSay("Пауза. Нажми ▶, чтобы продолжить")}});
+
 function render(){
   [...$("levels").children].forEach((b,i)=>b.classList.toggle("sel",i===st.level));
   [...$("hlOpts").children].forEach((b,i)=>b.classList.toggle("sel",(st.hl!==false)===(i===0)));
