@@ -311,11 +311,16 @@ body.solf #bHome8 .back{color:#fff}
 .sn{min-width:38px;padding:4px 7px;border-radius:12px;font-size:13px;text-align:center;background:rgba(255,255,255,.55);color:#7d6a56;border:2px solid transparent}
 .sn.cur{border-color:#DB7F00;color:#3b2a18;font-weight:700}
 .sn.ok{background:#2b8a3e;color:#fff}
+.sbadge{text-align:center;padding:2px 0 6px}
+#sArc{transition:stroke-dasharray .12s linear}
 .sgauge{position:relative;height:42px;margin:8px 22px 0;border-radius:21px;background:rgba(255,255,255,.55)}
 .szone{position:absolute;top:0;bottom:0;border-radius:21px;background:rgba(43,138,62,.28)}
 .sctr{position:absolute;top:6px;bottom:6px;left:50%;width:2px;margin-left:-1px;background:rgba(80,50,20,.35)}
-.sneedle{position:absolute;top:-5px;bottom:-5px;width:8px;margin-left:-4px;border-radius:4px;background:#C25E00;opacity:.25;left:50%;transition:left .08s linear,opacity .15s}
+.sneedle{position:absolute;top:-5px;bottom:-5px;width:8px;margin-left:-4px;border-radius:4px;background:#C25E00;opacity:.25;left:50%;transition:left .18s ease-out,opacity .2s}
 .sneedle.ok{background:#2b8a3e}
+.sticks{position:relative;height:16px;margin:2px 22px 0;font-size:10px;color:#7d6a56}
+.sticks span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.stk{position:absolute;top:10px;bottom:10px;width:1px;margin-left:-.5px;background:rgba(80,50,20,.3)}
 .sends{display:flex;justify-content:space-between;margin:4px 26px 0;font-size:12px;color:#7d6a56}
 .shint{text-align:center;font-size:13px;color:#7d6a56;padding:0 16px 14px;margin-top:-6px}
 .snow{text-align:center;padding:8px 12px 14px;font-size:15px;color:#3b2a18;min-height:44px}
@@ -441,14 +446,27 @@ body.prog #bHome9 .back{color:#fff}
   <div id="sAsk"><div class="sbox"><div class="sbt">Разрешить доступ к микрофону?</div><div class="sbd">Тюнеру нужен микрофон, чтобы слышать твоё пение. Звук никуда не записывается и не отправляется.</div><div class="sbb"><button class="kb" id="sAskNo">Не сейчас</button><button class="kb" id="sAskYes">Разрешить</button></div></div></div>
   <div class="toprow"><button class="reset" id="bHome8">‹ Главное меню</button><span class="trr"><button class="gearb" id="sGear" aria-label="Настройки"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
   <h1>Сольфеджио</h1>
-  <div class="levels" id="sModes" style="margin-bottom:10px"></div>
   <div class="rcard">
     <div class="stgt"><div class="slab">Нужная нота</div><div id="sTarget">—</div></div>
     <div class="seq" id="sSeq"></div>
+    <div class="sbadge"><svg id="sBadge" viewBox="0 0 120 120" width="132" height="132" aria-hidden="true">
+      <defs><clipPath id="sMicClip"><rect x="50" y="26" width="20" height="36" rx="10"/></clipPath></defs>
+      <circle cx="60" cy="60" r="52" fill="rgba(255,255,255,.55)" stroke="rgba(120,100,80,.28)" stroke-width="6"/>
+      <circle id="sArc" cx="60" cy="60" r="52" fill="none" stroke="#2b8a3e" stroke-width="6" stroke-linecap="round" stroke-dasharray="0 400" transform="rotate(90 60 60)"/>
+      <g id="sMicG">
+        <rect x="50" y="26" width="20" height="36" rx="10" fill="rgba(194,94,0,.22)"/>
+        <rect id="sMicFill" x="50" y="62" width="20" height="0" fill="#DB7F00" clip-path="url(#sMicClip)"/>
+        <path d="M40 54 v3 a20 20 0 0 0 40 0 v-3" fill="none" stroke="#C25E00" stroke-width="5" stroke-linecap="butt"/>
+        <rect x="57.5" y="77" width="5" height="12" fill="#C25E00"/>
+      </g>
+      <path id="sCheck" d="M38 62 L54 78 L84 44" fill="none" stroke="#2b8a3e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" style="display:none"/>
+    </svg></div>
     <div class="sgauge"><div class="szone" id="sZone"></div><div class="sctr"></div><div class="sneedle" id="sNeedle"></div></div>
+    <div class="sticks" id="sTicks"></div>
     <div class="sends"><span>ниже ♭</span><span>♯ выше</span></div>
     <div class="snow" id="sNow">Пока тишина</div>
-    <div class="shint">Нота засчитывается, когда ты держишь её около полсекунды</div>
+    <div class="shint">Шкала сжимается к краям: чем дальше от цели, тем ближе указатель к краю (100 ¢ = полтона)</div>
+    <div class="shint">Нота засчитывается, когда ты держишь её около секунды; линия по краю значка показывает приближение и удержание</div>
   </div>
   <div id="sMsg">Нажми ▶ и послушай задание</div>
   <button class="kb wide" id="sMicBtn">Включить микрофон</button>
@@ -574,7 +592,7 @@ body.prog #bHome9 .back{color:#fff}
 </div>
 
 <div id="rSetM" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="rSetClose">Закрыть</button></div><div class="lbl">Ритм нотами</div><div class="levels" id="rShow"></div><div class="hnote" style="margin-top:8px">«Скрыть до ответа» прячет ноты и кружки ритма, пока ты не ответишь.</div></div></div>
-<div id="sSetM" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="sSetClose">Закрыть</button></div><div class="lbl">Точность попадания</div><div class="levels" id="sTol"></div><div class="lbl" style="margin-top:14px">Октава</div><div class="levels" id="sOct"></div><div class="hnote" style="margin-top:8px">Если поёшь на октаву ниже или выше задания — выбери «Любую октаву». Лучше петь в наушниках, чтобы микрофон не слышал звук из динамика.</div></div></div>
+<div id="sSetM" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="sSetClose">Закрыть</button></div><div class="lbl">Что петь</div><div class="levels" id="sModes"></div><div class="lbl" style="margin-top:14px">Точность попадания</div><div class="levels" id="sTol"></div><div class="lbl">Октава заданий</div><div class="levels" id="sOv"></div><div class="hnote" style="margin-top:6px">Малая — от «до» ниже средней; первая — средняя, самая удобная для женского голоса; вторая — выше.</div><div class="lbl" style="margin-top:14px">Засчитывать пение</div><div class="levels" id="sOct"></div><div class="hnote" style="margin-top:8px">«В любой октаве» засчитывает ноту, даже если поёшь на октаву ниже или выше. Лучше петь в наушниках, чтобы микрофон не слышал звук из динамика.</div></div></div>
 <div id="setModal" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="bClose">Закрыть</button></div><div class="lbl">Количество нот в мелодии</div><div class="levels" id="levels"></div><div class="lbl" style="margin-top:14px">Подсветка первой ноты</div><div class="levels" id="hlOpts"></div><div class="lbl" style="margin-top:14px">Громкость: <span id="volV"></span></div><input type="range" id="vol" min="0" max="100" step="5" style="width:100%;accent-color:var(--acc)"><div class="hnote" id="sndInfo"></div></div></div>
 <div style="text-align:center;order:9"><button class="btn" id="bSet" style="width:100%;margin-bottom:6px">Настройки</button><button class="reset" id="bReset">Сбросить прогресс</button></div>
 
@@ -1379,9 +1397,10 @@ $("bHome7").innerHTML='<span class="back">‹</span>Ритм';
 $("bHome7").onclick=()=>show("rhmenu");
 $("bRhDict").onclick=()=>{audio();show("rddict")};
 /* ===== Сольфеджио ===== */
-st.sl=Object.assign({mode:0,lvl:[0,0,0],tol:35,oct:true,correct:0,total:0,streak:0,best:0,passed:{}},st.sl||{});
+st.sl=Object.assign({ov:1,mode:0,lvl:[0,0,0],tol:35,oct:true,correct:0,total:0,streak:0,best:0,passed:{}},st.sl||{});
 if(!Array.isArray(st.sl.lvl)||st.sl.lvl.length!==3)st.sl.lvl=[0,0,0];
 if(!st.sl.passed||typeof st.sl.passed!=="object")st.sl.passed={};
+if(![0,1,2].includes(st.sl.ov))st.sl.ov=1;
 const SNM=["До","До♯","Ре","Ре♯","Ми","Фа","Фа♯","Соль","Соль♯","Ля","Ля♯","Си"];
 const sName=m=>SNM[((m%12)+12)%12];
 const SMODES=["Нота","Интервал","Гамма"];
@@ -1393,25 +1412,19 @@ const SLV=[
 const SIVN={1:"малая секунда",2:"большая секунда",3:"малая терция",4:"большая терция",5:"чистая кварта",6:"тритон",7:"чистая квинта",8:"малая секста",9:"большая секста",10:"малая септима",11:"большая септима",12:"октава"};
 const SD={tgt:[],pos:0,ok:[],phase:"idle",hold:0,lock:0,run:0,failed:false,tms:[],bus:null,stream:null,src:null,an:null,buf:null,raf:0,last:0,hist:[],mic:"off",tmr:0,info:""};
 const sMix=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const SOV=[["Малая октава",48],["Первая октава",60],["Вторая октава",72]];
 function sTask(){
-  const m=st.sl.mode,lv=[1,1,0][m];let t=[],info="";
-  const WH=[0,2,4,5,7,9,11];
+  const m=st.sl.mode,base=SOV[st.sl.ov][1];let t=[],info="";
   if(m===0){
-    if(lv===0)t=[60+WH[sMix(0,6)]];
-    else if(lv===1)t=[sMix(60,71)];
-    else t=[sMix(55,76)];
+    t=[base+sMix(0,11)];
     info="Нота: "+sName(t[0]);
   }else if(m===1){
-    const sets=[[4,7,12],[2,3,4,5,7],[1,2,3,4,5,6,7,8,9,10,11,12]];
-    const iv=sets[lv][sMix(0,sets[lv].length-1)];
-    const a=lv===0?60+WH[sMix(0,6)]:(lv===1?sMix(60,67):sMix(57,68));
+    const set=[2,3,4,5,7],iv=set[sMix(0,set.length-1)],a=base+sMix(0,7);
     t=[a,a+iv];info=SIVN[iv]+" вверх";
   }else{
-    const tn=[60,62,64,65,67,69][sMix(0,5)]-(lv===2?0:0);
-    const maj=[0,2,4,5,7,9,11,12],min=[0,2,3,5,7,8,10,12];
-    const sc=(lv===1?min:maj).map(x=>tn+x);
-    t=lv===2?sc.concat(sc.slice(0,-1).reverse()):sc;
-    info=(lv===1?"натуральный минор":"мажор")+" от ноты «"+sName(tn)+"»"+(lv===2?", вверх и вниз":"");
+    const tns=[0,2,4,5,7,9].map(x=>base+x).filter(x=>x+12<=88),tn=tns[sMix(0,tns.length-1)];
+    t=[0,2,4,5,7,9,11,12].map(x=>tn+x);
+    info="мажор от ноты «"+sName(tn)+"»";
   }
   return {t,info};
 }
@@ -1429,7 +1442,7 @@ function sYin(buf,sr){
   const W=buf.length>>1;let e=0;
   for(let i=0;i<W;i++)e+=buf[i]*buf[i];
   if(Math.sqrt(e/W)<0.012)return null;
-  const tMin=Math.max(2,Math.floor(sr/1300)),tMax=Math.min(W-1,Math.floor(sr/110));
+  const tMin=Math.max(2,Math.floor(sr/1450)),tMax=Math.min(W-1,Math.floor(sr/110));
   const d=new Float32Array(tMax+1);
   for(let t=1;t<=tMax;t++){let s=0;for(let i=0;i<W;i++){const x=buf[i]-buf[i+t];s+=x*x}d[t]=s}
   let run=0;d[0]=1;
@@ -1469,11 +1482,38 @@ async function sMic(){
   }
 }
 function sMicMsg(t){sSay(t,"badm");sRender()}
+const SC0=25,SCMAX=1200,SHOLD=1000;
+const SB={lvl:0,okT:0};
+function sBadge(level,p,inTol){
+  if($("sCheck").style.display==="")return;
+  SB.lvl=Math.max(level,SB.lvl*0.82);
+  const L=Math.min(1,SB.lvl/0.12),hh=36*L;
+  const f=$("sMicFill");f.setAttribute("y",62-hh);f.setAttribute("height",hh);
+  f.setAttribute("fill",inTol?"#2b8a3e":"#DB7F00");
+  const C=2*Math.PI*52,S=Math.max(0,Math.min(1,p));
+  const a=$("sArc");a.setAttribute("stroke-dasharray",(S*C)+" "+C);
+  a.setAttribute("transform","rotate("+(90-S*180)+" 60 60)");
+}
+function sBadgeOk(){
+  $("sCheck").style.display="";$("sMicG").style.opacity=0.15;
+  const a=$("sArc");a.setAttribute("stroke-dasharray",(2*Math.PI*52)+" 400");a.setAttribute("transform","rotate(-90 60 60)");
+  clearTimeout(SB.okT);SB.okT=setTimeout(()=>{$("sCheck").style.display="none";$("sMicG").style.opacity=1;sBadge(0,0,false)},900);
+}
+function sPos(c){const s=c<0?-1:1,a=Math.abs(c);return s*Math.min(1,Math.log(1+a/SC0)/Math.log(1+SCMAX/SC0))}
 function sGauge(cents,on,inTol){
   const n=$("sNeedle");
   n.style.opacity=on?1:0.25;
-  n.style.left=(50+Math.max(-1,Math.min(1,cents/50))*50)+"%";
+  n.style.left=(50+sPos(cents)*50)+"%";
   n.classList.toggle("ok",!!inTol);
+}
+function sTicks(){
+  const g=document.querySelector(".sgauge");g.querySelectorAll(".stk").forEach(e=>e.remove());
+  const lb=$("sTicks");lb.innerHTML="";
+  [-600,-300,-100,0,100,300,600].forEach(c=>{
+    const x=50+sPos(c)*50;
+    if(c!==0){const t=document.createElement("div");t.className="stk";t.style.left=x+"%";g.appendChild(t)}
+    const s=document.createElement("span");s.style.left=x+"%";s.textContent=c>0?"+"+c:String(c);lb.appendChild(s);
+  });
 }
 function sSeq(){
   const r=$("sSeq");r.innerHTML="";
@@ -1499,13 +1539,16 @@ function sRender(){
   sSeq();
 }
 function sChips(){
+  if(st.sl.mode>1)st.sl.mode=0;
   const m=st.sl.mode,mb=$("sModes");mb.innerHTML="";
-  SMODES.forEach((x,i)=>{const b=document.createElement("button");b.className="lv"+(m===i?" sel":"");b.textContent=x;b.onclick=()=>{st.sl.mode=i;save();sReset()};mb.appendChild(b)});
-  $("sZone").style.left=(50-st.sl.tol)+"%";$("sZone").style.width=(2*st.sl.tol)+"%";
+  [["Ноту",0],["Интервал",1]].forEach(([x,i])=>{const b=document.createElement("button");b.className="lv"+(m===i?" sel":"");b.textContent=x;b.onclick=()=>{st.sl.mode=i;save();sChips();sNew(false)};mb.appendChild(b)});
+  {const w=sPos(st.sl.tol)*50;$("sZone").style.left=(50-w)+"%";$("sZone").style.width=(2*w)+"%";sTicks()}
   const tb=$("sTol");tb.innerHTML="";
   [["Лёгкая ±50",50],["Обычная ±35",35],["Строгая ±20",20]].forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(st.sl.tol===v?" sel":"");b.textContent=t;b.onclick=()=>{st.sl.tol=v;save();sChips()};tb.appendChild(b)});
+  const ov=$("sOv");ov.innerHTML="";
+  SOV.forEach(([t],i)=>{const b=document.createElement("button");b.className="lv"+(st.sl.ov===i?" sel":"");b.textContent=t;b.onclick=()=>{st.sl.ov=i;save();sChips();sNew(false)};ov.appendChild(b)});
   const ob=$("sOct");ob.innerHTML="";
-  [["Любая октава",true],["Точная октава",false]].forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(st.sl.oct===v?" sel":"");b.textContent=t;b.onclick=()=>{st.sl.oct=v;save();sChips()};ob.appendChild(b)});
+  [["В любой октаве",true],["Только в этой",false]].forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(st.sl.oct===v?" sel":"");b.textContent=t;b.onclick=()=>{st.sl.oct=v;save();sChips()};ob.appendChild(b)});
 }
 function sNew(play){
   sStopAudio();
@@ -1533,7 +1576,7 @@ async function sStartSing(){
   if(SD.mic!=="on"&&SD.declined){SD.phase="ready";sMicMsg("Без микрофона тюнер не слышит голос. Нажми «Включить микрофон».");return}
   const ok=SD.mic==="on"||await sMic();
   if(!ok){SD.phase="ready";sRender();return}
-  sSay(SD.tgt.length>1?"Пой по порядку: "+SD.tgt.map(sName).join(" – ")+". Держи каждую ноту около полсекунды":"Теперь пой эту ноту и держи её около полсекунды","");
+  sSay(SD.tgt.length>1?"Пой по порядку: "+SD.tgt.map(sName).join(" – ")+". Держи каждую ноту около секунды":"Теперь пой эту ноту и держи её около секунды","");
   sRender();
   if(!SD.raf){SD.last=performance.now();SD.raf=requestAnimationFrame(sFrame)}
 }
@@ -1545,24 +1588,33 @@ function sFrame(now){
   if(SD.phase!=="sing")return;
   const c=audio();
   SD.an.getFloatTimeDomainData(SD.buf);
+  let e=0;for(let i=0;i<SD.buf.length;i+=2)e+=SD.buf[i]*SD.buf[i];
+  const rms=Math.sqrt(e/(SD.buf.length/2));
   const f=sYin(SD.buf,c.sampleRate),tgt=SD.tgt[SD.pos];
-  if(f==null||f<100||f>1300){
-    SD.hist.length=0;SD.hold=Math.max(0,SD.hold-dt*0.5);
-    sGauge(0,false,false);return;
+  const AVG=300;
+  while(SD.hist.length&&now-SD.hist[0].t>AVG)SD.hist.shift();
+  if(f==null||f<100||f>1450){
+    SD.hold=Math.max(0,SD.hold-dt*0.5);
+    sBadge(rms,0,false);
+    if(!SD.hist.length)sGauge(0,false,false);
+    return;
   }
-  const mm=69+12*Math.log2(f/440);
-  SD.hist.push(mm);if(SD.hist.length>5)SD.hist.shift();
-  const sm=SD.hist.slice().sort((a,b)=>a-b)[SD.hist.length>>1];
+  SD.hist.push({t:now,m:69+12*Math.log2(f/440)});
+  const vs=SD.hist.map(o=>o.m),srt=vs.slice().sort((a,b)=>a-b),med=srt[srt.length>>1],keep=vs.filter(v=>Math.abs(v-med)<1);
+  const sm=keep.reduce((a,b)=>a+b,0)/keep.length;
   let d=sm-tgt;
   if(st.sl.oct)d=((d+6)%12+12)%12-6;
   const cents=d*100,inTol=Math.abs(cents)<=st.sl.tol;
   sGauge(cents,true,inTol);
+  {const pt=sPos(st.sl.tol),prox=Math.max(0,Math.min(1,(1-Math.abs(sPos(cents)))/(1-pt)));
+   sBadge(rms,inTol?0.5+0.5*Math.min(1,(SD.hold+dt)/SHOLD):0.5*prox,inTol)}
   const nn=Math.round(sm);
   $("sNow").textContent="Ты поёшь: "+sName(nn)+" ("+(cents>=0?"+":"−")+Math.abs(Math.round(cents))+" ¢, "+Math.round(f)+" Гц)"+(Math.abs(cents)<=st.sl.tol?" — в точку!":(cents<0?" — ниже":" — выше"));
   if(now<SD.lock)return;
-  if(inTol){SD.hold+=dt;if(SD.hold>=450)sAccept()}else SD.hold=Math.max(0,SD.hold-dt*1.5);
+  if(inTol){SD.hold+=dt;if(SD.hold>=SHOLD)sAccept()}else SD.hold=Math.max(0,SD.hold-dt*1.5);
 }
 function sAccept(){
+  sBadgeOk();
   SD.ok[SD.pos]=true;SD.pos++;SD.hold=0;SD.lock=performance.now()+400;SD.hist=[];
   if(SD.pos>=SD.tgt.length){sDone();return}
   sSay("Верно! Дальше: "+sName(SD.tgt[SD.pos]),"good");sRender();
