@@ -42,6 +42,11 @@ h1{font-size:22px;margin:4px 0 14px}
 .k.b.on{background:var(--acc)}
 .piano.off .k.b{opacity:1}
 .small{font-size:12px;color:var(--mute);text-align:center;margin-top:10px}
+#intervals .gearb{color:#DB7F00;filter:none}
+.trr{display:flex;align-items:center;gap:4px}
+.gearb{background:none;border:none;color:#fff;padding:6px;display:flex;align-items:center;filter:drop-shadow(0 1px 4px rgba(120,50,0,.3))}
+.toprow{display:flex;align-items:center;justify-content:space-between}
+.lvtop{font-size:14px;font-weight:700;color:#fff;padding-right:6px;text-shadow:0 1px 6px rgba(120,50,0,.3)}
 .reset{background:none;border:none;color:var(--mute);text-decoration:underline;font-size:12px;padding:6px}
 :root{--bg:#f4efe6;--fg:#2b2118;--mute:#85786a;--card:#fffdf8;--line:#e4dccb;--acc:#DB7F00;--key:#fffdf7;--keyon:#ffc078;--onacc:#fff}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14110f;--fg:#f5ede3;--mute:#a39688;--card:#1e1a17;--line:#332c26;--acc:#DB7F00;--key:#f3ece0;--keyon:#ffa94d;--onacc:#1a1008}}
@@ -133,7 +138,7 @@ body:not(.intervals) #intervals{display:none}
 .fl.on svg{color:var(--acc);fill:var(--acc)}
 .fl.off svg{color:var(--mute);fill:none;opacity:.45}
 .fl.today{font-weight:700;color:var(--fg)}
-body.rhythm>:not(#rhythm):not(#rhModal):not(script){display:none}
+body.rhythm>:not(#rhythm):not(#rhModal):not(#rSetM):not(script){display:none}
 body:not(.rhythm) #rhythm{display:none}
 #rhythm{width:100%}
 #rhythm h1{margin:6px 0 14px}
@@ -184,7 +189,7 @@ body:not(.rhmenu) #rhMenu{display:none}
 .tp.bad{background:#c92a2a}
 #rHead{position:absolute;top:6px;bottom:6px;width:3px;margin-left:-1px;border-radius:2px;background:var(--acc);opacity:0}
 #rMsg{min-height:44px;font-size:16px;margin:4px 0 10px}
-body.rhythm,body.rdread,body.rddict,body.solf{background:linear-gradient(160deg,#FFD58F 0%,#F9AE52 50%,#E98A2E 100%) fixed;min-height:100vh;--fg:#3b2a18;--mute:#8a7560;--card:#fffdf8;--line:#e8dfcf}
+body.rhythm,body.rdread,body.rddict,body.solf,body.prog{background:linear-gradient(160deg,#FFD58F 0%,#F9AE52 50%,#E98A2E 100%) fixed;min-height:100vh;--fg:#3b2a18;--mute:#8a7560;--card:#fffdf8;--line:#e8dfcf}
 body.rhythm #rhythm h1{color:#fff;text-shadow:0 1px 8px rgba(120,50,0,.25)}
 body.rhythm #bHome4{color:rgba(60,30,0,.8)}
 body.rhythm #bHome4 .back{color:#fff}
@@ -193,9 +198,9 @@ body.rhythm #bHome4 .back{color:#fff}
 .rsel select{background:transparent;border:none;color:#7d6a56;font-size:16px;padding:0 24px 0 0;height:48px}
 .rsel::after{right:4px;border-color:#7d6a56}
 .rctl{gap:4px}
-.ib{width:46px;height:48px;border:none;background:transparent;color:#C25E00;border-radius:12px}
+.ib{width:54px;height:54px;border:none;background:transparent;color:#C25E00;border-radius:12px}
 .ib.pri{background:transparent;border:none;color:#C25E00}
-.ib svg{width:30px;height:30px}
+.ib svg{width:40px;height:40px}
 .ib:disabled{opacity:.3}
 #rPlay .i-pause{display:none}
 #rPlay.run .i-play{display:none}
@@ -214,16 +219,16 @@ body.rhythm #bHome4 .back{color:#fff}
 .ns{bottom:36px;height:46px;margin-left:5.5px}
 .nb{bottom:76px;height:6px;border-radius:1px}
 .fg{position:absolute;bottom:60px;margin-left:6px;fill:none;stroke:var(--fg);stroke-width:2.6;stroke-linecap:round}
-.rs{position:absolute;bottom:21px;margin-left:-6px;color:var(--fg);fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.rs{position:absolute;bottom:19px;margin-left:-7px;color:var(--fg);fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
 .tk{top:30px;bottom:30px}
 #rLegend{color:rgba(60,30,0,.75)}
-#rMsg,#dMsg,#kMsg,#sMsg{background:rgba(255,255,255,.75);border-radius:14px;padding:10px 14px;text-align:center;display:flex;align-items:center;justify-content:center;min-height:48px;margin:0 0 12px}
+#rMsg,#dMsg,#kMsg,#sMsg,#pgMsg{background:rgba(255,255,255,.75);border-radius:14px;padding:10px 14px;text-align:center;display:flex;align-items:center;justify-content:center;min-height:48px;margin:0 0 12px}
 #rTap,#dTap{display:block;width:100%;min-height:300px;border:none;border-radius:20px;color:#fff;font-size:22px;font-weight:600;font-family:inherit;padding:20px;margin-bottom:14px;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:transform .06s,filter .1s;box-shadow:0 10px 26px rgba(120,50,0,.28);
 background:linear-gradient(#fffd,#fffd) top 20px left 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) top 20px left 20px/3px 24px no-repeat,linear-gradient(#fffd,#fffd) top 20px right 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) top 20px right 20px/3px 24px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px left 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px left 20px/3px 24px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px right 20px/24px 3px no-repeat,linear-gradient(#fffd,#fffd) bottom 20px right 20px/3px 24px no-repeat,#DB7F00}
 #rTap:disabled,#dTap:disabled{filter:saturate(.6) brightness(1.05);opacity:.9}
 #rTap.pulse{transform:scale(.985);filter:brightness(1.15)}
 #rTap,#dTap,#rTap.pulse,#dTap.pulse,#rTap:active,#dTap:active{transform:none!important;filter:none!important;transition:none!important;-webkit-tap-highlight-color:transparent;outline:none;height:300px;min-height:300px;max-height:300px;box-sizing:border-box;overflow:hidden;line-height:1.2}
-#rMsg,#dMsg,#kMsg,#sMsg{height:64px;min-height:64px;overflow:hidden;box-sizing:border-box}
+#rMsg,#dMsg,#kMsg,#sMsg,#pgMsg{height:64px;min-height:64px;overflow:hidden;box-sizing:border-box}
 body.rdread>:not(#rRead):not(#setModal):not(script){display:none}
 body:not(.rdread) #rRead{display:none}
 #rRead{width:100%}
@@ -237,6 +242,8 @@ body.rdread #bHome6 .back{color:#fff}
 .pips{display:flex;gap:8px}
 .pp{width:16px;height:16px;border-radius:50%;border:2px solid #b89c7d;box-sizing:border-box;transition:background .2s}
 .pp.f{background:var(--acc);border-color:var(--acc)}
+.dbar{height:8px;background:rgba(120,100,80,.28)}
+.dfill{height:100%;width:0;background:#DB7F00;transition:width .35s ease}
 .dview{position:relative;height:264px;overflow:hidden;background:rgba(255,255,255,.3)}
 .rl{position:absolute;left:0;right:0;top:0;height:88px;border-bottom:1px solid rgba(120,80,40,.15);transition:transform .4s ease,opacity .4s ease,background .3s}
 .rl.cur{background:rgba(255,255,255,.6)}
@@ -249,7 +256,7 @@ body.rdread #bHome6 .back{color:#fff}
 .rl .ns{bottom:30px;height:40px}
 .rl .nb{bottom:64px}
 .rl .fg{bottom:48px}
-.rl .rs{bottom:16px}
+.rl .rs{bottom:14px}
 .rl .nh.hit,.rl .ns.hit{background:#2b8a3e}
 .rl .nh.miss,.rl .ns.miss{background:#c92a2a}
 .ph{position:absolute;top:6px;bottom:6px;width:3px;margin-left:-1px;border-radius:2px;background:var(--acc);opacity:0}
@@ -283,7 +290,7 @@ body.rddict #bHome7 .back{color:#fff}
 .ktile:disabled{opacity:.5}
 .ktile .nin{left:32%;right:28%;top:-12px;bottom:12px}
 .ktile .sl,.ktile .bl{display:none}
-body.solf>:not(#rSol):not(#setModal):not(script){display:none}
+body.solf>:not(#rSol):not(#sSetM):not(#sAsk):not(#setModal):not(script){display:none}
 body:not(.solf) #rSol{display:none}
 #rSol{width:100%}
 #rSol h1{font-size:22px;margin:4px 0 10px;color:#fff;text-shadow:0 1px 8px rgba(120,50,0,.25)}
@@ -310,11 +317,32 @@ body.solf #bHome8 .back{color:#fff}
 .sneedle{position:absolute;top:-5px;bottom:-5px;width:8px;margin-left:-4px;border-radius:4px;background:#C25E00;opacity:.25;left:50%;transition:left .08s linear,opacity .15s}
 .sneedle.ok{background:#2b8a3e}
 .sends{display:flex;justify-content:space-between;margin:4px 26px 0;font-size:12px;color:#7d6a56}
+.shint{text-align:center;font-size:13px;color:#7d6a56;padding:0 16px 14px;margin-top:-6px}
 .snow{text-align:center;padding:8px 12px 14px;font-size:15px;color:#3b2a18;min-height:44px}
 .kb.wide{width:100%;margin-bottom:12px;background:rgba(255,255,255,.75);color:#3b2a18}
 #sMicBtn{background:#fff;color:#C25E00}
 #sPlay{background:#fff;color:#C25E00}
 #sRef,#sSkip{background:rgba(255,255,255,.75);color:#3b2a18}
+body.prog>:not(#rProg):not(#setModal):not(script){display:none}
+body:not(.prog) #rProg{display:none}
+#rProg{width:100%}
+#rProg h1{font-size:22px;margin:4px 0 10px;color:#fff;text-shadow:0 1px 8px rgba(120,50,0,.25)}
+body.prog #bHome9{color:rgba(60,30,0,.8);font-size:14px;text-decoration:none}
+body.prog #bHome9 .back{color:#fff}
+.pgboxes{display:flex;gap:10px;padding:16px 14px}
+.pgb{flex:1;height:96px;border-radius:16px;background:rgba(255,255,255,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;border:3px solid transparent;color:#8a7560}
+.pgb b{font-size:30px;font-weight:700;line-height:1.1}
+.pgb span{font-size:14px;margin-top:4px}
+.pgb.cur{border-color:#DB7F00;background:#fff;color:#DB7F00}
+.pgb.rev{background:#fff;color:#3b2a18}
+.pgb.rev b{color:#DB7F00}
+.pgopts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.pgo{min-height:64px;border:none;border-radius:16px;background:#fff;color:#3b2a18;font-size:18px;font-weight:700;font-family:inherit;box-shadow:0 4px 12px rgba(120,50,0,.2);touch-action:manipulation;-webkit-tap-highlight-color:transparent;padding:8px}
+.pgo.ok{background:#2b8a3e;color:#fff}
+.pgo.bad{background:#c92a2a;color:#fff}
+.pgo:disabled{opacity:1}
+#pgPlay{background:#fff;color:#C25E00}
+#pgKey,#pgSkip{background:rgba(255,255,255,.75);color:#3b2a18}
 </style>
 </head>
 <body class="home">
@@ -344,9 +372,9 @@ body.solf #bHome8 .back{color:#fff}
       <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8l-2-17h-4z"/><path d="M12 17l4-8"/></svg></div></div>
       <div><div class="nm">Ритм</div><div class="ds">Повтор, чтение и диктант ритма</div></div>
     </button>
-    <button class="tile soon" data-n="Аккордовые прогрессии">
-      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="4.5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19.5" cy="12" r="2"/><path d="M6.7 12h3.1M14.2 12h3.1"/></svg></div><span class="badge">Скоро</span></div>
-      <div><div class="nm">Аккордовые прогрессии</div><div class="ds">Угадай последовательность аккордов по ступеням</div></div>
+    <button class="tile on" id="bProg">
+      <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="4.5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19.5" cy="12" r="2"/><path d="M6.7 12h3.1M14.2 12h3.1"/></svg></div></div>
+      <div><div class="nm">Аккордовые прогрессии</div><div class="ds">Определи аккордовую последовательность</div></div>
     </button>
     <button class="tile soon" data-n="Гаммы">
       <div class="top"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h5v-4h5v-4h5V8h3"/></svg></div><span class="badge">Скоро</span></div>
@@ -369,7 +397,7 @@ body.solf #bHome8 .back{color:#fff}
   <div class="hnote" id="homeNote">Результаты хранятся на этом устройстве</div>
 </div>
 <div id="rRead">
-  <button class="reset" id="bHome6">‹ Ритм</button>
+  <div class="toprow"><button class="reset" id="bHome6">‹ Ритм</button><span class="lvtop" id="dTop"></span></div>
   <h1>Чтение ритма</h1>
   <div class="rcard">
     <div class="rbar">
@@ -377,14 +405,11 @@ body.solf #bHome8 .back{color:#fff}
       <div class="rctl"><button class="ib pri" id="dPlay" aria-label="Играть"><svg class="i-play" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg><svg class="i-pause" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg></button></div>
       <label class="rsel"><select id="dBpm" aria-label="Темп"><option value="60">60 bpm</option><option value="70">70 bpm</option><option value="80">80 bpm</option><option value="90">90 bpm</option><option value="100">100 bpm</option></select></label>
     </div>
-    <div class="dpips"><span>Строк подряд без ошибок</span><span class="pips" id="dPips"></span></div>
+    <div class="dbar" aria-label="Строк подряд без ошибок"><div class="dfill" id="dPips"></div></div>
     <div class="dview" id="dView"></div>
   </div>
   <div id="dMsg">Нажми ▶ и читай ритм</div>
   <button id="dTap" disabled>Здесь стучать по экрану</button>
-  <div class="card">
-    <div class="lbl">Уровень</div><div class="levels" id="dLvls"></div><div class="hnote" id="dLvlNote" style="margin-top:8px"></div>
-  </div>
   <div class="stats">
     <div class="stat"><b id="dC">—</b><span>Количество правильных ответов</span></div>
     <div class="stat"><b id="dB">—</b><span>Пройдено уровней</span></div>
@@ -392,7 +417,7 @@ body.solf #bHome8 .back{color:#fff}
   </div>
 </div>
 <div id="rDict">
-  <button class="reset" id="bHome7">‹ Ритм</button>
+  <div class="toprow"><button class="reset" id="bHome7">‹ Ритм</button><span class="lvtop" id="kTop"></span></div>
   <h1>Диктант</h1>
   <div class="rcard">
     <div class="rbar">
@@ -400,15 +425,12 @@ body.solf #bHome8 .back{color:#fff}
       <div class="rctl"><button class="ib pri" id="kPlay" aria-label="Играть"><svg class="i-play" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg><svg class="i-pause" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg></button></div>
       <label class="rsel"><select id="kBpm" aria-label="Темп"><option value="60">60 bpm</option><option value="70">70 bpm</option><option value="80">80 bpm</option><option value="90">90 bpm</option><option value="100">100 bpm</option></select></label>
     </div>
-    <div class="dpips"><span>Верных подряд</span><span class="pips" id="kPips"></span></div>
+    <div class="dbar" aria-label="Верных ответов подряд"><div class="dfill" id="kPips"></div></div>
     <div class="rpanel" id="kNote"></div>
   </div>
   <div id="kMsg">Нажми ▶ и послушай ритм</div>
   <div class="krow"><button class="kb" id="kDel">Удалить</button><button class="kb" id="kOk">Ответить</button></div>
   <div class="kgrid" id="kGrid"></div>
-  <div class="card">
-    <div class="lbl">Уровень</div><div class="levels" id="kLvls"></div><div class="hnote" id="kLvlNote" style="margin-top:8px"></div>
-  </div>
   <div class="stats">
     <div class="stat"><b id="kC">—</b><span>Количество правильных ответов</span></div>
     <div class="stat"><b id="kB">—</b><span>Рекорд серии</span></div>
@@ -417,31 +439,45 @@ body.solf #bHome8 .back{color:#fff}
 </div>
 <div id="rSol">
   <div id="sAsk"><div class="sbox"><div class="sbt">Разрешить доступ к микрофону?</div><div class="sbd">Тюнеру нужен микрофон, чтобы слышать твоё пение. Звук никуда не записывается и не отправляется.</div><div class="sbb"><button class="kb" id="sAskNo">Не сейчас</button><button class="kb" id="sAskYes">Разрешить</button></div></div></div>
-  <button class="reset" id="bHome8">‹ Главное меню</button>
+  <div class="toprow"><button class="reset" id="bHome8">‹ Главное меню</button><span class="trr"><button class="gearb" id="sGear" aria-label="Настройки"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
   <h1>Сольфеджио</h1>
   <div class="levels" id="sModes" style="margin-bottom:10px"></div>
   <div class="rcard">
-    <div class="dpips"><span>Заданий подряд</span><span class="pips" id="sPips"></span></div>
     <div class="stgt"><div class="slab">Нужная нота</div><div id="sTarget">—</div></div>
     <div class="seq" id="sSeq"></div>
     <div class="sgauge"><div class="szone" id="sZone"></div><div class="sctr"></div><div class="sneedle" id="sNeedle"></div></div>
     <div class="sends"><span>ниже ♭</span><span>♯ выше</span></div>
     <div class="snow" id="sNow">Пока тишина</div>
+    <div class="shint">Нота засчитывается, когда ты держишь её около полсекунды</div>
   </div>
   <div id="sMsg">Нажми ▶ и послушай задание</div>
   <button class="kb wide" id="sMicBtn">Включить микрофон</button>
   <div class="krow"><button class="kb" id="sPlay">▶ Послушать задание</button><button class="kb" id="sRef">Эта нота ещё раз</button></div>
   <button class="kb wide" id="sSkip">Другое задание</button>
-  <div class="card">
-    <div class="lbl">Уровень</div><div class="levels" id="sLvls"></div><div class="hnote" id="sLvlNote" style="margin-top:8px"></div>
-    <div class="lbl" style="margin-top:12px">Точность попадания</div><div class="levels" id="sTol"></div>
-    <div class="lbl" style="margin-top:12px">Октава</div><div class="levels" id="sOct"></div>
-    <div class="hnote" style="margin-top:8px">Если поёшь на октаву ниже или выше задания — выбери «Любую октаву». Лучше петь в наушниках, чтобы микрофон не слышал звук из динамика.</div>
-  </div>
   <div class="stats">
     <div class="stat"><b id="sC">—</b><span>Количество правильных ответов</span></div>
     <div class="stat"><b id="sB">—</b><span>Рекорд серии</span></div>
     <div class="stat"><b id="sA">—</b><span>Точность</span></div>
+  </div>
+</div>
+<div id="rProg">
+  <div class="toprow"><button class="reset" id="bHome9">‹ Главное меню</button><span class="lvtop" id="pgTop"></span></div>
+  <h1>Аккордовые прогрессии</h1>
+  <div class="rcard">
+    <div class="dbar" aria-label="Верных ответов подряд"><div class="dfill" id="pgPips"></div></div>
+    <div class="pgboxes" id="pgBoxes"></div>
+  </div>
+  <div id="pgMsg">Нажми ▶ и послушай аккорды</div>
+  <div class="krow"><button class="kb" id="pgPlay">▶ Послушать</button><button class="kb" id="pgKey">Задать тональность</button></div>
+  <div class="pgopts" id="pgOpts"></div>
+  <button class="kb wide" id="pgSkip">Другое задание</button>
+  <div class="card">
+    <div class="hnote">Римские цифры — ступени гаммы: I — тоника, IV — субдоминанта, V — доминанта. Заглавные — мажорные аккорды, строчные — минорные.</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="pgC">—</b><span>Количество правильных ответов</span></div>
+    <div class="stat"><b id="pgB">—</b><span>Рекорд серии</span></div>
+    <div class="stat"><b id="pgA">—</b><span>Точность</span></div>
   </div>
 </div>
 <div id="rhMenu">
@@ -465,7 +501,7 @@ body.solf #bHome8 .back{color:#fff}
   <div class="hnote" id="rmNote"></div>
 </div>
 <div id="rhythm">
-  <button class="reset" id="bHome4">‹ Ритм</button>
+  <div class="toprow"><button class="reset" id="bHome4">‹ Ритм</button><span class="trr"><span class="lvtop" id="rTop"></span><button class="gearb" id="rGear" aria-label="Настройки"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
   <h1>Повтор ритма</h1>
   <div class="rcard">
     <div class="rbar">
@@ -475,17 +511,13 @@ body.solf #bHome8 .back{color:#fff}
       </div>
       <label class="rsel"><select id="rBpm" aria-label="Темп"><option value="60">60 bpm</option><option value="70">70 bpm</option><option value="80">80 bpm</option><option value="90">90 bpm</option><option value="100">100 bpm</option></select></label>
     </div>
+    <div class="dbar" aria-label="Ритмов подряд без ошибок"><div class="dfill" id="rBar"></div></div>
     <div class="rrow"><span class="rtab ear" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11a6 6 0 1 1 12 0c0 3.2-2.2 4.2-3.2 5.8S13.8 21 11.5 21 8 19.6 8 18"/><path d="M10 11a2 2 0 1 1 4 0c0 1.4-1.8 1.7-1.8 3.4"/></svg></span><div class="rpanel" id="rNote"></div></div>
     <div class="rrow"><span class="rtab hand" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.6 1.6 0 0 1 3.2 0V11"/><path d="M12.2 9.5a1.6 1.6 0 0 1 3.2 0V12"/><path d="M15.4 11a1.6 1.6 0 0 1 3.1 0v4.5a6 6 0 0 1-6 6h-1a5 5 0 0 1-4-2L4.9 15.7a1.5 1.5 0 0 1 2.3-1.8L9 15.5"/></svg></span><div class="rpanel" id="rTL"></div></div>
   </div>
   <div class="hnote" id="rLegend" style="margin:0 0 6px"></div>
   <div id="rMsg">Нажми ▶, послушай ритм и повтори его нажатиями</div>
   <button id="rTap" disabled>Здесь стучать по экрану</button>
-  <div class="card">
-    <div class="lbl">Сложность</div><div class="levels" id="rLvls"></div><div class="hnote" id="rLvlNote" style="margin-top:8px"></div>
-    <div class="lbl" style="margin-top:14px">Ритм нотами</div><div class="levels" id="rShow"></div>
-    <button class="btn" id="rNew" style="width:100%;margin-top:14px">Новый ритм</button>
-  </div>
   <div class="stats">
     <div class="stat"><b id="rC">—</b><span>Количество правильных ответов</span></div>
     <div class="stat"><b id="rB">—</b><span>Рекорд серии</span></div>
@@ -493,10 +525,10 @@ body.solf #bHome8 .back{color:#fff}
   </div>
 </div>
 <div id="intervals">
-  <button class="reset" id="bHome3">‹ Главное меню</button>
+  <div class="toprow"><button class="reset" id="bHome3">‹ Главное меню</button><span class="trr"><button class="gearb" id="iSet" aria-label="Настройки"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
   <h1>Интервалы</h1>
   <div id="iMsg">Нажми «Играть» и угадай интервал</div>
-  <div class="row"><button class="btn main" id="iPlay">Играть</button><button class="btn" id="iRepeat" disabled>Ещё раз</button><button class="btn" id="iSet">Настроить</button></div>
+  <div class="row"><button class="btn main" id="iPlay">Играть</button><button class="btn" id="iRepeat" disabled>Ещё раз</button></div>
   <div class="ians" id="iAns"></div>
   <div class="stats">
     <div class="stat"><b id="iC">—</b><span>Количество правильных ответов</span></div>
@@ -504,7 +536,7 @@ body.solf #bHome8 .back{color:#fff}
     <div class="stat"><b id="iA">—</b><span>точность</span></div>
   </div>
 </div>
-<div id="ivModal" class="modal" hidden><div class="mbox"><div class="mh"><b>Какие интервалы угадывать</b><button class="reset" id="ivClose">Готово</button></div><div class="levels" style="margin-bottom:12px"><button class="lv" id="ivEasy">Простые</button><button class="lv" id="ivAll">Все</button></div><div class="levels" id="ivChips"></div><div class="hnote">Выбери минимум два интервала</div><div class="lbl" style="margin-top:14px">Как играть интервал</div><div class="levels" id="ivDirs"></div><div class="hnote">Можно выбрать несколько: они будут чередоваться</div></div></div>
+<div id="ivModal" class="modal" hidden><div class="mbox"><div class="mh"><b>Какие интервалы угадывать</b><button class="reset" id="ivClose">Готово</button></div><div class="levels" style="margin-bottom:12px"><button class="lv" id="ivEasy">Простые</button><button class="lv" id="ivAll">Все</button></div><div class="levels" id="ivChips"></div><div class="hnote">Выбери минимум два интервала</div><div class="lbl" style="margin-top:14px">Как играть интервал: направление</div><div class="levels" id="ivDirs"></div><div class="hnote" id="ivDirNote">«В случайном порядке» — то вверх, то вниз</div><div class="lbl" style="margin-top:14px">Звучание</div><div class="levels" id="ivHarm"></div><div class="hnote">Гармонический — обе ноты звучат одновременно</div></div></div>
 <div id="chords">
   <button class="reset" id="bHome2">‹ Главное меню</button>
   <h1>Аккорды</h1>
@@ -541,6 +573,8 @@ body.solf #bHome8 .back{color:#fff}
   <div class="small">Сначала свободно подбирай мелодию, потом нажми «Ответить».</div>
 </div>
 
+<div id="rSetM" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="rSetClose">Закрыть</button></div><div class="lbl">Ритм нотами</div><div class="levels" id="rShow"></div><div class="hnote" style="margin-top:8px">«Скрыть до ответа» прячет ноты и кружки ритма, пока ты не ответишь.</div></div></div>
+<div id="sSetM" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="sSetClose">Закрыть</button></div><div class="lbl">Точность попадания</div><div class="levels" id="sTol"></div><div class="lbl" style="margin-top:14px">Октава</div><div class="levels" id="sOct"></div><div class="hnote" style="margin-top:8px">Если поёшь на октаву ниже или выше задания — выбери «Любую октаву». Лучше петь в наушниках, чтобы микрофон не слышал звук из динамика.</div></div></div>
 <div id="setModal" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="bClose">Закрыть</button></div><div class="lbl">Количество нот в мелодии</div><div class="levels" id="levels"></div><div class="lbl" style="margin-top:14px">Подсветка первой ноты</div><div class="levels" id="hlOpts"></div><div class="lbl" style="margin-top:14px">Громкость: <span id="volV"></span></div><input type="range" id="vol" min="0" max="100" step="5" style="width:100%;accent-color:var(--acc)"><div class="hnote" id="sndInfo"></div></div></div>
 <div style="text-align:center;order:9"><button class="btn" id="bSet" style="width:100%;margin-bottom:6px">Настройки</button><button class="reset" id="bReset">Сбросить прогресс</button></div>
 
@@ -556,6 +590,9 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
 st.chord=st.chord||{streak:0,best:0,correct:0,total:0};
 st.iv=st.iv||{sel:[3,4,7,12],streak:0,best:0,correct:0,total:0};
 st.iv.dirs=st.iv.dirs||["up"];
+if(st.iv.dirs.includes("harm")){st.iv.harm=true}
+st.iv.dirs=st.iv.dirs.filter(x=>x==="up"||x==="down");if(!st.iv.dirs.length)st.iv.dirs=["up"];
+st.iv.harm=!!st.iv.harm;
 st.rh=st.rh||{lvl:0,bpm:90,streak:0,best:0,correct:0,total:0};
 let ctx=null,melody=[],input=[],mode="idle",hintUsed=false,failed=false,timers=[];
 const $=id=>document.getElementById(id);
@@ -661,7 +698,7 @@ $("vol").value=Math.round(st.vol*100);$("volV").textContent=$("vol").value+"%";
 $("vol").oninput=()=>{st.vol=$("vol").value/100;$("volV").textContent=$("vol").value+"%";if(ctx&&ctx._master)ctx._master.gain.value=st.vol;save()};
 $("vol").onchange=()=>{tone(7)};
 $("bClose").onclick=()=>{$("setModal").hidden=true};
-function show(v){document.body.classList.toggle("home",v==="home");document.body.classList.toggle("chords",v==="chord");document.body.classList.toggle("intervals",v==="interval");document.body.classList.toggle("rhythm",v==="rhythm");document.body.classList.toggle("rhmenu",v==="rhmenu");document.body.classList.toggle("rdread",v==="rdread");document.body.classList.toggle("rddict",v==="rddict");document.body.classList.toggle("solf",v==="solf");rhStop();dStop();kStop();sStopAll();clearTimeout(ivs.timer);ivs.pt.forEach(clearTimeout);clearTimeout(cs.timer);(cs.pt||[]).forEach(clearTimeout);timers.forEach(clearTimeout);timers=[];$("homeNote").textContent="Результаты хранятся на этом устройстве";if(v==="dict")newRound(false);else if(v==="chord")chordReset();else if(v==="interval")ivReset();else if(v==="rhythm")rhReset();else if(v==="rdread")dReset();else if(v==="rddict")kReset();else if(v==="solf"){sReset();sEnter()}else{mode="idle";render()}}
+function show(v){$("rSetM").hidden=true;$("sSetM").hidden=true;document.body.classList.toggle("home",v==="home");document.body.classList.toggle("chords",v==="chord");document.body.classList.toggle("intervals",v==="interval");document.body.classList.toggle("rhythm",v==="rhythm");document.body.classList.toggle("rhmenu",v==="rhmenu");document.body.classList.toggle("rdread",v==="rdread");document.body.classList.toggle("rddict",v==="rddict");document.body.classList.toggle("solf",v==="solf");document.body.classList.toggle("prog",v==="prog");rhStop();dStop();kStop();sStopAll();pgStop();clearTimeout(ivs.timer);ivs.pt.forEach(clearTimeout);clearTimeout(cs.timer);(cs.pt||[]).forEach(clearTimeout);timers.forEach(clearTimeout);timers=[];$("homeNote").textContent="Результаты хранятся на этом устройстве";if(v==="dict")newRound(false);else if(v==="chord")chordReset();else if(v==="interval")ivReset();else if(v==="rhythm")rhReset();else if(v==="rdread")dReset();else if(v==="rddict")kReset();else if(v==="solf"){sReset();sEnter()}else if(v==="prog")pgReset();else{mode="idle";render()}}
 $("bDict").onclick=()=>{audio();show("dict")};
 $("bHome").onclick=()=>show("home");
 $("bHomeSet").onclick=openSet;
@@ -727,7 +764,7 @@ function ivNew(){
   clearTimeout(ivs.timer);
   const sel=st.iv.sel;let s;
   do{s=sel[Math.floor(Math.random()*sel.length)]}while(sel.length>1&&s===ivs.s&&Math.random()<0.7);
-  ivs.s=s;ivs.lo=Math.floor(Math.random()*(13-s));const dr=st.iv.dirs;ivs.d=dr[Math.floor(Math.random()*dr.length)];ivs.failed=false;ivs.mode="answer";
+  ivs.s=s;ivs.lo=Math.floor(Math.random()*(13-s));const dr=st.iv.dirs;ivs.d=st.iv.harm?"harm":dr[Math.floor(Math.random()*dr.length)];ivs.failed=false;ivs.mode="answer";
   $("iMsg").className="";$("iMsg").textContent="Какой это интервал?";ivBuild();ivRender();ivPlay();
 }
 function ivAnswer(s,b){
@@ -747,11 +784,16 @@ function ivChips(){
 function ivCloseSet(){$("ivModal").hidden=true;ivReset()}
 $("iPlay").onclick=()=>{audio();ivNew()};
 $("iRepeat").onclick=()=>{audio();ivPlay()};
-const IVD={up:"Восходящий",down:"Нисходящий",harm:"Гармонический"};
+const IVD=[["Восходящий",["up"]],["Нисходящий",["down"]],["В случайном порядке",["up","down"]]];
 function ivDirsRender(){
   const box=$("ivDirs");box.innerHTML="";
-  Object.keys(IVD).forEach(k=>{const b=document.createElement("button");b.className="lv"+(st.iv.dirs.includes(k)?" sel":"");b.textContent=IVD[k];
-    b.onclick=()=>{const a=st.iv.dirs,i=a.indexOf(k);if(i>=0){if(a.length<=1)return;a.splice(i,1)}else a.push(k);save();ivDirsRender()};box.appendChild(b)});
+  const cur=st.iv.dirs.slice().sort().join();
+  IVD.forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(cur===v.slice().sort().join()?" sel":"");b.textContent=t;b.disabled=st.iv.harm;
+    b.onclick=()=>{st.iv.dirs=v.slice();save();ivDirsRender()};box.appendChild(b)});
+  $("ivDirNote").textContent=st.iv.harm?"При гармоническом звучании направление не нужно":"«В случайном порядке» — то вверх, то вниз";
+  const hb=$("ivHarm");hb.innerHTML="";
+  [["Мелодический",false],["Гармонический",true]].forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(st.iv.harm===v?" sel":"");b.textContent=t;
+    b.onclick=()=>{st.iv.harm=v;save();ivDirsRender()};hb.appendChild(b)});
 }
 $("iSet").onclick=()=>{ivChips();ivDirsRender();$("ivModal").hidden=false};
 $("ivClose").onclick=ivCloseSet;
@@ -787,6 +829,8 @@ function homeProgress(){
   $("flames").innerHTML=f;
 }
 const rt={mode:"idle",pat:[],L:4,t0:0,W:1,taps:[],dots:[],active:false,failed:false,timers:[],bus:null,tmr:null,raf:0};
+if(!Array.isArray(st.rh.passed)||st.rh.passed.length!==3)st.rh.passed=[false,false,false];
+function rhBar(){const e=$("rBar");if(e)e.style.width=(Math.min(rt.run||0,5)/5*100)+"%"}
 const RLV=[["Лёгкий","Только доли: четверти и паузы"],["Средний","Добавляются восьмые"],["Сложный","Два такта с восьмыми"]];
 const RTOL=[170,130,110];
 const TAPT="Здесь стучать по экрану";
@@ -839,8 +883,8 @@ function rhHead(t0,ms){
   const step=()=>{const x=(performance.now()-t0)/ms;if(x>1){hd.style.opacity=0;return}hd.style.opacity=x<0?0:1;hd.style.left=Math.max(0,x)*100+"%";rt.raf=requestAnimationFrame(step)};
   step();
 }
-const REST_Q='<svg class="rs" width="12" height="30" viewBox="0 0 12 30" aria-hidden="true"><path d="M4 2 L9 8 L4.5 13.5 L9 19.5 Q3.5 19 3.5 24 Q3.5 27 7 27.5"/></svg>';
-const REST_E='<svg class="rs" width="12" height="30" viewBox="0 0 12 30" aria-hidden="true"><circle cx="3.5" cy="9" r="2.4" fill="currentColor" stroke="none"/><path d="M3.8 9.5 Q8 9 10 4"/><path d="M9.8 5 L5 27"/></svg>';
+const REST_Q='<svg class="rs" width="14" height="34" viewBox="0 0 14 34" aria-hidden="true"><path fill="currentColor" stroke="none" d="M3.6 1.2 C4.2 1 4.6 1.2 5 1.7 L10.4 8.9 C10.8 9.5 10.8 10 10.4 10.5 L7.2 14.4 L11.2 19.6 C11.6 20.2 11.4 20.5 10.8 20.4 C8.6 20 6.4 21.4 6.4 24 C6.4 26 7.6 27.4 9.6 28.4 C9.9 28.6 9.8 28.9 9.4 29 C6.8 29.3 3.8 27.8 3.6 24.4 C3.4 21.2 5.2 19.8 7.6 19.4 L3 13.6 C2.6 13 2.7 12.6 3.1 12.1 L6.4 8.6 L2.6 3.2 C2.2 2.4 2.8 1.4 3.6 1.2 Z"/></svg>';
+const REST_E='<svg class="rs" width="14" height="34" viewBox="0 0 14 34" aria-hidden="true"><circle cx="4" cy="9.8" r="3" fill="currentColor" stroke="none"/><path d="M4.2 11.2 C8.4 11.2 10.4 9 11 4.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M11 4.8 L5.4 28" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
 function rhNotation(){
   const L=rt.L||rLen(),ts=rTs(),pat=rt.pat||[];
   const has=x=>pat.some(y=>Math.abs(y-x)<1e-6);
@@ -888,13 +932,13 @@ function rhRender(){
   $("rC").textContent=s.total?s.correct+" из "+s.total:"—";$("rB").textContent=s.total?s.best:"—";$("rA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
 }
 function rhChips(){
-  const Lb=$("rLvls");Lb.innerHTML="";
-  RLV.forEach((x,i)=>{const b=document.createElement("button");b.className="lv"+(st.rh.lvl===i?" sel":"");b.textContent=x[0];b.onclick=()=>{st.rh.lvl=i;save();rhReset()};Lb.appendChild(b)});
-  $("rLvlNote").textContent=RLV[st.rh.lvl][1];
+  rhBar();
+  $("rTop").textContent="Уровень "+(st.rh.lvl+1)+" из "+TOTLV;
   const Sb=$("rShow");Sb.innerHTML="";
   [["Показывать",true],["Скрыть до ответа",false]].forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(rShowN()===v?" sel":"");b.textContent=t;b.onclick=()=>{st.rh.show=v;save();rhChips();rhDraw()};Sb.appendChild(b)});
 }
 function rhReset(){
+  rt.run=0;
   rhStop();rt.mode="idle";rt.pat=[];rt.L=rLen();
   if(st.rh.bpm>100){st.rh.bpm=100;save()}
   $("rTs").value=String(rTs());$("rBpm").value=String(st.rh.bpm);
@@ -921,22 +965,24 @@ function rhRun(){
   rhDraw();$("rLegend").textContent="";rhRender();
   const T0=c.currentTime+0.25,at=b=>T0+b*B,ms=b=>(at(b)-c.currentTime)*1000;
   rt.bus=c.createGain();rt.bus.connect(c._comp);
-  for(let k=0;k<C;k++)blip(c,at(k),800,0.35,0.05,rt.bus);
+  for(let k=0;k<C+2*L;k++)blip(c,at(k),k%C?800:1000,k%C?0.32:0.42,0.05,rt.bus);
   rt.pat.forEach(x=>pno(c,at(C+x),0.8,rt.bus));
-  for(let k=0;k<C;k++)blip(c,at(C+L+k),800,0.35,0.05,rt.bus);
-  for(let k=0;k<L;k++)blip(c,at(2*C+L+k),k%C?800:1000,k%C?0.3:0.4,0.05,rt.bus);
-  rt.t0=performance.now()+ms(2*C+L);
+  rt.t0=performance.now()+ms(C+L);
   rhSetMsg("Слушай ритм…");rhPad("Слушай",false);
   rtAt(()=>rhHead(performance.now(),rt.W),ms(C));
-  rtAt(()=>rhSetMsg("Твоя очередь: повторяй ритм"),ms(C+L));
-  for(let k=0;k<C;k++)rtAt(()=>{rhPad(String(k+1),true);pulse()},ms(C+L+k));
-  rtAt(()=>rhHead(rt.t0,rt.W),ms(2*C+L)-300);
-  rtAt(()=>{rt.taps=[];rt.active=true;rhPad(TAPT,true)},ms(2*C+L)-250);
-  rtAt(rhEval,ms(2*C+L)+rt.W+400);
+  rtAt(()=>rhSetMsg("Твоя очередь: повторяй ритм"),ms(C+L)-100);
+  rtAt(()=>rhHead(rt.t0,rt.W),ms(C+L));
+  rtAt(()=>{rt.taps=[];rt.used=[];rt.sh=0;rt.active=true;rhPad(TAPT,true)},ms(C+L)-150);
+  rtAt(rhEval,ms(C+L)+rt.W+400);
+}
+function rhTol(){
+  const host=$("rTL").firstChild,w=host&&host.getBoundingClientRect().width,W=rt.L*60000/st.rh.bpm;
+  const g=w>20?9/w*W:RTOL[st.rh.lvl];
+  return Math.min(RTOL[st.rh.lvl],g);
 }
 function rhEval(){
   rt.active=false;
-  const B=60000/st.rh.bpm,W=rt.L*B,exp=rt.pat.map(x=>x*B),tp=rt.taps.slice().sort((a,b)=>a-b),tol=RTOL[st.rh.lvl];
+  const B=60000/st.rh.bpm,W=rt.L*B,exp=rt.pat.map(x=>x*B),tp=rt.taps.slice().sort((a,b)=>a-b),tol=rhTol();
   let ok=false,flags=null,sh=0,why="";
   if(tp.length!==exp.length){why="Нужно нажать "+exp.length+" раз, а нажато "+tp.length}
   else{
@@ -948,17 +994,25 @@ function rhEval(){
     ok=!why;
   }
   $("rNote").classList.remove("hide");$("rTL").classList.remove("hide");
-  tp.forEach((t,i)=>{const d=rt.dots[i];if(!d)return;d.style.left=Math.min(100,Math.max(0,(t-sh)/W*100))+"%";if(flags)d.classList.add(flags[i]?"ok":"bad")});
+  tp.forEach((t,i)=>{const d=rt.dots[i];if(!d)return;d.style.left=Math.min(100,Math.max(0,(t-sh)/W*100))+"%";if(flags){d.classList.remove("ok","bad");d.classList.add(flags[i]?"ok":"bad")}});
   $("rLegend").textContent="Кружки — ритм, точки — твои нажатия";
   const v=st.rh;
   if(ok){
     rt.mode="done";
-    if(!rt.failed){v.total++;v.correct++;v.streak++;if(v.streak>v.best)v.best=v.streak}
-    rhSetMsg(rt.failed?"Верно, но ответ засчитан как неправильный":"Верно! Ритм повторён точно","good");
-    rt.tmr=setTimeout(rhNew,2400);
+    if(!rt.failed){v.total++;v.correct++;v.streak++;if(v.streak>v.best)v.best=v.streak;rt.run=(rt.run||0)+1}
+    rhBar();
+    if(rt.run>=5){
+      v.passed[v.lvl]=true;const nx=Math.min(v.lvl+1,2);
+      rhSetMsg("Уровень "+(v.lvl+1)+" пройден! 5 ритмов подряд"+(nx!==v.lvl?". Дальше — уровень "+(nx+1):""),"good");
+      rt.tmr=setTimeout(()=>{v.lvl=nx;save();rhReset()},3200);
+    }else{
+      rhSetMsg(rt.failed?"Верно, но ответ засчитан как неправильный":"Верно! Ритм повторён точно","good");
+      rt.tmr=setTimeout(rhNew,2400);
+    }
   }else{
     rt.mode="answer";
     if(!rt.failed){rt.failed=true;v.total++;v.streak=0}
+    rt.run=0;rhBar();
     rhSetMsg("Неправильно. "+why+". Нажми ▶ и попробуй ещё раз","badm");
   }
   rhPad(TAPT,false);save();rhRender();
@@ -969,7 +1023,13 @@ $("rTap").addEventListener("pointerdown",e=>{
   if(rt.active){
     const t=performance.now()-rt.t0;rt.taps.push(t);
     const host=$("rTL").firstChild;
-    if(host){const d=document.createElement("div");d.className="tp";d.style.left=Math.min(100,Math.max(0,t/rt.W*100))+"%";host.appendChild(d);rt.dots.push(d)}
+    if(host){const d=document.createElement("div");d.className="tp";d.style.left=Math.min(100,Math.max(0,t/rt.W*100))+"%";host.appendChild(d);rt.dots.push(d);
+      const B=60000/st.rh.bpm,tol=rhTol(),used=rt.used||(rt.used=[]),adj=t-(rt.sh||0);
+      d.style.left=Math.min(100,Math.max(0,adj/rt.W*100))+"%";
+      let bi=-1,bd=1e9;
+      rt.pat.forEach((x,j)=>{if(used[j])return;const dd=Math.abs(adj-x*B);if(dd<=tol&&dd<bd){bd=dd;bi=j}});
+      if(bi>=0){used[bi]=true;rt.sh=Math.max(-120,Math.min(120,(rt.sh||0)*0.6+(t-rt.pat[bi]*B)*0.4));d.classList.add("ok")}
+      else d.classList.add("bad")}
   }
   pulse();
 });
@@ -978,7 +1038,8 @@ $("rPlay").onclick=()=>{
   if(rt.mode==="busy"){rhStop();rt.mode="answer";rhSetMsg("Пауза. Нажми ▶, чтобы послушать ещё раз");rhPad(TAPT,false);rhRender();return}
   if(rt.pat.length&&rt.mode!=="done")rhRun();else rhNew();
 };
-$("rNew").onclick=()=>{audio();rhNew()};
+$("rGear").onclick=()=>{$("rSetM").hidden=false};
+$("rSetClose").onclick=()=>{$("rSetM").hidden=true};
 $("rTs").onchange=()=>{st.rh.ts=+$("rTs").value;save();rhReset()};
 $("rBpm").onchange=()=>{st.rh.bpm=+$("rBpm").value;save();rhReset()};
 $("bHome4").onclick=()=>show("rhmenu");
@@ -989,6 +1050,7 @@ document.querySelectorAll(".tile.rsoon").forEach(t=>{t.onclick=()=>{$("rmNote").
 $("bRh").onclick=()=>{audio();$("rmNote").textContent="";show("rhmenu")};
 /* ===== Чтение ритма ===== */
 st.rd=Object.assign({lvl:0,passed:[false,false,false,false],ts:4,bpm:70,correct:0,total:0},st.rd||{});
+const TOTLV=250;
 const DLV=[["Уровень 1","Четверти и пары восьмых"],["Уровень 2","Четверти, пары восьмых и паузы"],["Уровень 3","Больше восьмых и пауз"],["Уровень 4","Восьмые в любых сочетаниях"]];
 const DTOL=[170,160,140,125];
 const LH=88;
@@ -1061,10 +1123,7 @@ function dLayout(){
   });
 }
 function dMark(L,j,cls){if(L.el)L.el.querySelectorAll('[data-k="'+j+'"]').forEach(e=>e.classList.add(cls))}
-function dPips(){
-  let h="";for(let i=0;i<5;i++)h+='<span class="pp'+(i<rd.runOk?' f':'')+'"></span>';
-  $("dPips").innerHTML=h;
-}
+function dPips(){$("dPips").style.width=(Math.min(rd.runOk,5)/5*100)+"%"}
 function dRender(){
   const pl=$("dPlay");pl.classList.toggle("run",rd.run);pl.setAttribute("aria-label",rd.run?"Пауза":"Играть");
   const s=st.rd;
@@ -1073,9 +1132,7 @@ function dRender(){
   $("dA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
 }
 function dChips(){
-  const b=$("dLvls");b.innerHTML="";
-  DLV.forEach((x,i)=>{const e=document.createElement("button");e.className="lv"+(st.rd.lvl===i?" sel":"");e.textContent=(i+1)+(st.rd.passed[i]?" ✓":"");e.setAttribute("aria-label",x[0]);e.onclick=()=>{st.rd.lvl=i;save();dReset()};b.appendChild(e)});
-  $("dLvlNote").textContent=DLV[st.rd.lvl][0]+": "+DLV[st.rd.lvl][1];
+  $("dTop").textContent="Уровень "+(st.rd.lvl+1)+" из "+TOTLV;
 }
 function dStop(){
   rd.run=false;cancelAnimationFrame(rd.raf);clearInterval(rd.iv);
@@ -1111,6 +1168,7 @@ function dStart(){
   dMsg("Слушай счёт…","");dPad("…",false);dRender();
   rd.raf=requestAnimationFrame(dFrame);
 }
+function dFail(L){if(L.fl)return;L.fl=true;rd.runOk=0;dPips();if(L.el)L.el.classList.add("err");dMsg("Ошибка — серия сбросилась","badm")}
 function dFinish(L){
   L.done=true;
   const miss=L.miss.filter(Boolean).length,ok=miss===0&&L.extra===0;
@@ -1146,7 +1204,7 @@ function dFrame(){
     const adj=now-rd.sh,tol=DTOL[st.rd.lvl];
     for(const Ln of rd.lines){
       if(Ln.done||Ln.i<cur-1||Ln.i>cur+1)continue;
-      Ln.exp.forEach((e,j)=>{if(!Ln.hit[j]&&!Ln.miss[j]&&adj>e+tol){Ln.miss[j]=true;dMark(Ln,j,"miss")}});
+      Ln.exp.forEach((e,j)=>{if(!Ln.hit[j]&&!Ln.miss[j]&&adj>e+tol){Ln.miss[j]=true;dMark(Ln,j,"miss");dFail(Ln)}});
       if(adj>=(Ln.i+1)*barMs+40)dFinish(Ln);
       if(!rd.run)return;
     }
@@ -1172,7 +1230,7 @@ $("dTap").addEventListener("pointerdown",e=>{
   }else{
     const i=Math.max(0,Math.min(rd.lines.length-1,Math.floor(adj/rd.barMs))),Ln=rd.lines[i];
     if(Ln&&!Ln.done){
-      Ln.extra++;
+      Ln.extra++;dFail(Ln);
       if(Ln.el){const x=Math.max(0,Math.min(100,(adj-i*rd.barMs)/rd.barMs*100));const d=document.createElement("div");d.className="xt";d.style.left=x+"%";Ln.el.querySelector(".nin").appendChild(d)}
     }
   }
@@ -1214,7 +1272,7 @@ function kRender(){
   $("kDel").disabled=done||!kd.ans.length;
   $("kOk").disabled=done||kd.ans.length<kd.L;
   document.querySelectorAll("#kGrid .ktile").forEach(b=>b.disabled=done);
-  let pp="";for(let i=0;i<5;i++)pp+='<span class="pp'+(i<kd.run?' f':'')+'"></span>';$("kPips").innerHTML=pp;
+  $("kPips").style.width=(Math.min(kd.run,5)/5*100)+"%";
   const s=st.dc;
   $("kC").textContent=s.total?s.correct+" из "+s.total:"—";
   $("kB").textContent=s.total?s.best:"—";
@@ -1230,9 +1288,7 @@ function kTiles(){
   });
 }
 function kChips(){
-  const b=$("kLvls");b.innerHTML="";
-  KLV.forEach((x,i)=>{const e=document.createElement("button");e.className="lv"+(st.dc.lvl===i?" sel":"");e.textContent=(i+1)+(st.dc.passed[i]?" ✓":"");e.setAttribute("aria-label",x[0]);e.onclick=()=>{st.dc.lvl=i;save();kReset()};b.appendChild(e)});
-  $("kLvlNote").textContent=KLV[st.dc.lvl][0]+": "+KLV[st.dc.lvl][1];
+  $("kTop").textContent="Уровень "+(st.dc.lvl+1)+" из "+TOTLV;
 }
 function kNew(){
   kStop();
@@ -1338,7 +1394,7 @@ const SIVN={1:"малая секунда",2:"большая секунда",3:"�
 const SD={tgt:[],pos:0,ok:[],phase:"idle",hold:0,lock:0,run:0,failed:false,tms:[],bus:null,stream:null,src:null,an:null,buf:null,raf:0,last:0,hist:[],mic:"off",tmr:0,info:""};
 const sMix=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 function sTask(){
-  const m=st.sl.mode,lv=st.sl.lvl[m];let t=[],info="";
+  const m=st.sl.mode,lv=[1,1,0][m];let t=[],info="";
   const WH=[0,2,4,5,7,9,11];
   if(m===0){
     if(lv===0)t=[60+WH[sMix(0,6)]];
@@ -1435,7 +1491,6 @@ function sRender(){
   $("sPlay").disabled=!SD.tgt.length||SD.phase==="done";
   $("sRef").disabled=!SD.tgt.length||SD.phase==="done"||SD.phase==="idle";
   $("sSkip").disabled=!SD.tgt.length;
-  let pp="";for(let i=0;i<5;i++)pp+='<span class="pp'+(i<SD.run?' f':'')+'"></span>';$("sPips").innerHTML=pp;
   $("sC").textContent=s.total?s.correct+" из "+s.total:"—";
   $("sB").textContent=s.total?s.best:"—";
   $("sA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
@@ -1446,9 +1501,6 @@ function sRender(){
 function sChips(){
   const m=st.sl.mode,mb=$("sModes");mb.innerHTML="";
   SMODES.forEach((x,i)=>{const b=document.createElement("button");b.className="lv"+(m===i?" sel":"");b.textContent=x;b.onclick=()=>{st.sl.mode=i;save();sReset()};mb.appendChild(b)});
-  const lb=$("sLvls");lb.innerHTML="";
-  SLV[m].forEach((x,i)=>{const b=document.createElement("button");b.className="lv"+(st.sl.lvl[m]===i?" sel":"");b.textContent=(i+1)+(st.sl.passed[m+"-"+i]?" ✓":"");b.onclick=()=>{st.sl.lvl[m]=i;save();sReset()};lb.appendChild(b)});
-  $("sLvlNote").textContent=SLV[m][st.sl.lvl[m]][0]+": "+SLV[m][st.sl.lvl[m]][1];
   $("sZone").style.left=(50-st.sl.tol)+"%";$("sZone").style.width=(2*st.sl.tol)+"%";
   const tb=$("sTol");tb.innerHTML="";
   [["Лёгкая ±50",50],["Обычная ±35",35],["Строгая ±20",20]].forEach(([t,v])=>{const b=document.createElement("button");b.className="lv"+(st.sl.tol===v?" sel":"");b.textContent=t;b.onclick=()=>{st.sl.tol=v;save();sChips()};tb.appendChild(b)});
@@ -1481,7 +1533,7 @@ async function sStartSing(){
   if(SD.mic!=="on"&&SD.declined){SD.phase="ready";sMicMsg("Без микрофона тюнер не слышит голос. Нажми «Включить микрофон».");return}
   const ok=SD.mic==="on"||await sMic();
   if(!ok){SD.phase="ready";sRender();return}
-  sSay(SD.tgt.length>1?"Теперь пой по порядку: "+SD.tgt.map(sName).join(" – "):"Теперь пой эту ноту","");
+  sSay(SD.tgt.length>1?"Пой по порядку: "+SD.tgt.map(sName).join(" – ")+". Держи каждую ноту около полсекунды":"Теперь пой эту ноту и держи её около полсекунды","");
   sRender();
   if(!SD.raf){SD.last=performance.now();SD.raf=requestAnimationFrame(sFrame)}
 }
@@ -1518,16 +1570,7 @@ function sAccept(){
 function sDone(){
   SD.phase="done";const s=st.sl;
   s.total++;s.correct++;s.streak++;if(s.streak>s.best)s.best=s.streak;
-  if(!SD.failed)SD.run++;
   sGauge(0,false,false);
-  const key=s.mode+"-"+s.lvl[s.mode];
-  if(SD.run>=5){
-    s.passed[key]=true;
-    const nx=Math.min(s.lvl[s.mode]+1,2);
-    sSay("Уровень "+(s.lvl[s.mode]+1)+" пройден! 5 заданий подряд"+(nx!==s.lvl[s.mode]?". Дальше — уровень "+(nx+1):""),"good");
-    save();sRender();
-    SD.tmr=setTimeout(()=>{s.lvl[s.mode]=nx;save();sReset()},3200);return;
-  }
   sSay("Отлично, всё спела! "+SD.info.charAt(0).toUpperCase()+SD.info.slice(1),"good");
   save();sRender();
   SD.tmr=setTimeout(()=>sNew(true),3000);
@@ -1569,10 +1612,162 @@ $("sSkip").onclick=()=>{
   sNew(false);
 };
 $("sMicBtn").onclick=async()=>{audio();SD.declined=false;if(await sMic())sSay("Микрофон включён. Нажми ▶ и слушай задание")};
+$("sGear").onclick=()=>{$("sSetM").hidden=false};
+$("sSetClose").onclick=()=>{$("sSetM").hidden=true};
 $("bHome8").onclick=()=>show("home");
 $("bHome8").innerHTML='<span class="back">‹</span>Главное меню';
 $("bSol").onclick=()=>{audio();show("solf")};
 document.addEventListener("visibilitychange",()=>{if(document.hidden&&document.body.classList.contains("solf")){sStopAll();sNew(false);sSay("Пауза. Нажми ▶, чтобы продолжить")}});
+
+/* ===== Аккордовые прогрессии ===== */
+st.pg=Object.assign({lvl:0,passed:[false,false,false],correct:0,total:0,streak:0,best:0},st.pg||{});
+if(!Array.isArray(st.pg.passed)||st.pg.passed.length!==3)st.pg.passed=[false,false,false];
+const PGR=["I","ii","iii","IV","V","vi","vii°"];
+const PGOFF=[0,2,4,5,7,9,11];
+const PGLV=[
+  ["Уровень 1","Главные аккорды: I, IV, V",[1,4,5]],
+  ["Уровень 2","Добавляются vi и ii",[1,2,4,5,6]],
+  ["Уровень 3","Все аккорды мажора, любое начало",[1,2,3,4,5,6,7]]
+];
+const PG={tonic:60,tgt:[],opts:[],mode:"idle",failed:false,run:0,tms:[],bus:null,tmr:0,wrong:[]};
+const pgLab=a=>a.map(d=>PGR[d-1]).join(" – ");
+function pgChord(tonic,deg,prev){
+  const sc=i=>{const o=Math.floor(i/7),k=((i%7)+7)%7;return tonic+PGOFF[k]+12*o};
+  const d=deg-1,pcs=[sc(d),sc(d+2),sc(d+4)];
+  let bass=pcs[0];while(bass>=60)bass-=12;while(bass<48)bass+=12;
+  // подбор обращения: минимальное движение голосов
+  const cands=[];
+  for(let inv=0;inv<3;inv++){
+    const n=[0,1,2].map(i=>pcs[(i+inv)%3]);
+    for(let sh=-24;sh<=24;sh+=12){
+      const v=n.map(x=>x+sh).sort((a,b)=>a-b);
+      // привести в диапазон 60..77
+      if(v[0]>=58&&v[2]<=78)cands.push(v);
+    }
+  }
+  let best=cands[0],bs=1e9;
+  cands.forEach(v=>{
+    const s=prev?v.reduce((a,x,i)=>a+Math.abs(x-prev[i]),0):Math.abs(v[0]-64)+Math.abs(v[2]-72);
+    if(s<bs){bs=s;best=v}
+  });
+  return {bass,up:best};
+}
+function pgPlayChords(c,T0,tonic,list,per,dst,onStep){
+  let prev=null;
+  list.forEach((d,i)=>{
+    const ch=pgChord(tonic,d,prev);prev=ch.up;
+    const t=T0+i*per;
+    sPlayMidi(c,t,ch.bass,0.6,per*0.98,dst);
+    ch.up.forEach((m,k)=>sPlayMidi(c,t+0.008*k,m,0.42,per*0.98,dst));
+    if(onStep)onStep(i,t);
+  });
+}
+function pgSay(t,c){const m=$("pgMsg");m.className=c||"";m.textContent=t}
+function pgStop(){PG.tms.forEach(clearTimeout);PG.tms=[];clearTimeout(PG.tmr);if(PG.bus){try{PG.bus.disconnect()}catch(e){}PG.bus=null}}
+function pgBoxes(reveal,cur){
+  const b=$("pgBoxes");b.innerHTML="";
+  PG.tgt.forEach((d,i)=>{
+    const e=document.createElement("div");e.className="pgb"+(i===cur?" cur":"")+(reveal?" rev":"");
+    e.innerHTML=reveal?'<b>'+PGR[d-1]+'</b><span>'+sName(PG.tonic+PGOFF[d-1])+'</span>':'<b>?</b>';
+    b.appendChild(e);
+  });
+}
+function pgRender(){
+  const s=st.pg;
+  $("pgPlay").classList.toggle("run",PG.mode==="busy");
+  $("pgPlay").textContent=PG.mode==="busy"?"■ Стоп":"▶ Послушать";
+  $("pgPips").style.width=(Math.min(PG.run,5)/5*100)+"%";
+  $("pgC").textContent=s.total?s.correct+" из "+s.total:"—";
+  $("pgB").textContent=s.total?s.best:"—";
+  $("pgA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
+}
+function pgChips(){
+  $("pgTop").textContent="Уровень "+(st.pg.lvl+1)+" из "+TOTLV;
+}
+function pgNew(){
+  pgStop();
+  const lv=st.pg.lvl,al=PGLV[lv][2],r=a=>a[Math.floor(Math.random()*a.length)];
+  const ok=a=>a.every((x,i)=>i===0||x!==a[i-1]);
+  let t,n=0;
+  do{
+    t=[];for(let i=0;i<4;i++)t.push(i===0&&lv<2?1:r(al));
+    n++;
+  }while(n<200&&(!ok(t)||new Set(t).size<3||JSON.stringify(t)===JSON.stringify(PG.tgt)));
+  const opts=[t],from=lv<2?1:0;
+  let g=0;
+  while(opts.length<4&&g++<500){
+    const o=t.slice(),k=Math.random()<0.5?1:2;
+    for(let j=0;j<k;j++){const p=from+Math.floor(Math.random()*(4-from));o[p]=r(al.filter(x=>x!==t[p]))}
+    if(ok(o)&&!opts.some(q=>q.join()===o.join()))opts.push(o);
+  }
+  opts.sort(()=>Math.random()-0.5);
+  PG.tgt=t;PG.opts=opts;PG.tonic=[60,62,64,65,67,69][Math.floor(Math.random()*6)];PG.mode="ready";PG.failed=false;PG.wrong=[];
+  pgBoxes(false,-1);pgOpts();pgSay("Нажми ▶ и послушай аккорды, потом выбери вариант");pgRender();
+}
+function pgOpts(){
+  const g=$("pgOpts");g.innerHTML="";
+  PG.opts.forEach((o,i)=>{
+    const b=document.createElement("button");b.className="pgo";b.textContent=pgLab(o);
+    if(PG.wrong.includes(i))b.classList.add("bad");
+    if(PG.mode==="done"&&o.join()===PG.tgt.join())b.classList.add("ok");
+    b.disabled=PG.mode==="done"||PG.wrong.includes(i);
+    b.onclick=()=>pgPick(i);g.appendChild(b);
+  });
+}
+function pgReset(){pgStop();PG.run=0;pgChips();pgNew()}
+function pgPlay(tonicFirst){
+  const c=audio();if(!c)return;
+  pgStop();
+  const per=1.3,T0=c.currentTime+0.2;
+  PG.bus=c.createGain();PG.bus.connect(c._comp);
+  PG.mode="busy";
+  const ref=tonicFirst||(st.pg.lvl===2&&PG.tgt[0]!==1);
+  let t=T0;
+  if(ref){pgPlayChords(c,t,PG.tonic,[1],1.0,PG.bus);t+=1.5}
+  pgPlayChords(c,t,PG.tonic,PG.tgt,per,PG.bus);
+  const t0=t;
+  PG.tgt.forEach((d,i)=>PG.tms.push(setTimeout(()=>{if(PG.mode==="busy")pgBoxes(false,i)},(t0+i*per-c.currentTime)*1000)));
+  pgSay(ref?"Сначала тоника — это «дом» тональности, потом аккорды":"Слушай аккорды…");
+  PG.tms.push(setTimeout(()=>{if(PG.mode==="busy"){PG.mode="ready";pgBoxes(false,-1);pgSay("Какая последовательность прозвучала? Выбери вариант");pgRender()}},(t0+PG.tgt.length*per-c.currentTime)*1000+200));
+  pgRender();
+}
+function pgPick(i){
+  if(PG.mode==="done")return;
+  const o=PG.opts[i],s=st.pg;
+  if(o.join()===PG.tgt.join()){
+    if(!PG.failed){s.total++;s.correct++;s.streak++;if(s.streak>s.best)s.best=s.streak;PG.run++}
+    pgStop();PG.mode="done";pgBoxes(true,-1);pgOpts();
+    const key=sName(PG.tonic)+" мажор";
+    if(PG.run>=5){
+      s.passed[s.lvl]=true;const nx=Math.min(s.lvl+1,2);
+      pgSay("Уровень "+(s.lvl+1)+" пройден! 5 подряд"+(nx!==s.lvl?". Дальше — уровень "+(nx+1):""),"good");
+      save();pgRender();PG.tmr=setTimeout(()=>{s.lvl=nx;save();pgReset()},3200);return;
+    }
+    pgSay((PG.failed?"Верно, но ответ засчитан как неправильный. ":"Верно! ")+"Тональность: "+key,"good");
+    save();pgRender();
+    PG.tmr=setTimeout(()=>{pgNew();pgPlay(false)},3200);
+  }else{
+    PG.wrong.push(i);
+    if(!PG.failed){PG.failed=true;s.total++;s.streak=0}
+    PG.run=0;
+    pgSay("Неправильно. Послушай ещё раз и выбери другой вариант","badm");
+    pgOpts();save();pgRender();
+  }
+}
+$("pgPlay").onclick=()=>{audio();if(PG.mode==="busy"){pgStop();PG.mode="ready";pgBoxes(false,-1);pgSay("Пауза. Нажми ▶, чтобы послушать ещё раз");pgRender();return}if(PG.mode==="done")pgNew();pgPlay(false)};
+$("pgKey").onclick=()=>{
+  const c=audio();if(!c)return;
+  if(PG.mode==="done")return;
+  pgStop();PG.mode="ready";pgBoxes(false,-1);
+  PG.bus=c.createGain();PG.bus.connect(c._comp);
+  pgPlayChords(c,c.currentTime+0.2,PG.tonic,[1,4,5,1],0.9,PG.bus);
+  pgSay("Тональность: I – IV – V – I. Это опора, от неё считаются ступени");pgRender();
+};
+$("pgSkip").onclick=()=>{const s=st.pg;if(PG.mode!=="done"){if(!PG.failed)s.total++;s.streak=0;PG.run=0;save()}pgNew()};
+$("bHome9").onclick=()=>show("home");
+$("bHome9").innerHTML='<span class="back">‹</span>Главное меню';
+$("bProg").onclick=()=>{audio();show("prog")};
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&PG.mode==="busy"){pgStop();PG.mode="ready";pgBoxes(false,-1);pgSay("Пауза. Нажми ▶, чтобы послушать ещё раз");pgRender()}});
 
 function render(){
   [...$("levels").children].forEach((b,i)=>b.classList.toggle("sel",i===st.level));
@@ -1655,7 +1850,7 @@ $("bRepeat").onclick=()=>{
 $("bAnswer").onclick=()=>{audio();input=[];mode="answer";msg.className="";msg.textContent=failed?"Ещё попытка. Ответ уже засчитан как неправильный":"Играй ответ: нота за нотой";render()};
 $("bReset").onclick=()=>{
   if(!confirm("Сбросить весь прогресс?"))return;
-  Object.assign(st,{streak:0,best:0,correct:0,total:0,chord:{streak:0,best:0,correct:0,total:0},iv:{sel:st.iv.sel,dirs:st.iv.dirs,streak:0,best:0,correct:0,total:0},rh:{lvl:st.rh.lvl,bpm:st.rh.bpm,streak:0,best:0,correct:0,total:0}});save();render();
+  Object.assign(st,{streak:0,best:0,correct:0,total:0,chord:{streak:0,best:0,correct:0,total:0},iv:{sel:st.iv.sel,dirs:st.iv.dirs,harm:st.iv.harm,streak:0,best:0,correct:0,total:0},rh:{lvl:st.rh.lvl,bpm:st.rh.bpm,streak:0,best:0,correct:0,total:0}});save();render();
 };
 
 render();
