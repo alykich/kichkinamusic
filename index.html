@@ -344,6 +344,7 @@ body:not(.prog) #rProg{display:none}
 #rProg{width:100%}
 #rProg h1{font-size:22px;margin:4px 0 18px;color:#DB7F00;text-shadow:none}
 #pgSetM .lv{min-width:56px;flex:1 1 22%}
+#pgSetL{display:grid!important;grid-template-columns:repeat(3,1fr);gap:8px}#pgSetL .lv,#pgSetV .lv{flex:none;padding:12px 4px;font-size:16px}#pgSetV{display:grid!important;grid-template-columns:1fr 1fr;gap:8px}#pgOpts{grid-template-columns:1fr 1fr}#pgOpts .pgo{font-size:17px}
 #pgSetM .hnote{text-align:left;font-size:13px;line-height:1.4;margin-top:8px}
 body.prog #bHome9{color:rgba(60,30,0,.8);font-size:14px;text-decoration:none}
 body.prog #bHome9 .back{color:#fff}
@@ -437,6 +438,7 @@ body.scl .lvtop{color:#B85500;text-shadow:none}
 #scSkip{background:rgba(255,255,255,.75);color:#3b2a18}
 #scOpts .pgo{font-size:16px;line-height:1.2}
 #scSetM .lv{min-width:56px;flex:1 1 22%}
+#scLv{display:grid;gap:8px}#scLv .lv{flex:none}
 #scSetM .hnote{text-align:left;font-size:13px;margin-top:6px}
 .streak{display:flex;align-items:center;gap:6px;padding:8px 15px 8px 11px;margin-top:2px;border-radius:999px;background:linear-gradient(135deg,#F2A33A 0%,#DB7F00 100%);color:#fff;font-family:"Montserrat","Avenir Next",sans-serif;font-weight:700;font-size:20px;line-height:1;box-shadow:0 4px 14px rgba(160,80,0,.28);transition:background .3s,color .3s}
 .streak svg{width:24px;height:24px;flex:none}
@@ -741,7 +743,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 </div>
 <div id="rProg">
   <div class="toprow"><button class="reset" id="bHome9">‹ Главное меню</button><span class="trr"><span class="lvtop" id="pgTop"></span><button class="gearb" id="pgGear" aria-label="Настройки"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
-  <div id="pgSetM" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="pgSetClose">Готово</button></div><div class="lbl">Тональность</div><div class="levels" id="pgKeys" style="margin-bottom:12px"></div><button class="kb wide" id="pgKey">▶ Слушать тональность</button></div></div>
+  <div id="pgSetM" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="pgSetClose">Готово</button></div><div class="lbl">Прогрессии</div><div class="levels" id="pgSetL" style="margin-bottom:6px"></div><div class="hnote" style="text-align:left;margin:0 0 14px">Выбери минимум две</div><div class="lbl">Аккорды</div><div class="levels" id="pgSetV"></div><div class="hnote" id="pgSetVN" style="text-align:left;margin:6px 0 14px"></div><div class="lbl">Тональность</div><div class="levels" id="pgKeys" style="margin-bottom:12px"></div><button class="kb wide" id="pgKey">▶ Слушать тональность</button></div></div>
   <h1>Аккордовые прогрессии</h1>
   <div class="rcard">
     <div class="dbar" aria-label="Верных ответов подряд"><div class="dfill" id="pgPips"></div></div>
@@ -777,7 +779,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 </div>
 <div id="rScl">
   <div class="toprow"><button class="reset" id="bHome11">‹ Главное меню</button><span class="trr"><span class="lvtop" id="scTop"></span><button class="gearb" id="scGear" aria-label="Настройки"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.900.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></span></div>
-  <div id="scSetM" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="scSetClose">Готово</button></div><div class="lbl">Уровень</div><div class="levels" id="scLv"></div><div class="hnote" id="scLvNote"></div><div class="lbl" style="margin-top:14px">Как играть гамму</div><div class="levels" id="scDir"></div><div class="hnote">Мелодический минор вниз звучит как натуральный — так он строится по правилам</div><div class="lbl" style="margin-top:14px">От какой ноты</div><div class="levels" id="scKeys"></div></div></div>
+  <div id="scSetM" class="modal" hidden><div class="mbox"><div class="mh"><b>Настройки</b><button class="reset" id="scSetClose">Готово</button></div><div class="lbl">Какие гаммы</div><div class="levels" id="scLv"></div><div class="hnote" id="scLvNote"></div><div class="lbl" style="margin-top:14px">Как играть гамму</div><div class="levels" id="scDir"></div><div class="hnote">Мелодический минор вниз звучит как натуральный — так он строится по правилам</div><div class="lbl" style="margin-top:14px">От какой ноты</div><div class="levels" id="scKeys"></div></div></div>
   <h1>Гаммы</h1>
   <div class="rcard">
     <div class="dbar" aria-label="Верных ответов подряд"><div class="dfill" id="scPips"></div></div>
@@ -1922,7 +1924,7 @@ $("rTap").addEventListener("pointerdown",e=>{
       const B=60000/st.rh.bpm,tol=rhTol(),used=rt.used||(rt.used=[]),adj=t-(rt.sh||0);
       let bi=-1,bd=1e9;
       rt.pat.forEach((x,j)=>{if(used[j])return;const dd=Math.abs(adj-x*B);if(dd<=rhTolI(j)&&dd<bd){bd=dd;bi=j}});
-      if(bi>=0){used[bi]=true;rt.sh=Math.max(-200,Math.min(200,(rt.sh||0)*0.6+(t-rt.pat[bi]*B)*0.4));d.classList.add("ok");d._bi=bi;rxTLput(d,rt.pat[bi]*B/rt.W)}
+      if(bi>=0){used[bi]=true;rt.sh=Math.max(-200,Math.min(200,(rt.sh||0)*0.6+(t-rt.pat[bi]*B)*0.4));d.classList.add("ok");d._bi=bi;rxTLput(d,rt.pat[bi]*B/rt.W);if(rxHeld&&rt.rh){const sd=rxSounds(rt.rh)[bi];if(sd)rxHeld.min=Math.max(rxHeld.min,(sd[1]-sd[0])*60/st.rh.bpm-0.07)}}
       else d.classList.add("bad")}
   }
   pulse();
@@ -2657,55 +2659,57 @@ $("bSol").onclick=()=>{audio();show("solf")};
 document.addEventListener("visibilitychange",()=>{if(document.hidden&&document.body.classList.contains("solf")){sStopAll();sNew(false);sSay("Пауза. Нажми ▶, чтобы продолжить")}});
 
 /* ===== Аккордовые прогрессии ===== */
-st.pg=Object.assign({lvl:0,passed:[false,false,false],correct:0,total:0,streak:0,best:0},st.pg||{});
-if(!Array.isArray(st.pg.passed)||st.pg.passed.length!==3)st.pg.passed=[false,false,false];
 const PGR=["I","ii","iii","IV","V","vi","vii°"];
 const PGOFF=[0,2,4,5,7,9,11];
-const PGLV=[
-  ["Уровень 1","Главные аккорды: I, IV, V",[1,4,5]],
-  ["Уровень 2","Добавляются vi и ii",[1,2,4,5,6]],
-  ["Уровень 3","Все аккорды мажора, любое начало",[1,2,3,4,5,6,7]]
+/* прогрессии: [подпись, [[полутон от тоники, "M"|"m"], ...], лад] */
+const PGP=[
+  ["I-IV-V-I",[[0,"M"],[5,"M"],[7,"M"],[0,"M"]],"maj"],
+  ["I-V-vi-IV",[[0,"M"],[7,"M"],[9,"m"],[5,"M"]],"maj"],
+  ["I-vi-IV-V",[[0,"M"],[9,"m"],[5,"M"],[7,"M"]],"maj"],
+  ["I-iii-IV-V",[[0,"M"],[4,"m"],[5,"M"],[7,"M"]],"maj"],
+  ["vi-IV-I-V",[[9,"m"],[5,"M"],[0,"M"],[7,"M"]],"maj"],
+  ["i-VI-III-VII",[[0,"m"],[8,"M"],[3,"M"],[10,"M"]],"min"],
+  ["i-iv-i-V",[[0,"m"],[5,"m"],[0,"m"],[7,"M"]],"min"],
+  ["I-IV-I-V",[[0,"M"],[5,"M"],[0,"M"],[7,"M"]],"maj"],
+  ["ii-V-I-vi",[[2,"m"],[7,"M"],[0,"M"],[9,"m"]],"maj"],
+  ["I-vi-ii-V",[[0,"M"],[9,"m"],[2,"m"],[7,"M"]],"maj"]
 ];
-const PG={tonic:60,tgt:[],opts:[],mode:"idle",failed:false,run:0,tms:[],bus:null,tmr:0,wrong:[]};
-const pgLab=a=>a.map(d=>PGR[d-1]).join(" – ");
-function pgChord(tonic,deg,prev){
-  const sc=i=>{const o=Math.floor(i/7),k=((i%7)+7)%7;return tonic+PGOFF[k]+12*o};
-  const d=deg-1,pcs=[sc(d),sc(d+2),sc(d+4)];
-  let bass=pcs[0];while(bass>=60)bass-=12;while(bass<48)bass+=12;
-  // подбор обращения: минимальное движение голосов
+st.pg=Object.assign({progs:[0,1,2,3,4,5,6,7,8,9],inv:false},st.pg||{});
+if(!st.pg.pv3){if(Array.isArray(st.pg.progs))[8,9].forEach(i=>{if(!st.pg.progs.includes(i))st.pg.progs.push(i)});st.pg.pv3=1}
+if(!st.pg.pv2){if(Array.isArray(st.pg.progs))st.pg.progs=st.pg.progs.filter(i=>i!==7).map(i=>i>7?i-1:i);st.pg.pv2=1}
+if(!Array.isArray(st.pg.progs)||st.pg.progs.filter(i=>PGP[i]).length<2)st.pg.progs=[0,1,2,3,4,5,6,7];
+const PG={tonic:60,tgt:-1,opts:[],mode:"idle",failed:false,run:0,tms:[],bus:null,tmr:0,wrong:[]};
+const pgParts=i=>PGP[i][0].split("-");
+const pgLab=i=>pgParts(i).join(" – ");
+function pgVoice(tonic,ch,prev,inv){
+  const r=tonic+ch[0],pcs=[r,r+(ch[1]==="M"?4:3),r+7];
+  let bass=r;while(bass>=60)bass-=12;while(bass<48)bass+=12;
+  if(!inv){let a=r;while(a<57)a+=12;while(a>68)a-=12;return {bass,up:[a,a+(ch[1]==="M"?4:3),a+7]}}
   const cands=[];
-  for(let inv=0;inv<3;inv++){
-    const n=[0,1,2].map(i=>pcs[(i+inv)%3]);
-    for(let sh=-24;sh<=24;sh+=12){
-      const v=n.map(x=>x+sh).sort((a,b)=>a-b);
-      // привести в диапазон 60..77
-      if(v[0]>=58&&v[2]<=78)cands.push(v);
-    }
-  }
+  for(let k=0;k<3;k++){const n=[0,1,2].map(i=>pcs[(i+k)%3]);
+    for(let sh=-24;sh<=24;sh+=12){const v=n.map(x=>x+sh).sort((a,b)=>a-b);if(v[0]>=58&&v[2]<=78)cands.push(v)}}
   let best=cands[0],bs=1e9;
-  cands.forEach(v=>{
-    const s=prev?v.reduce((a,x,i)=>a+Math.abs(x-prev[i]),0):Math.abs(v[0]-64)+Math.abs(v[2]-72);
-    if(s<bs){bs=s;best=v}
-  });
+  cands.forEach(v=>{const s=prev?v.reduce((a,x,i)=>a+Math.abs(x-prev[i]),0):Math.abs(v[0]-64)+Math.abs(v[2]-72);if(s<bs){bs=s;best=v}});
+  if(inv){bass=best[0];while(bass>=60)bass-=12;while(bass<45)bass+=12}
   return {bass,up:best};
 }
-function pgPlayChords(c,T0,tonic,list,per,dst,onStep){
+function pgPlayList(c,T0,tonic,list,per,dst,inv){
   let prev=null;
-  list.forEach((d,i)=>{
-    const ch=pgChord(tonic,d,prev);prev=ch.up;
-    const t=T0+i*per;
-    sPlayMidi(c,t,ch.bass,0.6,per*0.98,dst);
-    ch.up.forEach((m,k)=>sPlayMidi(c,t+0.008*k,m,0.42,per*0.98,dst));
-    if(onStep)onStep(i,t);
-  });
+  list.forEach((ch,i)=>{const v=pgVoice(tonic,ch,prev,inv);prev=v.up;const t=T0+i*per;
+    sPlayMidi(c,t,v.bass,0.6,per*0.98,dst);v.up.forEach((m,k)=>sPlayMidi(c,t+0.008*k,m,0.42,per*0.98,dst))});
+}
+/* совместимость: список ступеней мажора */
+function pgPlayChords(c,T0,tonic,list,per,dst){
+  const Q=["M","m","m","M","M","m","m"];pgPlayList(c,T0,tonic,list.map(d=>[PGOFF[d-1],Q[d-1]]),per,dst,true);
 }
 function pgSay(t,c){const m=$("pgMsg");m.className=c||"";m.textContent=t}
 function pgStop(){PG.tms.forEach(clearTimeout);PG.tms=[];clearTimeout(PG.tmr);if(PG.bus){try{PG.bus.disconnect()}catch(e){}PG.bus=null}}
 function pgBoxes(reveal,cur){
-  const b=$("pgBoxes");b.innerHTML="";
-  PG.tgt.forEach((d,i)=>{
+  const b=$("pgBoxes");b.innerHTML="";if(PG.tgt<0)return;
+  const P=PGP[PG.tgt],lab=pgParts(PG.tgt);
+  P[1].forEach((ch,i)=>{
     const e=document.createElement("div");e.className="pgb"+(i===cur?" cur":"")+(reveal?" rev":"");
-    e.innerHTML=reveal?'<b>'+PGR[d-1]+'</b><span>'+sName(PG.tonic+PGOFF[d-1])+'</span>':'<b>?</b>';
+    e.innerHTML=reveal?'<b>'+lab[i]+'</b><span>'+sName(PG.tonic+ch[0])+(ch[1]==="m"?"m":"")+'</span>':'<b>?</b>';
     b.appendChild(e);
   });
 }
@@ -2718,68 +2722,51 @@ function pgRender(){
   $("pgB").textContent=s.total?s.best:"—";
   $("pgA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
 }
-function pgChips(){
-  $("pgTop").textContent="Уровень "+(st.pg.lvl+1)+" из "+TOTLV;
-}
+function pgChips(){$("pgTop").textContent=""}
 function pgNew(){
   pgStop();
-  const lv=st.pg.lvl,al=PGLV[lv][2],r=a=>a[Math.floor(Math.random()*a.length)];
-  const ok=a=>a.every((x,i)=>i===0||x!==a[i-1]);
-  let t,n=0;
-  do{
-    t=[];for(let i=0;i<4;i++)t.push(i===0&&lv<2?1:r(al));
-    n++;
-  }while(n<200&&(!ok(t)||new Set(t).size<3||JSON.stringify(t)===JSON.stringify(PG.tgt)));
-  const opts=[t],from=lv<2?1:0;
-  let g=0;
-  while(opts.length<4&&g++<500){
-    const o=t.slice(),k=Math.random()<0.5?1:2;
-    for(let j=0;j<k;j++){const p=from+Math.floor(Math.random()*(4-from));o[p]=r(al.filter(x=>x!==t[p]))}
-    if(ok(o)&&!opts.some(q=>q.join()===o.join()))opts.push(o);
-  }
-  opts.sort(()=>Math.random()-0.5);
-  PG.tgt=t;PG.opts=opts;PG.tonic=(typeof st.pg.key==="number")?st.pg.key:[60,62,64,65,67,69][Math.floor(Math.random()*6)];PG.mode="ready";PG.failed=false;PG.wrong=[];
-  pgBoxes(false,-1);pgOpts();pgSay("Нажми ▶ и послушай аккорды, потом выбери вариант");pgRender();
+  const al=st.pg.progs.filter(i=>PGP[i]);let t,n=0;
+  do{t=al[Math.floor(Math.random()*al.length)];n++}while(n<20&&t===PG.tgt&&al.length>1);
+  PG.tgt=t;PG.opts=al.slice();
+  PG.tonic=(typeof st.pg.key==="number")?st.pg.key:[57,58,59,60,61,62,63,64,65,66,67,68][Math.floor(Math.random()*12)];
+  PG.mode="ready";PG.failed=false;PG.wrong=[];
+  pgBoxes(false,-1);pgOpts();pgSay("Нажми ▶ и послушай аккорды, потом выбери прогрессию");pgRender();
 }
 function pgOpts(){
   const g=$("pgOpts");g.innerHTML="";
-  PG.opts.forEach((o,i)=>{
-    const b=document.createElement("button");b.className="pgo";b.textContent=pgLab(o);
+  PG.opts.forEach(i=>{
+    const b=document.createElement("button");b.className="pgo";b.textContent=pgLab(i);
     if(PG.wrong.includes(i))b.classList.add("bad");
-    if(PG.mode==="done"&&o.join()===PG.tgt.join())b.classList.add("ok");
+    if(PG.mode==="done"&&i===PG.tgt)b.classList.add("ok");
     b.disabled=PG.mode==="done"||PG.wrong.includes(i);
     b.onclick=()=>pgPick(i);g.appendChild(b);
   });
 }
 function pgReset(){pgStop();PG.run=0;pgChips();pgNew()}
+function pgTonicCh(){return [0,PGP[PG.tgt][2]==="min"?"m":"M"]}
 function pgPlay(tonicFirst){
   const c=audio();if(!c)return;
   pgStop();
-  const per=1.3,T0=c.currentTime+0.2;
+  const per=1.3,T0=c.currentTime+0.2,P=PGP[PG.tgt];
   PG.bus=c.createGain();PG.bus.connect(c._comp);
   PG.mode="busy";
-  const ref=tonicFirst||(st.pg.lvl===2&&PG.tgt[0]!==1);
+  const ref=tonicFirst||P[1][0][0]!==0;
   let t=T0;
-  if(ref){pgPlayChords(c,t,PG.tonic,[1],1.0,PG.bus);t+=1.5}
-  pgPlayChords(c,t,PG.tonic,PG.tgt,per,PG.bus);
+  if(ref){pgPlayList(c,t,PG.tonic,[pgTonicCh()],1.0,PG.bus,false);t+=1.5}
+  pgPlayList(c,t,PG.tonic,P[1],per,PG.bus,st.pg.inv);
   const t0=t;
-  PG.tgt.forEach((d,i)=>PG.tms.push(setTimeout(()=>{if(PG.mode==="busy")pgBoxes(false,i)},(t0+i*per-c.currentTime)*1000)));
+  P[1].forEach((d,i)=>PG.tms.push(setTimeout(()=>{if(PG.mode==="busy")pgBoxes(false,i)},(t0+i*per-c.currentTime)*1000)));
   pgSay(ref?"Сначала тоника — это «дом» тональности, потом аккорды":"Слушай аккорды…");
-  PG.tms.push(setTimeout(()=>{if(PG.mode==="busy"){PG.mode="ready";pgBoxes(false,-1);pgSay("Какая последовательность прозвучала? Выбери вариант");pgRender()}},(t0+PG.tgt.length*per-c.currentTime)*1000+200));
+  PG.tms.push(setTimeout(()=>{if(PG.mode==="busy"){PG.mode="ready";pgBoxes(false,-1);pgSay("Какая прогрессия прозвучала?");pgRender()}},(t0+P[1].length*per-c.currentTime)*1000+200));
   pgRender();
 }
 function pgPick(i){
   if(PG.mode==="done")return;
-  const o=PG.opts[i],s=st.pg;
-  if(o.join()===PG.tgt.join()){
+  const s=st.pg;
+  if(i===PG.tgt){
     if(!PG.failed){s.total++;s.correct++;s.streak++;if(s.streak>s.best)s.best=s.streak;PG.run++}
     pgStop();PG.mode="done";pgBoxes(true,-1);pgOpts();
-    const key=sName(PG.tonic)+" мажор";
-    if(PG.run>=5){
-      s.passed[s.lvl]=true;const nx=Math.min(s.lvl+1,2);
-      pgSay("Уровень "+(s.lvl+1)+" пройден! 5 подряд"+(nx!==s.lvl?". Дальше — уровень "+(nx+1):""),"good");
-      save();pgRender();PG.tmr=setTimeout(()=>{s.lvl=nx;save();pgReset()},3200);return;
-    }
+    const key=sName(PG.tonic)+(PGP[PG.tgt][2]==="min"?" минор":" мажор");
     pgSay((PG.failed?"Верно, но ответ засчитан как неправильный. ":"Верно! ")+"Тональность: "+key,"good");
     save();pgRender();
     PG.tmr=setTimeout(()=>{pgNew();pgPlay(false)},3200);
@@ -2787,7 +2774,7 @@ function pgPick(i){
     PG.wrong.push(i);
     if(!PG.failed){PG.failed=true;s.total++;s.streak=0}
     PG.run=0;
-    pgSay("Неправильно. Послушай ещё раз и выбери другой вариант","badm");
+    pgSay("Неправильно. Послушай ещё раз и выбери другую прогрессию","badm");
     pgOpts();save();pgRender();
   }
 }
@@ -2797,8 +2784,9 @@ $("pgKey").onclick=()=>{
   if(PG.mode==="done")return;
   pgStop();PG.mode="ready";pgBoxes(false,-1);
   PG.bus=c.createGain();PG.bus.connect(c._comp);
-  pgPlayChords(c,c.currentTime+0.2,PG.tonic,[1,4,5,1],0.9,PG.bus);
-  pgSay("Тональность: I – IV – V – I. Это опора, от неё считаются ступени");pgRender();
+  const mi=PGP[PG.tgt]&&PGP[PG.tgt][2]==="min";
+  pgPlayList(c,c.currentTime+0.2,PG.tonic,mi?[[0,"m"],[5,"m"],[7,"M"],[0,"m"]]:[[0,"M"],[5,"M"],[7,"M"],[0,"M"]],0.9,PG.bus,true);
+  pgSay(mi?"Тональность: i – iv – V – i":"Тональность: I – IV – V – I");pgRender();
 };
 $("pgSkip").onclick=()=>{const s=st.pg;if(PG.mode!=="done"){if(!PG.failed)s.total++;s.streak=0;PG.run=0;save()}pgNew()};
 $("bHome9").onclick=()=>show("home");
@@ -2807,11 +2795,19 @@ $("bProg").onclick=()=>{audio();show("prog")};
 function pgKeys(){
   const g=$("pgKeys");g.innerHTML="";
   const add=(lab,v)=>{const b=document.createElement("button");b.className="lv"+((st.pg.key??null)===v?" sel":"");b.textContent=lab;
-    b.onclick=()=>{st.pg.key=v;save();pgKeys();pgNew();pgSay(v===null?"Тональность: случайная":"Тональность: "+sName(v)+" мажор")};g.appendChild(b)};
+    b.onclick=()=>{st.pg.key=v;save();pgKeys();pgNew();pgSay(v===null?"Тональность: случайная":"Тоника: "+sName(v))};g.appendChild(b)};
   add("Случайная",null);
   for(let k=60;k<72;k++)add(sName(k),k);
 }
-$("pgGear").onclick=()=>{pgKeys();$("pgSetM").hidden=false};
+function pgSetL(){
+  const g=$("pgSetL");g.innerHTML="";
+  PGP.forEach((P,i)=>{const b=document.createElement("button");b.className="lv"+(st.pg.progs.includes(i)?" sel":"");b.textContent=P[0];
+    b.onclick=()=>{const a=st.pg.progs,k=a.indexOf(i);if(k>=0){if(a.length>2)a.splice(k,1)}else a.push(i);a.sort((x,y)=>x-y);PG.run=0;save();pgSetL();pgReset()};g.appendChild(b)});
+  const v=$("pgSetV");v.innerHTML="";
+  [["Основной вид",false],["Обращения",true]].forEach(([t,x])=>{const b=document.createElement("button");b.className="lv"+(!!st.pg.inv===x?" sel":"");b.textContent=t;b.onclick=()=>{st.pg.inv=x;save();pgSetL()};v.appendChild(b)});
+  $("pgSetVN").textContent=st.pg.inv?"Аккорды берутся в обращениях, голоса переходят плавно, по ближайшим нотам.":"Внизу каждого аккорда — его основной тон, басовая линия идёт по корням аккордов.";
+}
+$("pgGear").onclick=()=>{pgSetL();pgKeys();$("pgSetM").hidden=false};
 $("pgSetClose").onclick=()=>{$("pgSetM").hidden=true};
 $("pgSetM").onclick=e=>{if(e.target.id==="pgSetM")$("pgSetM").hidden=true};
 
@@ -2849,6 +2845,7 @@ const DGKM=["До","Ре♭","Ре","Ми♭","Ми","Фа","Фа♯","Соль"
 const DGLET=["До","Ре","Ми","Фа","Соль","Ля","Си"],DGLPC=[0,2,4,5,7,9,11];
 /* ===== Ступени лада: свободная тренировка без уровней ===== */
 st.dg.cfg=Object.assign({mode:"maj",pool:[1,3,5],len:1,ctx:"chord",oct:"up"},st.dg.cfg||{});
+st.dg.cfg.len=1;if(st.dg.cfg.mode!=="maj")st.dg.cfg.mode="min";st.dg.cfg.pool=st.dg.cfg.pool.filter(p=>typeof p==="number");if(st.dg.cfg.pool.length<2)st.dg.cfg.pool=[1,3,5];
 const DGCH=["b2","b3","#4","b6","b7"];
 function dgL(){const c=st.dg.cfg;return {mode:c.mode,pool:c.pool.slice().sort((a,b)=>(typeof a==="number"?DGMODE.maj[a-1]:DGCHR[a][0])-(typeof b==="number"?DGMODE.maj[b-1]:DGCHR[b][0])),len:c.len,C:{k:typeof st.dg.key==="number"?"fix":"all",ctx:c.ctx,oct:c.oct}}}
 var DG={tonic:60,mode2:"maj",items:[],seq:[],pos:0,last:-1,mode:"idle",heard:false,failed:false,wrong:[],run:0,tms:[],bus:null,tmr:0};
@@ -2881,7 +2878,7 @@ function dgOpts(){
     b.onclick=()=>dgPick(x.s);g.appendChild(b);
   });
 }
-function dgSumm(){const L=dgL(),M={maj:"мажор",min:"нат. минор",harm:"гарм. минор",mix:"мажор/минор"};return M[L.mode]+" · "+dgItems(L,L.mode==="mix"?"maj":L.mode).map(x=>x.lab).join(" ")+(L.len>1?" · по "+L.len:"")}
+function dgSumm(){const L=dgL(),M={maj:"мажор",min:"минор",harm:"гарм. минор",mix:"мажор/минор"};return M[L.mode]+" · "+dgItems(L,L.mode==="mix"?"maj":L.mode).map(x=>x.lab).join(" ")+(L.len>1?" · по "+L.len:"")}
 function dgRender(){
   const s=st.dg,L=dgL();
   $("dgPlay").textContent=DG.mode==="busy"?"■ Стоп":"▶ Слушать";
@@ -2966,19 +2963,16 @@ function dgSet(){
   box.innerHTML='<div class="mh"><b>Настройки</b><button class="reset" id="dgSetClose">Готово</button></div>'+
     '<div class="lbl">Лад</div><div class="levels" id="dgMd"></div>'+
     '<div class="lbl" style="margin-top:14px">Какие ступени угадывать</div><div class="levels" id="dgPre" style="margin-bottom:8px"></div><div class="levels dgchips" id="dgPool"></div>'+
-    '<div class="levels dgchips" id="dgChr" style="margin-top:8px"></div><div class="hnote" id="dgPN">Выбери минимум две ступени. Хроматические ступени — ноты, которых нет в ладу.</div>'+
-    '<div class="lbl" style="margin-top:14px">Сколько нот подряд</div><div class="levels" id="dgLen"></div>'+
+    '<div class="hnote" id="dgPN">Выбери минимум две ступени.</div>'+
     '<div class="lbl" style="margin-top:14px">Перед нотой звучит</div><div class="levels" id="dgCx"></div>'+
     '<div class="lbl" style="margin-top:14px">Октава</div><div class="levels" id="dgOc"></div>'+
     '<div class="lbl" style="margin-top:14px">Тональность</div><div class="levels" id="dgKeys"></div>';
   const ch=()=>{save();DG.run=0;dgNew();dgSet()};
   const mk=(id,items,isSel,fn)=>{const g=$(id);items.forEach(([lab,v])=>{const b=document.createElement("button");b.className="lv"+(isSel(v)?" sel":"");b.textContent=lab;b.onclick=()=>{fn(v);ch()};g.appendChild(b)})};
-  mk("dgMd",[["Мажор","maj"],["Натуральный минор","min"],["Гармонический минор","harm"],["Мажор или минор","mix"]],v=>cf.mode===v,v=>{cf.mode=v});
-  mk("dgPre",[["I III V",[1,3,5]],["I–V",[1,2,3,4,5]],["Все 7",[1,2,3,4,5,6,7]],["Неустойчивые",[2,4,6,7]]],v=>JSON.stringify(v)===JSON.stringify(cf.pool.slice().sort()),v=>{cf.pool=v.slice()});
+  mk("dgMd",[["Мажор","maj"],["Минор","min"]],v=>cf.mode===v,v=>{cf.mode=v});
+  mk("dgPre",[["I, III, V (устойчивые)",[1,3,5]],["I–V",[1,2,3,4,5]],["II, IV, VI, VII (неустойчивые)",[2,4,6,7]],["Все 7",[1,2,3,4,5,6,7]]],v=>JSON.stringify(v)===JSON.stringify(cf.pool.slice().sort()),v=>{cf.pool=v.slice()});
   const tog=v=>{const i=cf.pool.indexOf(v);if(i>=0){if(cf.pool.length>2)cf.pool.splice(i,1)}else cf.pool.push(v)};
   mk("dgPool",DGR.map((r,i)=>[r,i+1]),v=>cf.pool.includes(v),tog);
-  mk("dgChr",DGCH.map(k=>[DGCHR[k][2],k]),v=>cf.pool.includes(v),tog);
-  mk("dgLen",[["1 нота",1],["2 ноты",2],["3 ноты",3],["4 ноты",4]],v=>cf.len===v,v=>{cf.len=v});
   mk("dgCx",[["Трезвучие и аккорд","arp"],["Аккорд","chord"],["Только тоника","note"]],v=>cf.ctx===v,v=>{cf.ctx=v});
   mk("dgOc",[["Выше тоники","up"],["Выше и ниже","mix"]],v=>cf.oct===v,v=>{cf.oct=v});
   const keys=[["Случайная",null]];for(let k=60;k<72;k++)keys.push([DGKM[k%12],k]);
@@ -3140,7 +3134,7 @@ function scRender(){
   const s=st.sc;
   $("scPlay").textContent=SC.mode==="busy"?"■ Стоп":"▶ Слушать";
   $("scPips").style.width=(Math.min(SC.run,5)/5*100)+"%";
-  $("scTop").textContent="Уровень "+(s.lvl+1)+" из 3";
+  $("scTop").textContent="";
   $("scC").textContent=s.total?s.correct+" из "+s.total:"—";
   $("scB").textContent=s.total?s.best:"—";
   $("scA").textContent=s.total?Math.round(s.correct/s.total*100)+"%":"—";
@@ -3179,11 +3173,7 @@ function scPick(k){
     SC.tms.forEach(clearTimeout);SC.tms=[];
     SC.mode="done";scBox(true);scOpts();
     const nm=SCT[k].n+" от ноты "+sName(SC.tonic);
-    if(SC.run>=5&&s.lvl<2){
-      scSay("Уровень "+(s.lvl+1)+" пройден! Дальше — уровень "+(s.lvl+2),"good");
-      save();scRender();
-      SC.tmr=setTimeout(()=>{s.lvl++;SC.run=0;save();scNew()},3200);return;
-    }
+    
     scSay((SC.failed?"Верно, но ответ засчитан как неправильный. ":"Верно! ")+nm,"good");
     save();scRender();
     SC.tmr=setTimeout(()=>{scNew();scPlay(false)},2800);
@@ -3197,8 +3187,8 @@ function scPick(k){
 }
 function scSet(){
   const mk=(id,items,cur,fn)=>{const g=$(id);g.innerHTML="";items.forEach(([lab,v])=>{const b=document.createElement("button");b.className="lv"+(cur===v?" sel":"");b.textContent=lab;b.onclick=()=>{fn(v);save();scSet()};g.appendChild(b)})};
-  mk("scLv",SCLV.map((l,i)=>[String(i+1),i]),st.sc.lvl,v=>{st.sc.lvl=v;SC.run=0;scNew()});
-  $("scLvNote").textContent=SCLV[st.sc.lvl][1];
+  mk("scLv",[["Мажор и натуральный минор",0],["+ гармонический минор",1],["Все четыре вида",2]],st.sc.lvl,v=>{st.sc.lvl=v;SC.run=0;scNew()});
+  $("scLvNote").textContent="";
   mk("scDir",[["Только вверх","up"],["Вверх и вниз","both"]],st.sc.dir,v=>{st.sc.dir=v});
   const keys=[["Случайная",null]];for(let k=60;k<72;k++)keys.push([sName(k),k]);
   mk("scKeys",keys,(typeof st.sc.key==="number")?st.sc.key:null,v=>{st.sc.key=v;scNew()});
