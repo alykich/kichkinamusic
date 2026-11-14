@@ -931,7 +931,7 @@ if(typeof SAMPLES==="undefined")window.SAMPLES=[];</script>
 const NOTES=[["До",261.63,0],["До♯",277.18,1],["Ре",293.66,0],["Ре♯",311.13,1],["Ми",329.63,0],["Фа",349.23,0],["Фа♯",369.99,1],["Соль",392.0,0],["Соль♯",415.3,1],["Ля",440.0,0],["Ля♯",466.16,1],["Си",493.88,0],["До",523.25,0]];
 const LEVELS=[2,3,4,5];
 const KEY="ear-trainer-v1";
-let st={streak:0,best:0,correct:0,total:0,level:0,vol:1};
+let st={streak:0,best:0,correct:0,total:0,level:1,vol:1};
 try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&typeof s==="object")st=Object.assign(st,s)}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
 
@@ -1037,10 +1037,12 @@ LEVELS.forEach((n,i)=>{
   const b=document.createElement("button");b.className="lv";b.textContent=n+" ноты".replace("5 ноты","5 нот");
   b.textContent=n+(n===5?" нот":" ноты");
   b.onclick=()=>{st.level=i;save();render();newRound(false)};
+  if(n===2)b.style.display="none"; /* «2 ноты» убраны: это угадывание интервалов, оно есть в разделе «Интервалы» */
   $("levels").appendChild(b);
 });
+if(st.level===0){st.level=1;save()} /* у кого были выбраны «2 ноты» — переключаем на «3 ноты» */
 /* кнопка «Мелодия» (st.level=4) */
-(()=>{const b=document.createElement("button");b.className="lv";b.textContent="Мелодия";b.style.flex="0 0 calc((100% - 18px) / 4)";
+(()=>{const b=document.createElement("button");b.className="lv";b.textContent="Мелодия";b.style.flex="0 0 calc((100% - 12px) / 3)";
   b.onclick=()=>{st.level=4;save();render();newRound(false)};$("levelsM").appendChild(b)})();
 /* ===== Мелодии по паттернам ступеней («5 нот» и «Мелодия») =====
    Паттерн — список ступеней гаммы. Тональность выбирается случайно:
